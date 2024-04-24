@@ -1,0 +1,9 @@
+export 'certification_entity.dart';
+export 'education_entity.dart';
+export 'exam_entity.dart';
+export 'experience_entity.dart';
+export 'language_entity.dart';
+export 'personal_details_entity.dart';
+export 'project_entity.dart';
+export 'reference_entity.dart';
+export 'skill_entity.dart';
