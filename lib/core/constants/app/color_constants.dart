@@ -14,7 +14,7 @@ final class ColorConstants {
   static Color myDark = '393939'.toColor;
   static Color myWhite = 'ffffff'.toColor;
   static Color myBlack = '000000'.toColor;
-  static Color myTransparent = '000000'.toColor;
+  static Color myTransparent = const Color.fromRGBO(0, 0, 0, 0);
   static Color myLightGrey = 'CCCCCC'.toColor;
   static Color myExtraLightGrey = 'F7F7F7'.toColor;
   static Color myMediumGrey = 'A3A3A3'.toColor;

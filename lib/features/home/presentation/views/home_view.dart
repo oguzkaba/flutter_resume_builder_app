@@ -5,6 +5,13 @@ import 'package:flutter_resume_builder_app/core/constants/app/color_constants.da
 import 'package:flutter_resume_builder_app/core/enums/routes_enum.dart';
 import 'package:flutter_resume_builder_app/core/extensions/asset_extension.dart';
 import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
+import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
+import 'package:flutter_resume_builder_app/core/extensions/string_extensions.dart';
+import 'package:flutter_resume_builder_app/core/init/lang/locale_keys.g.dart';
+import 'package:flutter_resume_builder_app/core/widgets/custom_bottomsheet_widget.dart';
+import 'package:flutter_resume_builder_app/core/widgets/custom_icon_button_widget.dart';
+import 'package:flutter_resume_builder_app/core/widgets/custom_outlined_button_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 /// This Dart class named HomeView extends StatefulWidget.
@@ -28,14 +35,16 @@ class HomeView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              _tipContainer(context),
+              _tipContainerSection(context),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('My Resume', style: context.body18BoldBlack),
+                  Text('My Resume', style: context.size16Bold),
                   Text(
                     'See all',
-                    style: context.body14BoldPrimaryColor,
+                    style: context.size14BoldWithColor(
+                      ColorConstants.primaryColor,
+                    ),
                   ),
                 ],
               ),
@@ -50,89 +59,12 @@ class HomeView extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                          ),
-                          child: Image.asset(
-                            'resume/sample_resume1'.toPNG,
-                            fit: BoxFit.scaleDown,
-                          ),
-                        ),
-                        Positioned(
-                          top: 0,
-                          right: 0,
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.more_horiz,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    _myResumeThumb(),
                     const Divider(
                       indent: 32,
                       endIndent: 32,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        OutlinedButton.icon(
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(
-                              color: ColorConstants.myMediumGrey,
-                            ),
-                          ),
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.visibility_rounded,
-                            color: ColorConstants.primaryColor,
-                          ),
-                          label: Text(
-                            'View',
-                            style: context.body12BoldBlack,
-                          ),
-                        ),
-                        OutlinedButton.icon(
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(
-                              color: ColorConstants.myMediumGrey,
-                            ),
-                          ),
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.file_download_rounded,
-                            size: 20,
-                            color: ColorConstants.primaryColor,
-                          ),
-                          label: Text(
-                            'Download',
-                            style: context.body12BoldBlack,
-                          ),
-                        ),
-                        OutlinedButton.icon(
-                          style: OutlinedButton.styleFrom(
-                            side: BorderSide(
-                              color: ColorConstants.myMediumGrey,
-                            ),
-                          ),
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.share_rounded,
-                            size: 20,
-                            color: ColorConstants.primaryColor,
-                          ),
-                          label: Text(
-                            'Share',
-                            style: context.body12BoldBlack,
-                          ),
-                        ),
-                      ],
-                    ),
+                    _resumeActionButtons(context),
                     context.verticalPaddingSmall,
                   ],
                 ),
@@ -145,6 +77,55 @@ class HomeView extends StatelessWidget {
     );
   }
 
+  Stack _myResumeThumb() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+          ),
+          child: Image.asset(
+            'resume/sample_resume6'.toPNG,
+            fit: BoxFit.scaleDown,
+          ),
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: IconButton.filledTonal(
+            constraints: BoxConstraints.tight(const Size(32, 32)),
+            onPressed: () {},
+            icon: FontAwesomeIcons.ellipsis.toFaIconDefColorSized(16),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row _resumeActionButtons(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        CustomOutlinedIconButtonWidget(
+          labelText: 'View',
+          icon: FontAwesomeIcons.solidEye,
+          onPressed: () => context.goNamed(RoutesEnum.previewResume.name),
+        ),
+        CustomOutlinedIconButtonWidget(
+          labelText: 'Download',
+          icon: FontAwesomeIcons.download,
+          onPressed: () {},
+        ),
+        CustomOutlinedIconButtonWidget(
+          labelText: 'Share',
+          icon: FontAwesomeIcons.share,
+          onPressed: () => CustomBottomSheetWidget.instance.show(context),
+        ),
+      ],
+    );
+  }
+
   FloatingActionButton _floatingActionButton(BuildContext context) {
     return FloatingActionButton(
       heroTag: UniqueKey(),
@@ -154,11 +135,11 @@ class HomeView extends StatelessWidget {
         context.goNamed(RoutesEnum.createResume.name);
         log('Floating Action Button Pressed');
       },
-      child: Icon(Icons.add, color: ColorConstants.myWhite),
+      child: FontAwesomeIcons.plus.toFaIconWhiteColor,
     );
   }
 
-  Container _tipContainer(BuildContext context) {
+  Container _tipContainerSection(BuildContext context) {
     return Container(
       margin: context.edgeInsetsVerticalSmall,
       decoration: BoxDecoration(
@@ -168,19 +149,12 @@ class HomeView extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
-        leading: Icon(
-          Icons.tips_and_updates_rounded,
-          color: ColorConstants.primaryColor,
-        ),
+        leading: Icons.tips_and_updates_rounded.toIconPrimaryColor,
         title: Text(
-          'Tips for your resume',
-          style: context.textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          LocaleKeys.home_topMessage.locale,
+          style: context.size14Bold,
         ),
-        trailing: const Icon(
-          Icons.chevron_right_rounded,
-        ),
+        trailing: Icons.chevron_right_rounded.toIconDefaultColor,
       ),
     );
   }
@@ -192,20 +166,23 @@ class HomeView extends StatelessWidget {
       title: Text.rich(
         TextSpan(
           text: 'Fix',
-          style: context.body18BoldPrimaryColor,
+          style: context.defaultSizeBoldWithColor(ColorConstants.primaryColor),
           children: <TextSpan>[
             TextSpan(
               text: 'Resume',
-              style: context.body18BoldBlack,
+              style: context.defaultSizeBoldWithColor(ColorConstants.myBlack),
             ),
           ],
         ),
       ),
       actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Image.asset('premium_badge'.toPNG, width: 32),
+        CustomIconButtonWidget(
+          iconData: FontAwesomeIcons.crown,
+          color: ColorConstants.myYellow,
+          size: 22,
+          onTap: () {},
         ),
+        context.horizontalPaddingMedium,
         CircleAvatar(
           radius: 18,
           child: Image.asset('avatar'.toPNG),

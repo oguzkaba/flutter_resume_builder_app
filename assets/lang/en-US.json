@@ -1,0 +1,64 @@
+{
+    "currency": "$",
+    "error": {
+        "error": "Error",
+        "emptyField": "*This field is required",
+        "shortEntry": "*At least 6 charecters must be entered"
+    },
+    "onboard": {
+        "buttonText": "Get Started"
+    },
+    "login": {
+        "buttonText": "Login",
+        "topTitle": "Login",
+        "topMessage": "Welcome back please login to continue",
+        "tfieldUnameHint": "Enter username",
+        "tfieldPassHint": "Enter password",
+        "forgot": "Forgot password?",
+        "haveAccount": "Don't have account? ",
+        "register": " +Register"
+    },
+    "register": {
+        "buttonText": "Register",
+        "topTitle": "Register",
+        "topMessage": "Welcome back please register to continue",
+        "tfieldNameHint": "Enter name",
+        "tfieldEmailHint": "Enter email",
+        "tfieldPassHint": "Enter password",
+        "tfieldPass2Hint": "Enter password again",
+        "haveAccount": "Do you have account? ",
+        "login": " +Login"
+    },
+    "forgot": {
+        "buttonText": "Confirm",
+        "button2Text": "Cancel",
+        "topTitle": "Forgot Password",
+        "topMessage": "Send you registered email you a password reset link",
+        "tfieldEmailHint": "Enter email"
+    },
+    "home": {
+        "name": "Home",
+        "topMessage": "Tips for your resume",
+        "create": {
+            "name": "Create Resume",
+            "resumeName": "Resume Name*",
+            "resumeNameHint": "Please enter resume name",
+            "createButtonText": "Create",
+            "resumeLanguage": "Resume Language*",
+            "resumeLanguageEng": "English",
+            "resumeLanguageTr": "Turkish",
+            "save": "Save",
+            "continue": "Continue",
+            "entryInfo": {
+                "name": "General Information Entry",
+                "resumeInfo": "Özgeçmiş Bilgileri"
+            }
+        }
+    },
+    "settings": {
+        "name": "Settings"
+    },
+    "templates": {
+        "name": "Templates"
+    }
+}

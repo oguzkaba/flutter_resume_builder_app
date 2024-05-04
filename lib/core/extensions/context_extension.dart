@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
+import 'package:flutter_resume_builder_app/core/constants/regex/regex_constants.dart';
 
 /// This extension is used to extend the `BuildContext` class.
 extension ContextExtension on BuildContext {
@@ -17,6 +17,10 @@ extension ContextExtension on BuildContext {
   bool get isLandscape =>
       MediaQuery.of(this).orientation == Orientation.landscape;
   bool get isMobile => MediaQuery.of(this).size.shortestSide < 600;
+
+  /// Validator
+  bool isEmail(String value) =>
+      RegExp(RegexConstants.emailRegex).hasMatch(value);
 
   /// Padding
   Widget get paddingSmall => Padding(padding: EdgeInsets.all(width * .01));
@@ -66,79 +70,195 @@ extension ContextExtension on BuildContext {
   EdgeInsets get edgeInsetsVerticalLarge =>
       EdgeInsets.symmetric(vertical: height * .05);
 
-  ///TextTheme
-  TextStyle get primaryBold => TextStyle(
-        color: ColorConstants.primaryColor,
-        fontWeight: FontWeight.bold,
-      );
-  TextStyle get whiteBold => TextStyle(
-        color: ColorConstants.myWhite,
-        fontWeight: FontWeight.bold,
-      );
-  TextStyle get lightGreyBold => TextStyle(
-        color: ColorConstants.myWhite,
-        fontWeight: FontWeight.bold,
-      );
-  TextStyle get mediumGreyBold => TextStyle(
-        color: ColorConstants.myMediumGrey,
-        fontWeight: FontWeight.bold,
-      );
-  TextStyle get blackBold => TextStyle(
-        color: ColorConstants.myBlack,
-        fontWeight: FontWeight.bold,
-      );
+  /// Typography
+  /// NoColor
+  TextStyle get size12Normal => const TextStyle(fontSize: 12);
+  TextStyle get size14Normal => const TextStyle(fontSize: 14);
+  TextStyle get size16Normal => const TextStyle(fontSize: 16);
+  TextStyle get size18Normal => const TextStyle(fontSize: 18);
+  TextStyle get size22Normal => const TextStyle(fontSize: 22);
+  TextStyle get size28Normal => const TextStyle(fontSize: 28);
+  TextStyle get size36Normal => const TextStyle(fontSize: 36);
+  TextStyle get size45Normal => const TextStyle(fontSize: 45);
 
-  TextStyle? get body18BoldBlack => textTheme.bodyLarge?.copyWith(
-        fontWeight: FontWeight.w900,
-        fontSize: 18,
-        color: ColorConstants.myBlack,
-      );
-  TextStyle? get body18BoldMediumGrey => textTheme.bodyLarge?.copyWith(
-        fontWeight: FontWeight.w900,
-        fontSize: 18,
-        color: ColorConstants.myMediumGrey,
-      );
-  TextStyle? get body18BoldPrimaryColor => textTheme.bodyLarge?.copyWith(
-        fontWeight: FontWeight.w900,
-        fontSize: 18,
-        color: ColorConstants.primaryColor,
-      );
-  TextStyle? get body18BoldLightGrey => textTheme.bodyLarge?.copyWith(
-        fontWeight: FontWeight.w900,
-        fontSize: 18,
-        color: ColorConstants.myLightGrey,
-      );
+  TextStyle get defaultSizeBold => const TextStyle(fontWeight: FontWeight.bold);
+  TextStyle get size12Bold =>
+      const TextStyle(fontSize: 12, fontWeight: FontWeight.bold);
+  TextStyle get size14Bold =>
+      const TextStyle(fontSize: 14, fontWeight: FontWeight.bold);
+  TextStyle get size16Bold =>
+      const TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+  TextStyle get size18Bold =>
+      const TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
+  TextStyle get size22Bold =>
+      const TextStyle(fontSize: 22, fontWeight: FontWeight.bold);
+  TextStyle get size28Bold =>
+      const TextStyle(fontSize: 28, fontWeight: FontWeight.bold);
+  TextStyle get size36Bold =>
+      const TextStyle(fontSize: 36, fontWeight: FontWeight.bold);
+  TextStyle get size45Bold =>
+      const TextStyle(fontSize: 45, fontWeight: FontWeight.bold);
 
-  TextStyle? get body14BoldBlack => textTheme.bodyLarge?.copyWith(
-        fontWeight: FontWeight.w900,
-        fontSize: 14,
-        color: ColorConstants.myBlack,
+  TextStyle get defaultSizeExtraBold =>
+      const TextStyle(fontWeight: FontWeight.w900);
+  TextStyle get size12ExtraBold =>
+      const TextStyle(fontSize: 12, fontWeight: FontWeight.w900);
+  TextStyle get size14ExtraBold =>
+      const TextStyle(fontSize: 14, fontWeight: FontWeight.w900);
+  TextStyle get size16ExtraBold =>
+      const TextStyle(fontSize: 16, fontWeight: FontWeight.w900);
+  TextStyle get size18ExtraBold =>
+      const TextStyle(fontSize: 18, fontWeight: FontWeight.w900);
+  TextStyle get size22ExtraBold =>
+      const TextStyle(fontSize: 22, fontWeight: FontWeight.w900);
+
+  TextStyle get size28ExtraBold =>
+      const TextStyle(fontSize: 28, fontWeight: FontWeight.w900);
+  TextStyle get size36ExtraBold =>
+      const TextStyle(fontSize: 36, fontWeight: FontWeight.w900);
+  TextStyle get size45ExtraBold =>
+      const TextStyle(fontSize: 45, fontWeight: FontWeight.w900);
+
+  /// NormalWeight withColor
+  TextStyle defaultSizeNormalWithColor(Color color) => TextStyle(
+        color: color,
       );
-  TextStyle? get body14BoldMediumGrey => textTheme.bodyLarge?.copyWith(
-        fontWeight: FontWeight.w900,
-        fontSize: 14,
-        color: ColorConstants.myMediumGrey,
-      );
-  TextStyle? get body14BoldPrimaryColor => textTheme.bodyLarge?.copyWith(
-        fontWeight: FontWeight.w900,
-        fontSize: 14,
-        color: ColorConstants.primaryColor,
-      );
-  TextStyle? get body12BoldMediumGrey => textTheme.bodySmall?.copyWith(
-        fontWeight: FontWeight.w900,
+  TextStyle size12NormalWithColor(Color color) => TextStyle(
         fontSize: 12,
-        color: ColorConstants.myMediumGrey,
+        color: color,
       );
-  TextStyle? get body12BoldBlack => textTheme.bodySmall?.copyWith(
-        fontWeight: FontWeight.w900,
-        color: ColorConstants.myBlack,
+  TextStyle size14NormalWithColor(Color color) => TextStyle(
+        fontSize: 14,
+        color: color,
       );
-  TextStyle? get body12BoldPrimaryColor => textTheme.bodySmall?.copyWith(
-        fontWeight: FontWeight.w900,
-        color: ColorConstants.primaryColor,
+  TextStyle size16NormalWithColor(Color color) => TextStyle(
+        fontSize: 16,
+        color: color,
       );
-  TextStyle? get body12BoldLightGrey => textTheme.bodySmall?.copyWith(
+  TextStyle size18NormalWithColor(Color color) => TextStyle(
+        fontSize: 18,
+        color: color,
+      );
+  TextStyle size22NormalWithColor(Color color) => TextStyle(
+        fontSize: 22,
+        color: color,
+      );
+  TextStyle size28NormalWithColor(Color color) => TextStyle(
+        fontSize: 28,
+        color: color,
+      );
+  TextStyle size36NormalWithColor(Color color) => TextStyle(
+        fontSize: 36,
+        color: color,
+      );
+  TextStyle size45NormalWithColor(Color color) => TextStyle(
+        fontSize: 45,
+        color: color,
+      );
+
+  /// BoldWeight withColor
+  TextStyle defaultSizeBoldWithColor(Color color) => TextStyle(
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size12BoldWithColor(Color color) => TextStyle(
+        fontSize: 12,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size14BoldWithColor(Color color) => TextStyle(
+        fontSize: 14,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size16BoldWithColor(Color color) => TextStyle(
+        fontSize: 16,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size18BoldWithColor(Color color) => TextStyle(
+        fontSize: 18,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size22BoldWithColor(Color color) => TextStyle(
+        fontSize: 22,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size28BoldWithColor(Color color) => TextStyle(
+        fontSize: 28,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size36BoldWithColor(Color color) => TextStyle(
+        fontSize: 36,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle size45BoldWithColor(Color color) => TextStyle(
+        fontSize: 45,
+        color: color,
+        fontWeight: FontWeight.bold,
+      );
+
+  /// ExtraBoldWeight withColor
+  TextStyle defaultSizeExtraBoldWithColor(Color color) => TextStyle(
+        color: color,
         fontWeight: FontWeight.w900,
-        color: ColorConstants.myLightGrey,
+      );
+  TextStyle size12ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 12,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+  TextStyle size14ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 14,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+  TextStyle size16ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 16,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+  TextStyle size18ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 18,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+  TextStyle size22ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 22,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+  TextStyle size28ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 28,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+  TextStyle size36ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 36,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+  TextStyle size45ExtraBoldWithColor(Color color) => TextStyle(
+        fontSize: 45,
+        color: color,
+        fontWeight: FontWeight.w900,
+      );
+
+  /// InputDecoration-Border
+  OutlineInputBorder get inputOutlineNoBorder => OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(16),
+      );
+  OutlineInputBorder get inputOutlineFocusedBorder => OutlineInputBorder(
+        borderSide: BorderSide(color: colorScheme.primary),
+        borderRadius: BorderRadius.circular(16),
+      );
+  OutlineInputBorder get inputOutlineErrorBorder => OutlineInputBorder(
+        borderSide: BorderSide(color: colorScheme.error),
+        borderRadius: BorderRadius.circular(16),
       );
 }

@@ -1,0 +1,64 @@
+{
+    "currency": "₺",
+    "error": {
+        "error": "Hata",
+        "emptyField": "*Bu alan zorunludur",
+        "shortEntry": "*En az 6 karakter girilmelidir"
+    },
+    "onboard": {
+        "buttonText": "Başla"
+    },
+    "login": {
+        "buttonText": "Giriş Yap",
+        "topTitle": "Giriş Yap",
+        "topMessage": "Tekrar hoş geldiniz, devam etmek için lütfen oturum açın",
+        "tfieldUnameHint": "Kullanıcı Adı",
+        "tfieldPassHint": "Şifre",
+        "forgot": "Şifremi unuttum?",
+        "haveAccount": "Hesabınız yok mu? ",
+        "register": " +Kayıt"
+    },
+    "register": {
+        "buttonText": "Kayıt Ol",
+        "topTitle": "Kayıt Ol",
+        "topMessage": "Tekrar hoş geldiniz, devam etmek için lütfen kayıt olun",
+        "tfieldNameHint": "Ad",
+        "tfieldEmailHint": "Email",
+        "tfieldPassHint": "Şifre",
+        "tfieldPass2Hint": "Şifre Tekrar",
+        "haveAccount": "Hesabınız var mı? ",
+        "login": " +Giriş Yap"
+    },
+    "forgot": {
+        "buttonText": "Onayla",
+        "button2Text": "Vazgeç",
+        "topTitle": "Şifremi Unuttum",
+        "topMessage": "Kayıtlı e-posta adresinize bir şifre sıfırlama bağlantısı gönderin",
+        "tfieldEmailHint": "Email"
+    },
+    "home": {
+        "name": "Anasayfa",
+        "topMessage": "Özgeçmişiniz için ipuçları",
+        "create": {
+            "name": "Özgeçmiş Oluştur",
+            "resumeName": "Özgeçmiş Adı*",
+            "resumeNameHint": "Lütfen özgeçmiş adı girin",
+            "createButtonText": "Olustur",
+            "resumeLanguage": "Özgeçmiş Dili*",
+            "resumeLanguageEng": "İngilizce",
+            "resumeLanguageTr": "Türkçe",
+            "save": "Kaydet",
+            "continue": "Devam Et",
+            "entryInfo": {
+                "name": "Genel Bilgi Girişi",
+                "resumeInfo": "Özgeçmiş Bilgileri"
+            }
+        }
+    },
+    "settings": {
+        "name": "Ayarlar"
+    },
+    "templates": {
+        "name": "Şablonlar"
+    }
+}

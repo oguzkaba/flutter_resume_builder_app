@@ -5,4 +5,5 @@ extension AssetsExtension on String {
   String get toPNG => 'assets/images/png/$this.png';
   String get toJSON => 'assets/jsons/$this.json';
   String get toLottie => 'assets/lotties/$this.json';
+  String get toHtml => 'assets/files/html/$this.html';
 }
