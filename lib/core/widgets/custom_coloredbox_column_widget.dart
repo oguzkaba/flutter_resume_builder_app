@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs
-
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/extensions/widget_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/widget_extension.dart';
 
 /// Custom colored box column widget.
 class CustomColoredBoxColumnWidget extends StatelessWidget {

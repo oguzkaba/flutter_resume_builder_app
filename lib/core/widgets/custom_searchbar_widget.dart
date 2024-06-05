@@ -1,8 +1,8 @@
-// ignore_for_file: public_member_api_docs
-
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
+import 'package:fixresume/core/extensions/string_extensions.dart';
+import 'package:fixresume/core/init/lang/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 ///
@@ -20,7 +20,7 @@ class CustomSearchBarWidget extends StatelessWidget {
     return TapRegion(
       onTapOutside: (e) => FocusScope.of(context).unfocus(),
       child: SearchAnchor.bar(
-        barHintStyle: MaterialStatePropertyAll(
+        barHintStyle: WidgetStatePropertyAll(
           TextStyle(
             color: ColorConstants.myMediumGrey,
           ),
@@ -34,11 +34,11 @@ class CustomSearchBarWidget extends StatelessWidget {
           maxHeight: 300,
         ),
         searchController: searchController,
-        barElevation: const MaterialStatePropertyAll(0),
+        barElevation: const WidgetStatePropertyAll(0),
         viewElevation: 1,
-        barHintText: 'Search templates...',
+        barHintText: LocaleKeys.templates_searchHint.locale,
         onChanged: (value) {},
-        barSide: MaterialStatePropertyAll(
+        barSide: WidgetStatePropertyAll(
           BorderSide(
             color: ColorConstants.myLightGrey,
           ),

@@ -1,5 +1,5 @@
+import 'package:fixresume/core/constants/app/color_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// This extension is used to covert Icon/FaIcon.
@@ -58,6 +58,12 @@ extension IconExtension on IconData {
         this,
         size: size,
         color: ColorConstants.myWhite,
+      );
+
+  /// Custom Color FaIcon.
+  FaIcon toFaIconCustomColor(Color color) => FaIcon(
+        this,
+        color: color,
       );
 
   /// Custom Sized and Color FaIcon.

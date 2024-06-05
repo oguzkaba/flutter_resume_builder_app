@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 /// ServerException classes
 class ServerException implements Exception {
   ServerException({this.message = 'Server Exception'});
@@ -35,6 +33,14 @@ class UnknownException implements Exception {
 /// NoInternetException classes
 class NoInternetException implements Exception {
   NoInternetException({this.message = 'No Internet Exception'});
+  final String message;
+  @override
+  String toString() => message;
+}
+
+/// FileNotFoundExeption  classes
+class FileNotFoundExeption implements Exception {
+  FileNotFoundExeption({this.message = 'File Not Found Exception'});
   final String message;
   @override
   String toString() => message;

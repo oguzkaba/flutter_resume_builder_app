@@ -18,3 +18,9 @@ class CacheFailure extends Failure {
   /// Constructor
   CacheFailure({required super.errorMessage});
 }
+
+/// [ConnectionFailure] is a class for errors that occur when the connection is down.
+class ConnectionFailure extends Failure {
+  /// Constructor
+  ConnectionFailure({required super.errorMessage});
+}

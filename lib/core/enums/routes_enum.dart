@@ -1,10 +1,9 @@
-// ignore_for_file: public_member_api_docs
-
 /// RouteEnum is an enum class that contains all the routes in the application.
 enum RoutesEnum {
   splash,
   onboard,
   register,
+  registerDetails,
   login,
   error,
   home,
@@ -13,9 +12,12 @@ enum RoutesEnum {
   previewResume,
   templates,
   settings,
+  account,
   premium,
+  languages,
   terms,
-  privacy;
+  privacy,
+  ourWebsite;
 
   String get path {
     switch (this) {
@@ -25,6 +27,8 @@ enum RoutesEnum {
         return '/onboard';
       case RoutesEnum.register:
         return '/register';
+      case RoutesEnum.registerDetails:
+        return '/register-details';
       case RoutesEnum.login:
         return '/login';
       case RoutesEnum.error:
@@ -32,21 +36,27 @@ enum RoutesEnum {
       case RoutesEnum.home:
         return '/home';
       case RoutesEnum.createResume:
-        return 'createresume';
+        return 'create-resume';
       case RoutesEnum.entryInfo:
         return 'entryinfo';
       case RoutesEnum.previewResume:
-        return 'previewresume';
+        return 'preview-resume';
       case RoutesEnum.templates:
         return '/templates';
       case RoutesEnum.settings:
         return '/settings';
+      case RoutesEnum.account:
+        return 'account';
       case RoutesEnum.premium:
         return 'premium';
+      case RoutesEnum.languages:
+        return 'languages';
       case RoutesEnum.terms:
         return 'terms';
       case RoutesEnum.privacy:
         return 'privacy';
+      case RoutesEnum.ourWebsite:
+        return 'our-website';
     }
   }
 }

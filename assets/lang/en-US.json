@@ -1,19 +1,65 @@
 {
+    "general": {
+        "appName": "FixResume",
+        "appDesc": "Build a Professional Resume in Minutes",
+        "appLang": "English",
+        "version": "1.0.0+1",
+        "author": "oguzkaba",
+        "authorEmail": "oguz-kaba@hotmail.com",
+        "authorWeb": "https://oguzkaba.github.io",
+        "ok": "OK",
+        "cancel": "Cancel",
+        "yes": "Yes",
+        "no": "No",
+        "close": "Close"
+    },
     "currency": "$",
+    "languages": {
+        "en": "English",
+        "tr": "Turkish"
+    },
+    "dialogs": {
+        "delete": {
+            "title": "Delete",
+            "message": "Are you sure you want to delete this item?",
+            "confirm": "@:general.yes",
+            "cancel": "@:general.no"
+        },
+        "logout": {
+            "title": "Logout",
+            "message": "Are you sure you want to logout?",
+            "confirm": "@:general.yes",
+            "cancel": "@:general.no"
+        },
+        "deleteAccount": {
+            "title": "Delete Account",
+            "message": "Are you sure you want to delete your account? This action cannot be undone.",
+            "confirm": "@:general.yes",
+            "cancel": "@:general.no"
+        }
+    },
     "error": {
         "error": "Error",
         "emptyField": "*This field is required",
-        "shortEntry": "*At least 6 charecters must be entered"
+        "emailInvalid": "*Please enter a valid email",
+        "emailEmpty": "*Please enter your email",
+        "passEmpty": "*Please enter your password",
+        "passShort": "*Password must be at least 6 characters"
     },
     "onboard": {
-        "buttonText": "Get Started"
+        "buttonText": "Get Started",
+        "title": "Build a Professional Resume for Free!",
+        "desc": "Create your resume in minutes with our easy to use resume builder.",
+        "haveAccount": "@:register.haveAccount",
+        "login": " @:register.login"
     },
     "login": {
         "buttonText": "Login",
         "topTitle": "Login",
-        "topMessage": "Welcome back please login to continue",
-        "tfieldUnameHint": "Enter username",
-        "tfieldPassHint": "Enter password",
+        "topMessage": "Welcome back!",
+        "tfieldEmailHint": "Email",
+        "tfieldPassHint": "Password",
+        "orLoginWith": "---- or login with ----",
         "forgot": "Forgot password?",
         "haveAccount": "Don't have account? ",
         "register": " +Register"
@@ -26,7 +72,7 @@
         "tfieldEmailHint": "Enter email",
         "tfieldPassHint": "Enter password",
         "tfieldPass2Hint": "Enter password again",
-        "haveAccount": "Do you have account? ",
+        "haveAccount": "Already have an account? ",
         "login": " +Login"
     },
     "forgot": {
@@ -39,6 +85,13 @@
     "home": {
         "name": "Home",
         "topMessage": "Tips for your resume",
+        "myResumes": "My Resumes",
+        "seeAll": "See all",
+        "buttons": {
+            "view": "View",
+            "download": "Download",
+            "share": "Share"
+        },
         "create": {
             "name": "Create Resume",
             "resumeName": "Resume Name*",
@@ -51,14 +104,107 @@
             "continue": "Continue",
             "entryInfo": {
                 "name": "General Information Entry",
-                "resumeInfo": "Özgeçmiş Bilgileri"
+                "resumeInfo": "Resume Information"
             }
         }
     },
     "settings": {
-        "name": "Settings"
+        "name": "Settings",
+        "sections": {
+            "profile": "Profile",
+            "termsAndprivacy": "Terms & Privacy",
+            "contact": "Contact",
+            "appInfo": "App Info"
+        },
+        "account": {
+            "name": "Account",
+            "signedWith": "Signed in with {provider}",
+            "changePass": "Change Password",
+            "language": "Language",
+            "currency": "Currency",
+            "terms": "@:settings.terms.name",
+            "privacy": "@:settings.privacy.name",
+            "notifications": "Notifications",
+            "subscription": "Subscription",
+            "logout": "Logout",
+            "deleteAccount": "Delete Account"
+        },
+        "premium": {
+            "name": "Premium",
+            "title": "Go Premium",
+            "desc": "Select a plan that suits you best!",
+            "plans": {
+                "free": {
+                    "name": "Free",
+                    "price": "0",
+                    "desc": "-"
+                },
+                "basic": {
+                    "name": "Basic",
+                    "price": "9.99",
+                    "desc": "One time payment"
+                },
+                "professional": {
+                    "name": "Professional",
+                    "price": "29.99",
+                    "desc": "One time payment"
+                }
+            },
+            "features": {
+                "free": {
+                    "features1": "Limited templates",
+                    "features2": "No customization options",
+                    "features3": "1 PDF download",
+                    "features4": "Watermark on PDF",
+                    "features5": "No customer support"
+                },
+                "basic": {
+                    "features1": "All templates",
+                    "features2": "Limited customization options",
+                    "features3": "10 PDF downloads",
+                    "features4": "No watermark on PDF",
+                    "features5": "Customer support"
+                },
+                "professional": {
+                    "features1": "All templates",
+                    "features2": "Full customization options",
+                    "features3": "Unlimited PDF downloads",
+                    "features4": "No watermark on PDF",
+                    "features5": "Priority customer support",
+                    "features6": "Money back guarantee",
+                    "features7": "All future updates"
+                }
+            },
+            "termsAndprivacy": "By joining, you agree to our ",
+            "and": "and"
+        },
+        "language": {
+            "name": "Languages",
+            "title": "App Language"
+        },
+        "terms": {
+            "name": "Terms of Service"
+        },
+        "privacy": {
+            "name": "Privacy Policy"
+        },
+        "rateOurApp": "Rate Our App",
+        "ourWebsite": "Our Website",
+        "appVersion": "Version {version} on {platform}",
+        "developBy": "Developed by {author}"
     },
     "templates": {
-        "name": "Templates"
+        "name": "Templates",
+        "searchHint": "Search templates...",
+        "noResults": "No Results Found",
+        "noResultsDesc": "We couldn't find any templates matching your search criteria. Please try again with different keywords.",
+        "categories": {
+            "all": "All",
+            "free": "Free",
+            "newest": "Newest",
+            "popular": "Popular",
+            "mostLiked": "Most Liked",
+            "recommended": "Recommended"
+        }
     }
 }

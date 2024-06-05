@@ -1,5 +1,7 @@
+import 'package:fixresume/core/extensions/string_extensions.dart';
+import 'package:fixresume/core/init/lang/locale_keys.g.dart';
+import 'package:fixresume/core/utils/webview_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/utils/webview_util.dart';
 
 /// This class is likely used for routing within a Dart application.
 class TermsOfConditionsView extends StatelessWidget {
@@ -8,6 +10,9 @@ class TermsOfConditionsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const WebViewUtil(htmlFileName: 'terms-of-conditions');
+    return WebViewUtil(
+      htmlFileNameOrUrl: 'terms-of-conditions',
+      title: LocaleKeys.settings_terms_name.locale,
+    );
   }
 }

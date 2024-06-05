@@ -1,5 +1,5 @@
+import 'package:fixresume/core/constants/app/color_constants.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
 
 /// This extension is used to wrap a widget.
 extension WidgetExtansion on Widget {

@@ -1,8 +1,7 @@
-// ignore_for_file: public_member_api_docs
-
+import 'package:fixresume/core/init/di/dep_injection.dart';
+import 'package:fixresume/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_resume_builder_app/core/init/di/dependency_injection.dart';
 
 /// The `WrapBlocProvider` class is a custom widget in Dart that extends `StatelessWidget`. It is used
 /// to provide a specific Bloc (Business Logic Component) to its child widget using the
@@ -22,9 +21,7 @@ class WrapBlocProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => Di.languageCubit,
-        ),
+        BlocProvider(create: (context) => getIt<AuthBloc>()),
       ],
       child: child,
     );

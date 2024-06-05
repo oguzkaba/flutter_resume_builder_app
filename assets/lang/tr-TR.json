@@ -1,22 +1,68 @@
 {
+    "general": {
+        "appName": "FixResume",
+        "appDesc": "Dakikalar İçinde Profesyonel Bir Özgeçmiş Oluşturun",
+        "appLang": "Türkçe",
+        "version": "1.0.0+1",
+        "author": "oguzkaba",
+        "authorEmail": "oguz-kaba@hotmail.com",
+        "authorWeb": "https://oguzkaba.github.io",
+        "ok": "Tamam",
+        "cancel": "İptal",
+        "yes": "Evet",
+        "no": "Hayır",
+        "close": "Kapat"
+    },
     "currency": "₺",
+    "languages": {
+        "en": "İngilizce",
+        "tr": "Türkçe"
+    },
+    "dialogs": {
+        "delete": {
+            "title": "Sil",
+            "message": "Bu öğeyi silmek istediğinizden emin misiniz?",
+            "confirm": "@:general.yes",
+            "cancel": "@:general.no"
+        },
+        "logout": {
+            "title": "Çıkış Yap",
+            "message": "Çıkış yapmak istediğinizden emin misiniz?",
+            "confirm": "@:general.yes",
+            "cancel": "@:general.no"
+        },
+        "deleteAccount": {
+            "title": "Hesabı Sil",
+            "message": "Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!",
+            "confirm": "@:general.yes",
+            "cancel": "@:general.no"
+        }
+    },
     "error": {
         "error": "Hata",
         "emptyField": "*Bu alan zorunludur",
-        "shortEntry": "*En az 6 karakter girilmelidir"
+        "emailInvalid": "*Lütfen geçerli bir email giriniz",
+        "emailEmpty": "*Lütfen email giriniz",
+        "passEmpty": "*Lütfen şifre giriniz",
+        "passShort": "*Şifre en az 6 karakter olmalıdır"
     },
     "onboard": {
-        "buttonText": "Başla"
+        "buttonText": "Başla",
+        "title": "Ücretsiz Profesyonel Bir Özgeçmiş Oluşturun!",
+        "desc": "Kullanımı kolay özgeçmiş oluşturucumuzla dakikalar içinde özgeçmişinizi oluşturun.",
+        "haveAccount": "@:register.haveAccount",
+        "login": " @:register.login"
     },
     "login": {
         "buttonText": "Giriş Yap",
         "topTitle": "Giriş Yap",
-        "topMessage": "Tekrar hoş geldiniz, devam etmek için lütfen oturum açın",
-        "tfieldUnameHint": "Kullanıcı Adı",
+        "topMessage": "Tekrar Hoşgeldiniz!",
+        "tfieldEmailHint": "Email",
         "tfieldPassHint": "Şifre",
+        "orLoginWith": "---- veya şununla giriş yapın ----",
         "forgot": "Şifremi unuttum?",
         "haveAccount": "Hesabınız yok mu? ",
-        "register": " +Kayıt"
+        "register": " +Kayıt Ol"
     },
     "register": {
         "buttonText": "Kayıt Ol",
@@ -26,7 +72,7 @@
         "tfieldEmailHint": "Email",
         "tfieldPassHint": "Şifre",
         "tfieldPass2Hint": "Şifre Tekrar",
-        "haveAccount": "Hesabınız var mı? ",
+        "haveAccount": "Zaten hesabınız var mı? ",
         "login": " +Giriş Yap"
     },
     "forgot": {
@@ -39,6 +85,13 @@
     "home": {
         "name": "Anasayfa",
         "topMessage": "Özgeçmişiniz için ipuçları",
+        "myResumes": "Özgeçmişlerim",
+        "seeAll": "Tümünü göster",
+        "buttons": {
+            "view": "Görüntüle",
+            "download": "İndir",
+            "share": "Paylaş"
+        },
         "create": {
             "name": "Özgeçmiş Oluştur",
             "resumeName": "Özgeçmiş Adı*",
@@ -56,9 +109,102 @@
         }
     },
     "settings": {
-        "name": "Ayarlar"
+        "name": "Ayarlar",
+        "sections": {
+            "profile": "Profil",
+            "termsAndprivacy": "Koşullar ve Politikalar",
+            "contact": "İletişim",
+            "appInfo": "Uygulama Bilgileri"
+        },
+        "account": {
+            "name": "Hesap",
+            "authWith": "{provider} ile giriş yapıldı",
+            "changePass": "Şifre Değiştir",
+            "language": "Dil",
+            "currency": "Para Birimi",
+            "terms": "@:settings.terms.name",
+            "privacy": "@:settings.privacy.name",
+            "notifications": "Bildirimler",
+            "subscription": "Abonelikler",
+            "logout": "Çıkış Yap",
+            "deleteAccount": "Hesabı Sil"
+        },
+        "premium": {
+            "name": "Premium",
+            "title": "Premium Planlar",
+            "desc": "Daha fazla özellik ve destek için premium planlarımızdan birini seçin",
+            "plans": {
+                "free": {
+                    "name": "Ücretsiz",
+                    "price": "0",
+                    "desc": "-"
+                },
+                "basic": {
+                    "name": "Temel",
+                    "price": "199.99",
+                    "desc": "Bir kez ödeme"
+                },
+                "professional": {
+                    "name": "Profesyonel",
+                    "price": "399.99",
+                    "desc": "Bir kez ödeme"
+                }
+            },
+            "features": {
+                "free": {
+                    "features1": "Sınırlı şablonlar",
+                    "features2": "Özelleştirme seçenekleri yok",
+                    "features3": "1 PDF indirme",
+                    "features4": "PDF üzerinde filigran",
+                    "features5": "Müşteri desteği yok"
+                },
+                "basic": {
+                    "features1": "Tüm şablonlar",
+                    "features2": "Sınırlı özelleştirme seçenekleri",
+                    "features3": "10 PDF indirmesi",
+                    "features4": "PDF üzerinde filigran yok",
+                    "features5": "Müşteri desteği"
+                },
+                "professional": {
+                    "features1": "Tüm şablonlar",
+                    "features2": "Sınırsız özelleştirme seçenekleri",
+                    "features3": "Sınırsız PDF indirmesi",
+                    "features4": "PDF üzerinde filigran yok",
+                    "features5": "Öncelikli müşteri desteği",
+                    "features6": "Para iade garantisi",
+                    "features7": "Gelecekteki güncellemeler ücretsiz"
+                }
+            },
+            "termsAndprivacy": "Katılarak şunları kabul etmiş olursunuz ",
+            "and": "ve"
+        },
+        "language": {
+            "name": "Dil",
+            "title": "Uygulama Dili"
+        },
+        "terms": {
+            "name": "Kullanım Koşulları"
+        },
+        "privacy": {
+            "name": "Gizlilik Politikası"
+        },
+        "rateOurApp": "Uygulamamızı Değerlendir",
+        "ourWebsite": "Web Sitemiz",
+        "appVersion": "{platform} versiyon {version}",
+        "developBy": "{author} tarafından geliştirildi"
     },
     "templates": {
-        "name": "Şablonlar"
+        "name": "Şablonlar",
+        "searchHint": "Şablon Ara...",
+        "noResults": "Sonuç bulunamadı",
+        "noResultsDesc": "Aramanızla eşleşen bir şablon bulunamadı. Lütfen başka bir şey deneyin.",
+        "categories": {
+            "all": "Tümü",
+            "free": "Ücretsiz",
+            "newest": "En Yeniler",
+            "popular": "Popüler",
+            "mostLiked": "En Beğenilen",
+            "recommended": "Önerilen"
+        }
     }
 }

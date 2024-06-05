@@ -1,15 +1,14 @@
 import 'dart:developer';
 
+import 'package:fixresume/core/enums/routes_enum.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
+import 'package:fixresume/core/extensions/string_extensions.dart';
+import 'package:fixresume/core/init/lang/locale_keys.g.dart';
+import 'package:fixresume/core/widgets/custom_coloredbox_column_widget.dart';
+import 'package:fixresume/core/widgets/custom_filled_textfield_widget.dart';
+import 'package:fixresume/core/widgets/custom_filledbutton_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/enums/routes_enum.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/string_extensions.dart';
-import 'package:flutter_resume_builder_app/core/init/lang/locale_keys.g.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_coloredbox_column_widget.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_filled_tf_widget.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_filledbutton_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
@@ -116,28 +115,16 @@ class CreateResumeView extends StatelessWidget {
         Row(
           children: [
             ChoiceChip(
-              side: BorderSide(
-                color: selectedLang.value == 0
-                    ? context.colorScheme.background
-                    : ColorConstants.myLightGrey,
-              ),
               label: Text(
                 LocaleKeys.home_create_resumeLanguageEng.locale,
-                style: context.size12Bold,
               ),
               selected: selectedLang.value == 0,
               onSelected: (value) => selectedLang.value = 0,
             ),
             context.horizontalPaddingNormal,
             ChoiceChip(
-              side: BorderSide(
-                color: selectedLang.value == 1
-                    ? context.colorScheme.background
-                    : ColorConstants.myLightGrey,
-              ),
               label: Text(
                 LocaleKeys.home_create_resumeLanguageTr.locale,
-                style: context.size12Bold,
               ),
               selected: selectedLang.value == 1,
               onSelected: (value) => selectedLang.value = 1,

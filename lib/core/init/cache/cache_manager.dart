@@ -1,7 +1,5 @@
-// ignore_for_file: public_member_api_docs
-
-import 'package:flutter_resume_builder_app/core/constants/cache/cache_constants.dart';
-import 'package:flutter_resume_builder_app/core/init/cache/cache_model.dart';
+import 'package:fixresume/core/constants/cache/cache_constants.dart';
+import 'package:fixresume/core/init/cache/cache_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 /// The `abstract class ICacheManager<T>` is defining an abstract class in Dart that serves as a

@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs
-
+import 'package:fixresume/core/extensions/string_extensions.dart';
+import 'package:fixresume/core/init/lang/locale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/extensions/string_extensions.dart';
-import 'package:flutter_resume_builder_app/core/init/lang/locale_keys.g.dart';
 
 /// Application constants
 final class AppConstants {

@@ -1,10 +1,11 @@
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/enums/routes_enum.dart';
+import 'package:fixresume/core/extensions/asset_extension.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/init/di/dep_injection.dart';
+import 'package:fixresume/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/enums/routes_enum.dart';
-import 'package:flutter_resume_builder_app/core/extensions/asset_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lottie/lottie.dart';
 
 /// This class represents a StatefulWidget for a splash screen view in a Dart application.
 class SplashView extends StatefulWidget {
@@ -18,11 +19,23 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), routeOnboard);
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      appAuthControl(const Duration(seconds: 3));
+    });
   }
 
-  void routeOnboard() => context.goNamed(RoutesEnum.onboard.name);
+  Future<void> appAuthControl(Duration duration) async {
+    getIt<AuthBloc>().add(const AuthEvent.loggedIn());
+    await Future<dynamic>.delayed(duration).then((value) {
+      getIt<AuthBloc>().state.maybeWhen(
+            orElse: () => context.goNamed(RoutesEnum.onboard.name),
+            success: (user) {
+              context.goNamed(RoutesEnum.home.name);
+            },
+          );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +45,8 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset(
-              'splash'.toLottie,
-              fit: BoxFit.cover,
-              width: 200,
-              height: 200,
+            Image.asset(
+              'app-icon-100'.toAppIcon,
             ),
             Text.rich(
               TextSpan(
@@ -56,6 +66,7 @@ class _SplashViewState extends State<SplashView> {
                 ],
               ),
             ),
+            const SizedBox(width: 120, child: LinearProgressIndicator()),
           ],
         ),
       ),

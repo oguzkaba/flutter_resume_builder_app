@@ -1,12 +1,12 @@
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/enums/routes_enum.dart';
+import 'package:fixresume/core/extensions/asset_extension.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/extensions/string_extensions.dart';
+import 'package:fixresume/core/init/lang/locale_keys.g.dart';
+import 'package:fixresume/core/widgets/custom_filledbutton_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/enums/routes_enum.dart';
-import 'package:flutter_resume_builder_app/core/extensions/asset_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/string_extensions.dart';
-import 'package:flutter_resume_builder_app/core/init/lang/locale_keys.g.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_filledbutton_widget.dart';
 import 'package:go_router/go_router.dart';
 
 /// This Dart class named OnboardView extends StatefulWidget.
@@ -23,10 +23,10 @@ class _OnboardViewState extends State<OnboardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -49,12 +49,12 @@ class _OnboardViewState extends State<OnboardView> {
     return Column(
       children: [
         Text(
-          'Build a Professional Resume for Free!',
+          LocaleKeys.onboard_title.locale,
           textAlign: TextAlign.center,
-          style: context.size36Bold,
+          style: context.size28Bold,
         ),
         Text(
-          'Create your resume in minutes with our easy-to-use resume builder.',
+          LocaleKeys.onboard_desc.locale,
           textAlign: TextAlign.center,
           style: context.size12BoldWithColor(ColorConstants.myMediumGrey),
         ),
@@ -66,12 +66,12 @@ class _OnboardViewState extends State<OnboardView> {
         context.verticalPaddingSmall,
         Text.rich(
           TextSpan(
-            text: 'Already have an account? ',
+            text: LocaleKeys.onboard_haveAccount.locale,
             style:
                 context.defaultSizeNormalWithColor(ColorConstants.myMediumGrey),
             children: [
               TextSpan(
-                text: 'Login',
+                text: LocaleKeys.onboard_login.locale,
                 recognizer: TapGestureRecognizer()
                   ..onTap = () => context.goNamed(RoutesEnum.login.name),
                 style: context

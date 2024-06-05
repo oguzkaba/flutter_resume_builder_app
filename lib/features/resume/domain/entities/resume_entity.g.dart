@@ -8,11 +8,10 @@ part of 'resume_entity.dart';
 
 _$ResumeEntityImpl _$$ResumeEntityImplFromJson(Map<String, dynamic> json) =>
     _$ResumeEntityImpl(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       personalDetails: PersonalDetailsEntity.fromJson(
-        json['personalDetails'] as Map<String, dynamic>,
-      ),
+          json['personalDetails'] as Map<String, dynamic>),
       createdDate: DateTime.parse(json['createdDate'] as String),
       lastUpdatedDate: DateTime.parse(json['lastUpdatedDate'] as String),
       summary: json['summary'] as String?,

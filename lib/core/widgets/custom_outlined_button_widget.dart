@@ -1,7 +1,6 @@
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
 
 /// CustomOutlinedIconButtonWidget is a StatelessWidget.
 class CustomOutlinedIconButtonWidget extends StatelessWidget {
@@ -11,6 +10,12 @@ class CustomOutlinedIconButtonWidget extends StatelessWidget {
     required this.labelText,
     required this.onPressed,
     super.key,
+    this.color,
+    this.fontSize,
+    this.iconSize,
+    this.fixedSize,
+    this.alignment,
+    this.shape,
   });
 
   /// Icon
@@ -19,6 +24,24 @@ class CustomOutlinedIconButtonWidget extends StatelessWidget {
   /// Label
   final String labelText;
 
+  /// color
+  final Color? color;
+
+  /// fontSize
+  final double? fontSize;
+
+  ///iconSize
+  final double? iconSize;
+
+  ///fixedSize
+  final Size? fixedSize;
+
+  ///alignment child
+  final AlignmentGeometry? alignment;
+
+  ///shape
+  final OutlinedBorder? shape;
+
   /// onPressed
   final VoidCallback onPressed;
 
@@ -26,16 +49,22 @@ class CustomOutlinedIconButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
       style: OutlinedButton.styleFrom(
-        side: BorderSide(
-          color: ColorConstants.myMediumGrey,
-        ),
+        alignment: alignment,
+        shape: shape,
+        fixedSize: fixedSize,
+        side: BorderSide(color: ColorConstants.myMediumGrey),
       ),
       onPressed: onPressed,
-      icon: icon.toFaIconPrimaryColorSized(16),
+      icon: icon.toFaIconCustomColorSized(
+        color ?? ColorConstants.primaryColor,
+        iconSize ?? 16,
+      ),
       label: Text(
         labelText,
-        style: context.size12BoldWithColor(
-          ColorConstants.myBlack,
+        style: TextStyle(
+          color: ColorConstants.myDark,
+          fontWeight: FontWeight.bold,
+          fontSize: fontSize ?? 12,
         ),
       ),
     );

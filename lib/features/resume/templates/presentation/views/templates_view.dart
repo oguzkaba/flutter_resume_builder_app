@@ -1,12 +1,13 @@
-// ignore_for_file: public_member_api_docs
-
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
+import 'package:fixresume/core/extensions/string_extensions.dart';
+import 'package:fixresume/core/init/lang/locale_keys.g.dart';
+import 'package:fixresume/core/utils/general_util.dart';
+import 'package:fixresume/core/widgets/custom_icon_button_widget.dart';
+import 'package:fixresume/core/widgets/custom_searchbar_widget.dart';
+import 'package:fixresume/features/resume/templates/data/models/resume_template_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_icon_button_widget.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_searchbar_widget.dart';
-import 'package:flutter_resume_builder_app/features/resume/templates/data/models/resume_template_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TemplatesView extends StatefulWidget {
@@ -44,50 +45,62 @@ class _TemplatesViewState extends State<TemplatesView> {
       'Template 5',
     ];
 
-    const categories = <String>[
+    final showCategories = <String>[
+      LocaleKeys.templates_categories_all.locale,
+      LocaleKeys.templates_categories_free.locale,
+      LocaleKeys.templates_categories_newest.locale,
+      LocaleKeys.templates_categories_popular.locale,
+      LocaleKeys.templates_categories_mostLiked.locale,
+      LocaleKeys.templates_categories_recommended.locale,
+    ];
+
+    const backCategiories = <String>[
       'All',
       'Free',
       'Newest',
       'Popular',
-      'Most Selected',
+      'Most Liked',
       'Recommended',
     ];
 
-    return ValueListenableBuilder(
-      valueListenable: selectedCategory,
-      builder: (context, idx, child) {
-        final dynamicCount = ResumeTemplateModel.getTemplates()
-            .where(
-              (element) =>
-                  element.category.contains(categories[selectedCategory.value]),
-            )
-            .length;
-        return Scaffold(
-          appBar: _appBar(context, dynamicCount),
-          body: SingleChildScrollView(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    CustomSearchBarWidget(
-                      suggestions: suggestions,
-                      searchController: searchController,
-                    ),
-                    context.verticalPaddingSmall,
-                    _categoriesListView(
-                      selectedCategory,
-                      categories,
-                    ),
-                    context.verticalPaddingSmall,
-                    _sampleGridView(selectedCategory, categories, dynamicCount),
-                  ],
+    return Scaffold(
+      appBar: _appBar(context, 10), //TO-DO: dynamic count
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ValueListenableBuilder(
+          valueListenable: selectedCategory,
+          builder: (context, _, __) {
+            final dynamicCount = ResumeTemplateModel.getTemplates()
+                .where(
+                  (element) => element.category.contains(
+                    backCategiories[selectedCategory.value],
+                  ),
+                )
+                .length;
+            return Column(
+              children: [
+                CustomSearchBarWidget(
+                  suggestions: suggestions,
+                  searchController: searchController,
                 ),
-              ),
-            ),
-          ),
-        );
-      },
+                context.verticalPaddingSmall,
+                _categoriesListView(
+                  selectedCategory,
+                  showCategories,
+                ),
+                context.verticalPaddingSmall,
+                Expanded(
+                  child: _sampleGridView(
+                    selectedCategory,
+                    backCategiories,
+                    dynamicCount,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 
@@ -97,8 +110,8 @@ class _TemplatesViewState extends State<TemplatesView> {
       automaticallyImplyLeading: false,
       title: Text.rich(
         TextSpan(
-          text: 'Templates',
-          style: context.size18Bold,
+          text: LocaleKeys.templates_name.locale,
+          style: context.defaultSizeBold,
           children: <InlineSpan>[
             WidgetSpan(
               alignment: PlaceholderAlignment.middle,
@@ -115,7 +128,7 @@ class _TemplatesViewState extends State<TemplatesView> {
       actions: [
         CustomIconButtonWidget(
           iconData: FontAwesomeIcons.crown,
-          color: ColorConstants.myYellow,
+          color: GeneralUtil.badgeColor,
           size: 22,
           onTap: () {},
         ),
@@ -124,76 +137,73 @@ class _TemplatesViewState extends State<TemplatesView> {
     );
   }
 
-  SizedBox _sampleGridView(
+  Widget _sampleGridView(
     ValueNotifier<int> selectedCategory,
     List<String> categories,
     int count,
   ) {
-    return SizedBox(
-      height: context.height * .57,
-      child: GridView.count(
-        primary: true,
-        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        shrinkWrap: true,
-        crossAxisCount: 3,
-        childAspectRatio: .7,
-        children: List.generate(
-          count,
-          (index) {
-            return Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: ColorConstants.myLightGrey,
-                ),
-                borderRadius: BorderRadius.circular(10),
+    return GridView.count(
+      primary: true,
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      shrinkWrap: true,
+      crossAxisCount: 3,
+      childAspectRatio: .7,
+      children: List.generate(
+        count,
+        (index) {
+          return Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: ColorConstants.myLightGrey,
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Image.asset(
-                          ResumeTemplateModel.getTemplates()
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        ResumeTemplateModel.getTemplates()
+                            .where(
+                              (element) => element.category.contains(
+                                categories[selectedCategory.value],
+                              ),
+                            )
+                            .elementAt(index)
+                            .image,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    Positioned(
+                      top: 4,
+                      right: 4,
+                      height: 24,
+                      child: ResumeTemplateModel.getTemplates()
                               .where(
                                 (element) => element.category.contains(
                                   categories[selectedCategory.value],
                                 ),
                               )
                               .elementAt(index)
-                              .image,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                      Positioned(
-                        top: 4,
-                        right: 4,
-                        height: 24,
-                        child: ResumeTemplateModel.getTemplates()
-                                .where(
-                                  (element) => element.category.contains(
-                                    categories[selectedCategory.value],
-                                  ),
-                                )
-                                .elementAt(index)
-                                .premium
-                            ? FontAwesomeIcons.crown.toFaIconCustomColorSized(
-                                ColorConstants.myYellow,
-                                16,
-                              )
-                            : const SizedBox.shrink(),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+                              .premium
+                          ? FontAwesomeIcons.crown.toFaIconCustomColorSized(
+                              ColorConstants.myYellow,
+                              16,
+                            )
+                          : const SizedBox.shrink(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
@@ -212,21 +222,7 @@ class _TemplatesViewState extends State<TemplatesView> {
             padding: const EdgeInsets.only(right: 8),
             child: ChoiceChip(
               showCheckmark: false,
-              shape: const StadiumBorder(),
-              color: index == selectedCategory.value
-                  ? ColorConstants.primaryColorMaterialState
-                  : null,
-              side: index == selectedCategory.value
-                  ? BorderSide(color: ColorConstants.primaryColor)
-                  : BorderSide(color: ColorConstants.myLightGrey),
-              label: Text(
-                categories[index],
-                style: index == selectedCategory.value
-                    ? context.defaultSizeBoldWithColor(
-                        ColorConstants.myWhite,
-                      )
-                    : context.defaultSizeBold,
-              ),
+              label: Text(categories[index]),
               selected: index == selectedCategory.value,
               onSelected: (selected) => selectedCategory.value = index,
             ),

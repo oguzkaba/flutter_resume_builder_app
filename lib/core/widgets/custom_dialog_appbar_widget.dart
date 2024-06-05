@@ -1,7 +1,6 @@
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/enums/routes_enum.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
 import 'package:go_router/go_router.dart';
 
 /// This class is likely used for routing within a Dart application.
@@ -10,11 +9,15 @@ class CustomDialogAppBarWidget extends StatelessWidget
   /// Constructor for the `DialogAppBarWidget` class.
   const CustomDialogAppBarWidget({
     required this.title,
+    this.onPressed,
     super.key,
   });
 
   /// The title of the dialog app bar.
   final String title;
+
+  /// The onPressed function for the dialog app bar.
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +26,10 @@ class CustomDialogAppBarWidget extends StatelessWidget
       child: AppBar(
         title: Text(
           title,
-          style: context.size18Bold,
+          style: context.defaultSizeBold,
         ),
         leading: IconButton(
-          onPressed: () => context.goNamed(RoutesEnum.settings.name),
+          onPressed: onPressed ?? () => context.pop(),
           icon: Icons.arrow_back.toIconDefaultColor,
         ),
       ),

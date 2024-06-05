@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'package:easy_localization/easy_localization.dart';
 
 extension StringExtensions on String {
@@ -7,4 +5,7 @@ extension StringExtensions on String {
       .map((str) => '${str[0].toUpperCase()}${str.substring(1)}')
       .join(' ');
   String get locale => this.tr();
+  String localeArgs(List<String> args) => this.tr(args: args);
+  String localeNamedArgs(Map<String, String> namedArgs) =>
+      this.tr(namedArgs: namedArgs);
 }

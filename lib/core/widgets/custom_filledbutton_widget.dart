@@ -1,5 +1,6 @@
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
 
 /// CustomFilledButtonWidget for the application.
 class CustomFilledButtonWidget extends StatelessWidget {
@@ -9,6 +10,7 @@ class CustomFilledButtonWidget extends StatelessWidget {
     required this.onPressed,
     super.key,
     this.width,
+    this.loading = false,
   });
 
   /// VoidCallback onPressed.
@@ -20,17 +22,29 @@ class CustomFilledButtonWidget extends StatelessWidget {
   /// double? width.
   final double? width;
 
+  /// bool loading.
+  final bool? loading;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: width ?? context.width,
       height: 48,
       child: FilledButton(
-        onPressed: onPressed,
-        child: Text(
-          buttonText,
-          style: context.size16BoldWithColor(Colors.white),
-        ),
+        onPressed: loading == false ? onPressed : null,
+        child: loading == false
+            ? Text(
+                buttonText,
+                style: context.size16BoldWithColor(ColorConstants.myWhite),
+              )
+            : SizedBox(
+                height: 24,
+                width: 24,
+                child: CircularProgressIndicator.adaptive(
+                  strokeWidth: 2,
+                  backgroundColor: ColorConstants.myWhite,
+                ),
+              ),
       ),
     );
   }

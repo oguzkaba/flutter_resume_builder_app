@@ -1,22 +1,25 @@
-// ignore_for_file: prefer_constructors_over_static_methods
-
+import 'package:fixresume/core/enums/routes_enum.dart';
+import 'package:fixresume/features/auth/domain/entities/user_details_entity.dart';
+import 'package:fixresume/features/auth/presentation/views/login_view.dart';
+import 'package:fixresume/features/auth/presentation/views/register_details_view.dart';
+import 'package:fixresume/features/auth/presentation/views/register_view.dart';
+import 'package:fixresume/features/dashboard/presentation/views/dashboard_view.dart';
+import 'package:fixresume/features/error/views/error_view.dart';
+import 'package:fixresume/features/home/presentation/views/home_view.dart';
+import 'package:fixresume/features/onboard/presentation/views/onboard_view.dart';
+import 'package:fixresume/features/resume/presentation/views/create_resume_view.dart';
+import 'package:fixresume/features/resume/presentation/views/preview_resume_view.dart';
+import 'package:fixresume/features/resume/presentation/views/sub_views/entry_info_view.dart';
+import 'package:fixresume/features/resume/templates/presentation/views/templates_view.dart';
+import 'package:fixresume/features/settings/presentation/views/settings_view.dart';
+import 'package:fixresume/features/settings/presentation/views/sub_views/account/account_view.dart';
+import 'package:fixresume/features/settings/presentation/views/sub_views/contact/our_website.dart';
+import 'package:fixresume/features/settings/presentation/views/sub_views/languages/languages_view.dart';
+import 'package:fixresume/features/settings/presentation/views/sub_views/premium/premium_view.dart';
+import 'package:fixresume/features/settings/presentation/views/sub_views/terms_policy/privacy_policy_view.dart';
+import 'package:fixresume/features/settings/presentation/views/sub_views/terms_policy/terms_of_conditions_view.dart';
+import 'package:fixresume/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/enums/routes_enum.dart';
-import 'package:flutter_resume_builder_app/features/auth/login/presentation/views/login_view.dart';
-import 'package:flutter_resume_builder_app/features/auth/register/presentation/views/register_view.dart';
-import 'package:flutter_resume_builder_app/features/dashboard/presentation/views/dashboard_view.dart';
-import 'package:flutter_resume_builder_app/features/error/views/error_view.dart';
-import 'package:flutter_resume_builder_app/features/home/presentation/views/home_view.dart';
-import 'package:flutter_resume_builder_app/features/onboard/presentation/views/onboard_view.dart';
-import 'package:flutter_resume_builder_app/features/resume/presentation/views/create_resume_view.dart';
-import 'package:flutter_resume_builder_app/features/resume/presentation/views/preview_resume_view.dart';
-import 'package:flutter_resume_builder_app/features/resume/presentation/views/sub_views/entry_info_view.dart';
-import 'package:flutter_resume_builder_app/features/resume/templates/presentation/views/templates_view.dart';
-import 'package:flutter_resume_builder_app/features/settings/presentation/views/settings_view.dart';
-import 'package:flutter_resume_builder_app/features/settings/presentation/views/sub_views/premium/presentation/views/premium_view.dart';
-import 'package:flutter_resume_builder_app/features/settings/presentation/views/sub_views/terms_policy/privacy_policy_view.dart';
-import 'package:flutter_resume_builder_app/features/settings/presentation/views/sub_views/terms_policy/terms_of_conditions_view.dart';
-import 'package:flutter_resume_builder_app/features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 /// This class is likely used for routing within a Dart application.
@@ -64,6 +67,16 @@ final router = GoRouter(
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         child: const RegisterView(),
+      ),
+    ),
+    GoRoute(
+      name: RoutesEnum.registerDetails.name,
+      path: RoutesEnum.registerDetails.path,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: RegisterDetailsView(
+          user: state.extra! as UserDetailsEntity,
+        ),
       ),
     ),
     GoRoute(
@@ -119,10 +132,14 @@ final router = GoRouter(
                 GoRoute(
                   name: RoutesEnum.previewResume.name,
                   path: RoutesEnum.previewResume.path,
-                  pageBuilder: (context, state) => MaterialPage(
-                    key: state.pageKey,
-                    child: const PreviewResumeView(),
-                  ),
+                  pageBuilder: (context, state) {
+                    return MaterialPage(
+                      key: state.pageKey,
+                      child: PreviewResumeView(
+                        routeExtra: state.extra! as Map<String, dynamic>,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -153,12 +170,27 @@ final router = GoRouter(
               ),
               routes: [
                 GoRoute(
+                  name: RoutesEnum.account.name,
+                  path: RoutesEnum.account.path,
+                  pageBuilder: (context, state) => MaterialPage(
+                    key: state.pageKey,
+                    child: const AccountView(),
+                  ),
+                ),
+                GoRoute(
                   name: RoutesEnum.premium.name,
                   path: RoutesEnum.premium.path,
                   pageBuilder: (context, state) => MaterialPage(
                     key: state.pageKey,
-                    //fullscreenDialog: true,
                     child: const PremiumView(),
+                  ),
+                ),
+                GoRoute(
+                  name: RoutesEnum.languages.name,
+                  path: RoutesEnum.languages.path,
+                  pageBuilder: (context, state) => MaterialPage(
+                    key: state.pageKey,
+                    child: const LanguagesView(),
                   ),
                 ),
                 GoRoute(
@@ -166,7 +198,6 @@ final router = GoRouter(
                   path: RoutesEnum.terms.path,
                   pageBuilder: (context, state) => MaterialPage(
                     key: state.pageKey,
-                    //fullscreenDialog: true,
                     child: const TermsOfConditionsView(),
                   ),
                 ),
@@ -175,8 +206,15 @@ final router = GoRouter(
                   path: RoutesEnum.privacy.path,
                   pageBuilder: (context, state) => MaterialPage(
                     key: state.pageKey,
-                    //fullscreenDialog: true,
                     child: const PrivacyPolicyView(),
+                  ),
+                ),
+                GoRoute(
+                  name: RoutesEnum.ourWebsite.name,
+                  path: RoutesEnum.ourWebsite.path,
+                  pageBuilder: (context, state) => MaterialPage(
+                    key: state.pageKey,
+                    child: const OurWebsiteView(),
                   ),
                 ),
               ],
@@ -187,3 +225,5 @@ final router = GoRouter(
     ),
   ],
 );
+
+/// Route State arguments.

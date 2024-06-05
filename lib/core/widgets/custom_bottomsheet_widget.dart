@@ -1,10 +1,10 @@
 import 'dart:io';
 
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// Custom Bottom Sheet Widget For Android and iOS
@@ -34,7 +34,6 @@ class CustomBottomSheetWidget {
     return showModalBottomSheet(
       context: context,
       showDragHandle: true,
-      enableDrag: true,
       scrollControlDisabledMaxHeightRatio: 0.7,
       builder: (context) => BottomSheet(
         onClosing: () {},

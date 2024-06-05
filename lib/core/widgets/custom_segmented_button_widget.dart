@@ -1,6 +1,6 @@
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
 
 /// CustomSegmentedButton Widget.
 class CustomSegmentedButtonWidget extends StatelessWidget {
@@ -30,26 +30,26 @@ class CustomSegmentedButtonWidget extends StatelessWidget {
     return SegmentedButton(
       showSelectedIcon: false,
       style: ButtonStyle(
-        side: MaterialStatePropertyAll(
+        side: WidgetStatePropertyAll(
           BorderSide(
             color: ColorConstants.myLightGrey.withOpacity(0.5),
           ),
         ),
-        padding: MaterialStatePropertyAll(
+        padding: WidgetStatePropertyAll(
           padding ?? context.edgeInsetsAllLarge,
         ),
-        backgroundColor: MaterialStateProperty.resolveWith(
-          (states) => states.contains(MaterialState.selected)
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
               ? ColorConstants.primaryColor
               : ColorConstants.myWhite,
         ),
-        foregroundColor: MaterialStateProperty.resolveWith(
-          (states) => states.contains(MaterialState.selected)
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
               ? ColorConstants.myWhite
               : ColorConstants.myBlack,
         ),
-        textStyle: MaterialStateProperty.resolveWith(
-          (states) => states.contains(MaterialState.selected)
+        textStyle: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
               ? context.defaultSizeBoldWithColor(ColorConstants.myWhite)
               : context.defaultSizeBold,
         ),

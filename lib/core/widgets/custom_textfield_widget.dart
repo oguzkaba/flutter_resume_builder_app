@@ -1,9 +1,8 @@
-// ignore_for_file: public_member_api_docs
-
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
+import 'package:fixresume/core/widgets/custom_icon_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_icon_button_widget.dart';
+import 'package:flutter/services.dart';
 
 /// The CustomTextField class is a stateless widget in Dart.
 class CustomTextFieldWidget extends StatelessWidget {
@@ -26,6 +25,7 @@ class CustomTextFieldWidget extends StatelessWidget {
     this.border,
     this.errorBorder,
     this.focusedBorder,
+    this.formatter,
   });
 
   final String hintText;
@@ -43,6 +43,7 @@ class CustomTextFieldWidget extends StatelessWidget {
   final InputBorder? border;
   final InputBorder? errorBorder;
   final InputBorder? focusedBorder;
+  final List<TextInputFormatter>? formatter;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +54,7 @@ class CustomTextFieldWidget extends StatelessWidget {
       textInputAction: textInputAction,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       validator: validator,
+      inputFormatters: formatter,
       textAlignVertical: TextAlignVertical.center,
       obscureText: obsecureText ?? false,
       onChanged: onChanged,
@@ -71,9 +73,9 @@ class CustomTextFieldWidget extends StatelessWidget {
         contentPadding: EdgeInsets.zero,
         filled: true,
         fillColor: fillColor,
-        border: border ?? InputBorder.none,
         focusedBorder: focusedBorder,
         errorBorder: errorBorder,
+        enabledBorder: border ?? InputBorder.none,
       ),
     );
   }

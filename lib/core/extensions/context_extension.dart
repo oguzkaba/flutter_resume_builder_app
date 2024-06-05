@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs
-
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/constants/regex/regex_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/regex/regex_constants.dart';
 
 /// This extension is used to extend the `BuildContext` class.
 extension ContextExtension on BuildContext {
@@ -251,14 +250,20 @@ extension ContextExtension on BuildContext {
   /// InputDecoration-Border
   OutlineInputBorder get inputOutlineNoBorder => OutlineInputBorder(
         borderSide: BorderSide.none,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
+      );
+  OutlineInputBorder get inputOutlineBorder => OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorConstants.myBlack.withOpacity(.2),
+        ),
+        borderRadius: BorderRadius.circular(12),
       );
   OutlineInputBorder get inputOutlineFocusedBorder => OutlineInputBorder(
-        borderSide: BorderSide(color: colorScheme.primary),
-        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: ColorConstants.primaryColor),
+        borderRadius: BorderRadius.circular(12),
       );
   OutlineInputBorder get inputOutlineErrorBorder => OutlineInputBorder(
         borderSide: BorderSide(color: colorScheme.error),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
       );
 }

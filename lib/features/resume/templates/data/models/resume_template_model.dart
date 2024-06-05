@@ -1,6 +1,4 @@
-// ignore_for_file: public_member_api_docs
-
-import 'package:flutter_resume_builder_app/core/extensions/asset_extension.dart';
+import 'package:fixresume/core/extensions/asset_extension.dart';
 
 final class ResumeTemplateModel {
   ResumeTemplateModel({
@@ -35,7 +33,7 @@ final class ResumeTemplateModel {
         name: 'Template 2',
         description: 'This is a simple template',
         image: 'resume/sample_resume2'.toPNG,
-        category: <String>['All', 'Most Selected', 'Newest', 'Free'],
+        category: <String>['All', 'Most Liked', 'Newest', 'Free'],
         premium: false,
       ),
       ResumeTemplateModel(
@@ -58,7 +56,7 @@ final class ResumeTemplateModel {
         name: 'Template 5',
         description: 'This is a simple template',
         image: 'resume/sample_resume5'.toPNG,
-        category: <String>['All', 'Most Selected', 'Newest', 'Free'],
+        category: <String>['All', 'Most Liked', 'Newest', 'Free'],
         premium: false,
       ),
       ResumeTemplateModel(
@@ -80,7 +78,7 @@ final class ResumeTemplateModel {
         name: 'Template 8',
         description: 'This is a simple template',
         image: 'resume/sample_resume8'.toPNG,
-        category: <String>['All', 'Most Selected', 'Newest', 'Free'],
+        category: <String>['All', 'Most Liked', 'Newest', 'Free'],
         premium: false,
       ),
       ResumeTemplateModel(

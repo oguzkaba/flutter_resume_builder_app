@@ -1,15 +1,14 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:developer';
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fixresume/core/constants/app/color_constants.dart';
+import 'package:fixresume/core/enums/routes_enum.dart';
+import 'package:fixresume/core/extensions/context_extension.dart';
+import 'package:fixresume/core/extensions/icon_extension.dart';
+import 'package:fixresume/core/extensions/string_extensions.dart';
+import 'package:fixresume/core/init/lang/locale_keys.g.dart';
+import 'package:fixresume/core/widgets/custom_coloredbox_column_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_resume_builder_app/core/constants/app/color_constants.dart';
-import 'package:flutter_resume_builder_app/core/enums/routes_enum.dart';
-import 'package:flutter_resume_builder_app/core/extensions/context_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/icon_extension.dart';
-import 'package:flutter_resume_builder_app/core/extensions/string_extensions.dart';
-import 'package:flutter_resume_builder_app/core/init/lang/locale_keys.g.dart';
-import 'package:flutter_resume_builder_app/core/widgets/custom_coloredbox_column_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
@@ -105,8 +104,8 @@ class EntryInfoView extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 50,
-              backgroundImage: NetworkImage(
-                'https://eu.ui-avatars.com/api/?name=Oguz+Kaba&size=250',
+              backgroundImage: CachedNetworkImageProvider(
+                'https://eu.ui-avatars.com/api/?name=oğuz+kaba&size=100',
               ),
             ),
             context.verticalPaddingSmall,
