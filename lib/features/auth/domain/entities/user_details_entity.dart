@@ -9,8 +9,8 @@ class UserDetailsEntity {
     required this.subscriptions,
     required this.status,
     required this.currentUser,
-    this.createdAt,
     this.id,
+    this.createdAt,
     this.deviceInfo,
     this.appVersion,
     this.updatedAt,
@@ -29,4 +29,36 @@ class UserDetailsEntity {
   final User currentUser;
   final DateTime? updatedAt;
   final DateTime? deletedAt;
+
+  UserDetailsEntity copyWith({
+    int? id,
+    DateTime? createdAt,
+    String? userId,
+    String? fullName,
+    String? photoUrl,
+    String? accType,
+    String? deviceInfo,
+    String? appVersion,
+    int? subscriptions,
+    bool? status,
+    User? currentUser,
+    DateTime? updatedAt,
+    DateTime? deletedAt,
+  }) {
+    return UserDetailsEntity(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      userId: userId ?? this.userId,
+      fullName: fullName ?? this.fullName,
+      photoUrl: photoUrl ?? this.photoUrl,
+      accType: accType ?? this.accType,
+      deviceInfo: deviceInfo ?? this.deviceInfo,
+      appVersion: appVersion ?? this.appVersion,
+      subscriptions: subscriptions ?? this.subscriptions,
+      status: status ?? this.status,
+      currentUser: currentUser ?? this.currentUser,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+    );
+  }
 }

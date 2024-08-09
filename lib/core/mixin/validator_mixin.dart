@@ -8,10 +8,10 @@ mixin ValidatorMixin {
   /// Validates the email.
   String? validateEmail(BuildContext context, String? value) {
     if (value!.isEmpty) {
-      return LocaleKeys.error_emailEmpty.locale;
+      return LocaleKeys.error_emailEmpty.locale(context);
     }
     if (!context.isEmail(value)) {
-      return LocaleKeys.error_emailInvalid.locale;
+      return LocaleKeys.error_emailInvalid.locale(context);
     }
     return null;
   }
@@ -19,10 +19,10 @@ mixin ValidatorMixin {
   /// Validates the password.
   String? validatePassword(BuildContext context, String? value) {
     if (value!.isEmpty) {
-      return LocaleKeys.error_passEmpty.locale;
+      return LocaleKeys.error_passEmpty.locale(context);
     }
     if (value.length < 6) {
-      return LocaleKeys.error_passShort.locale;
+      return LocaleKeys.error_passShort.locale(context);
     }
 
     return null;

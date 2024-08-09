@@ -23,9 +23,12 @@ class LanguagesView extends StatelessWidget {
       },
       child: Scaffold(
         appBar: CustomDialogAppBarWidget(
-          title: LocaleKeys.settings_language_name.locale,
+          title: LocaleKeys.settings_language_name.locale(context),
         ),
-        body: _appLangSection(context),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: _appLangSection(context),
+        ),
       ),
     );
   }
@@ -36,13 +39,13 @@ class LanguagesView extends StatelessWidget {
     final langManager = getIt<LanguageManager>();
 
     return CustomColoredBoxColumnWidget(
-      labelText: LocaleKeys.settings_language_title.locale,
+      labelText: LocaleKeys.settings_language_title.locale(context),
       children: [
         Row(
           children: [
             ChoiceChip(
               label: Text(
-                LocaleKeys.languages_en.locale,
+                LocaleKeys.languages_en.locale(context),
               ),
               selected: context.locale == langManager.enLocale,
               onSelected: (value) => _setLocale(context, value, langManager),
@@ -50,7 +53,7 @@ class LanguagesView extends StatelessWidget {
             context.horizontalPaddingNormal,
             ChoiceChip(
               label: Text(
-                LocaleKeys.languages_tr.locale,
+                LocaleKeys.languages_tr.locale(context),
               ),
               selected: context.locale == langManager.trLocale,
               onSelected: (value) => _setLocale(context, value, langManager),

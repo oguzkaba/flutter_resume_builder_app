@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:fixresume/core/constants/app/color_constants.dart';
 import 'package:fixresume/core/enums/routes_enum.dart';
 import 'package:fixresume/core/extensions/asset_extension.dart';
@@ -8,27 +6,36 @@ import 'package:fixresume/core/extensions/icon_extension.dart';
 import 'package:fixresume/core/extensions/string_extensions.dart';
 import 'package:fixresume/core/init/di/dep_injection.dart';
 import 'package:fixresume/core/init/lang/locale_keys.g.dart';
+import 'package:fixresume/core/init/purchases/purchases_manager.dart';
 import 'package:fixresume/core/utils/general_util.dart';
 import 'package:fixresume/core/utils/pdf_util.dart';
 import 'package:fixresume/core/widgets/custom_bottomsheet_widget.dart';
 import 'package:fixresume/core/widgets/custom_icon_button_widget.dart';
 import 'package:fixresume/core/widgets/custom_outlined_button_widget.dart';
+import 'package:fixresume/core/widgets/custom_snackbar_widget.dart';
 import 'package:fixresume/features/auth/domain/entities/user_details_entity.dart';
-import 'package:fixresume/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:fixresume/features/resume/data/models/resumes_model.dart';
-import 'package:fixresume/features/resume/data/models/sections/experiences_model.dart';
-import 'package:fixresume/features/resume/data/models/sections/skills_model.dart';
-import 'package:fixresume/features/resume/data/models/sections/social_accounts_model.dart';
-import 'package:fixresume/features/resume/templates/data/models/templates_model.dart';
+import 'package:fixresume/features/auth/presentation/blocs/auth/auth_bloc.dart';
+import 'package:fixresume/features/auth/presentation/widgets/avatar_widget.dart';
+import 'package:fixresume/features/resume/presentation/blocs/skills/skills_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// This Dart class named HomeView extends StatefulWidget.
-class HomeView extends StatelessWidget {
+/// This Dart class named HomeView extends StatelessWidget.
+class HomeView extends StatefulWidget {
   ///constructor
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    getIt<SkillsBloc>().add(const SkillsEvent.getSkills());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +66,11 @@ class HomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    LocaleKeys.home_myResumes.locale,
+                    LocaleKeys.home_myResumes.locale(context),
                     style: context.size16Bold,
                   ),
                   Text(
-                    LocaleKeys.home_seeAll.locale,
+                    LocaleKeys.home_seeAll.locale(context),
                     style: context.size14BoldWithColor(
                       ColorConstants.primaryColor,
                     ),
@@ -133,7 +140,7 @@ class HomeView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         CustomOutlinedIconButtonWidget(
-          labelText: LocaleKeys.home_buttons_view.locale,
+          labelText: LocaleKeys.home_buttons_view.locale(context),
           icon: FontAwesomeIcons.solidEye,
           onPressed: () async {
             await PdfUtil.createPdf('Oguzkaba.pdf', user);
@@ -148,14 +155,15 @@ class HomeView extends StatelessWidget {
           },
         ),
         CustomOutlinedIconButtonWidget(
-          labelText: LocaleKeys.home_buttons_download.locale,
+          labelText: LocaleKeys.home_buttons_download.locale(context),
           icon: FontAwesomeIcons.download,
           onPressed: () {},
         ),
         CustomOutlinedIconButtonWidget(
-          labelText: LocaleKeys.home_buttons_share.locale,
+          labelText: LocaleKeys.home_buttons_share.locale(context),
           icon: FontAwesomeIcons.share,
-          onPressed: () => CustomBottomSheetWidget.instance.show(context),
+          onPressed: () =>
+              CustomBottomSheetWidget.instance.showResumeShare(context),
         ),
       ],
     );
@@ -166,9 +174,21 @@ class HomeView extends StatelessWidget {
       heroTag: UniqueKey(),
       backgroundColor: ColorConstants.primaryColor,
       shape: const CircleBorder(),
-      //onPressed: () => context.goNamed(RoutesEnum.createResume.name),
+      // onPressed: () => context.goNamed(RoutesEnum.createResume.name),
       onPressed: () => _getResumes(context),
       child: FontAwesomeIcons.plus.toFaIconWhiteColor,
+    );
+  }
+
+  Future<void> _getResumes(BuildContext context) async {
+    await PurchasesManager.fetchOffers().then(
+      (value) {
+        if (value.isEmpty) {
+          CustomSnackbarWidget.showError(context, 'Error fetching offers');
+          return;
+        }
+        CustomBottomSheetWidget.instance.showPurchase(context, value.first);
+      },
     );
   }
 
@@ -184,7 +204,7 @@ class HomeView extends StatelessWidget {
       child: ListTile(
         leading: Icons.tips_and_updates_rounded.toIconPrimaryColor,
         title: Text(
-          LocaleKeys.home_topMessage.locale,
+          LocaleKeys.home_topMessage.locale(context),
           style: context.size14Bold,
         ),
         trailing: Icons.chevron_right_rounded.toIconDefaultColor,
@@ -220,10 +240,7 @@ class HomeView extends StatelessWidget {
               success: (user) {
                 return GestureDetector(
                   onTap: () => context.goNamed(RoutesEnum.account.name),
-                  child: CircleAvatar(
-                    radius: 18,
-                    backgroundImage: GeneralUtil.profileImage(user),
-                  ),
+                  child: AvatarWidget(user: user, radius: 18, isEdit: false),
                 );
               },
               orElse: () => const SizedBox.shrink(),
@@ -231,13 +248,5 @@ class HomeView extends StatelessWidget {
         context.horizontalPaddingMedium,
       ],
     );
-  }
-
-  Future<ResumesModel> _getResumes(BuildContext context) async {
-    final response = await getIt<SupabaseClient>().from('resumes').select();
-    final responseSkills =
-        await getIt<SupabaseClient>().from('templates').select().eq('id', 1);
-    log(templatesModelFromJson(responseSkills).first.categories.toString());
-    return resumesModelFromJson(response).first;
   }
 }

@@ -6,6 +6,7 @@ import 'package:fixresume/core/extensions/icon_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 
 /// Custom Bottom Sheet Widget For Android and iOS
 class CustomBottomSheetWidget {
@@ -21,12 +22,42 @@ class CustomBottomSheetWidget {
   }
 
   /// This method is used to show the bottom sheet based on the platform.
-  void show(BuildContext context) {
+  void showResumeShare(BuildContext context) {
     if (Platform.isAndroid) {
       _androidBottomSheet(context);
     } else {
       _iOSBottomSheet(context);
     }
+  }
+
+  Future<void> showPurchase(
+    BuildContext context,
+    Offering offering,
+  ) async {
+    return showModalBottomSheet(
+      context: context,
+      showDragHandle: true,
+      scrollControlDisabledMaxHeightRatio: 0.7,
+      builder: (context) => BottomSheet(
+        onClosing: () {},
+        builder: (context) => ListView.builder(
+          shrinkWrap: true,
+          itemCount: offering.availablePackages.length,
+          itemBuilder: (context, index) {
+            final package = offering.availablePackages;
+            return ListTile(
+              leading: FontAwesomeIcons.envelope.toFaIconPrimaryColor,
+              title: Text(package[index].storeProduct.description),
+              subtitle: Text(package[index].storeProduct.priceString),
+              onTap: () async {
+                // await Purchases.purchasePackage(package[index]);
+                // Navigator.pop(context);
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 
   /// This method is used to show the bottom sheet based on the platform for Android.

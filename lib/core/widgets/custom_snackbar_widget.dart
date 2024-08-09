@@ -2,6 +2,7 @@ import 'package:fixresume/core/constants/app/color_constants.dart';
 import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:fixresume/core/extensions/icon_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// CustomSnackbarWidget class
 class CustomSnackbarWidget {
@@ -9,9 +10,9 @@ class CustomSnackbarWidget {
   static void show(
     BuildContext context,
     String message, {
-    Color? bgColor,
-    Color? textColor,
-    IconData? icon,
+    required Color bgColor,
+    required Color textColor,
+    required IconData icon,
     bool? positionTop,
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -20,26 +21,88 @@ class CustomSnackbarWidget {
         margin: positionTop ?? false
             ? EdgeInsets.only(bottom: context.height - 80)
             : EdgeInsets.zero,
-        backgroundColor: bgColor ?? ColorConstants.myLightRed,
+        backgroundColor: bgColor,
         content: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (icon != null)
-              icon.toFaIconCustomColorSized(
-                textColor ?? ColorConstants.myDarkRed,
-                18,
-              ),
+            icon.toFaIconCustomColorSized(
+              textColor,
+              18,
+            ),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
                 message,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: textColor ?? ColorConstants.myDarkRed),
+                style: TextStyle(color: textColor),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  /// showSuccess method
+  static void showSuccess(BuildContext context, String message) {
+    show(
+      context,
+      message,
+      bgColor: ColorConstants.myGreen.withOpacity(.4),
+      textColor: ColorConstants.myGreen,
+      icon: FontAwesomeIcons.circleCheck,
+    );
+  }
+
+  /// showError method
+  static void showError(BuildContext context, String message) {
+    show(
+      context,
+      message,
+      bgColor: ColorConstants.myLightRed,
+      textColor: ColorConstants.myDarkRed,
+      icon: FontAwesomeIcons.circleExclamation,
+    );
+  }
+
+  /// showWarning method
+  static void showWarning(BuildContext context, String message) {
+    show(
+      context,
+      message,
+      bgColor: ColorConstants.myYellow.withOpacity(.4),
+      textColor: ColorConstants.myYellow,
+      icon: FontAwesomeIcons.triangleExclamation,
+    );
+  }
+
+  /// showInfo method
+  static void showInfo(BuildContext context, String message) {
+    show(
+      context,
+      message,
+      bgColor: ColorConstants.myBlue.withOpacity(.4),
+      textColor: ColorConstants.myBlue,
+      icon: FontAwesomeIcons.info,
+    );
+  }
+
+  /// showCustom method
+  static void showCustom(
+    BuildContext context,
+    String message, {
+    required Color bgColor,
+    required Color textColor,
+    required IconData icon,
+    bool? positionTop,
+  }) {
+    show(
+      context,
+      message,
+      bgColor: bgColor,
+      textColor: textColor,
+      icon: icon,
+      positionTop: positionTop,
     );
   }
 }

@@ -7,8 +7,12 @@ List<SocialAccountsModel> socialAccountsModelFromJson(List<dynamic> str) =>
     );
 
 List<Map<String, dynamic>> socialAccountsModelToJson(
-        List<SocialAccountsModel> data) =>
+  List<SocialAccountsModel> data,
+) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
+
+SocialAccountsModel socialAccountsModelFromJsonSingle(List<dynamic> str) =>
+    SocialAccountsModel.fromJson(str.first as Map<String, dynamic>);
 
 class SocialAccountsModel extends SocialAccountsEntity {
   SocialAccountsModel({

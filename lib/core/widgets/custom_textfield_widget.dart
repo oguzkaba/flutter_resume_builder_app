@@ -11,8 +11,8 @@ class CustomTextFieldWidget extends StatelessWidget {
   const CustomTextFieldWidget({
     required this.hintText,
     required this.fillColor,
-    required this.prefixIconData,
     super.key,
+    this.prefixIconData,
     this.suffixIconData,
     this.onChanged,
     this.obsecureText,
@@ -30,7 +30,7 @@ class CustomTextFieldWidget extends StatelessWidget {
 
   final String hintText;
   final Color fillColor;
-  final IconData prefixIconData;
+  final IconData? prefixIconData;
   final IconData? suffixIconData;
   final bool? obsecureText;
   final Color? iconColor;
@@ -59,7 +59,7 @@ class CustomTextFieldWidget extends StatelessWidget {
       obscureText: obsecureText ?? false,
       onChanged: onChanged,
       decoration: InputDecoration(
-        prefixIcon: prefixIconData.toIconMedGreyColorSized(18),
+        prefixIcon: prefixIconData?.toIconMedGreyColorSized(18),
         suffixIcon: CustomIconButtonWidget(
           iconData: suffixIconData,
           onTap: onPressed,

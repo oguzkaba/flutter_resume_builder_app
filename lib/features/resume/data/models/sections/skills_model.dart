@@ -9,6 +9,9 @@ List<SkillsModel> skillsModelFromJson(List<dynamic> str) =>
 List<Map<String, dynamic>> skillsModelToJson(List<SkillsModel> data) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
 
+SkillsModel skillsModelFromJsonSingle(List<dynamic> str) =>
+    SkillsModel.fromJson(str.first as Map<String, dynamic>);
+
 class SkillsModel extends SkillsEntity {
   SkillsModel({
     required super.id,

@@ -36,7 +36,7 @@ class CustomSearchBarWidget extends StatelessWidget {
         searchController: searchController,
         barElevation: const WidgetStatePropertyAll(0),
         viewElevation: 1,
-        barHintText: LocaleKeys.templates_searchHint.locale,
+        barHintText: LocaleKeys.templates_searchHint.locale(context),
         onChanged: (value) {},
         barSide: WidgetStatePropertyAll(
           BorderSide(

@@ -2,14 +2,16 @@ import 'package:fixresume/core/extensions/color_extension.dart';
 import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:fixresume/core/init/di/dep_injection.dart';
 import 'package:fixresume/core/widgets/custom_outlined_button_widget.dart';
-import 'package:fixresume/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:fixresume/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// SocialIconButtonWidget for the application.
 class SocialIconButtonWidget extends StatefulWidget {
   /// SocialIconButtonWidget constructor.
-  const SocialIconButtonWidget({super.key});
+  const SocialIconButtonWidget({required this.state, super.key});
+
+  final AuthState state;
 
   @override
   State<SocialIconButtonWidget> createState() => _SocialIconButtonWidgetState();
@@ -23,6 +25,10 @@ class _SocialIconButtonWidgetState extends State<SocialIconButtonWidget> {
       children: [
         CustomOutlinedIconButtonWidget(
           labelText: 'Google',
+          loading: widget.state.maybeWhen(
+            orElse: () => false,
+            loading: () => true,
+          ),
           onPressed: () {
             getIt<AuthBloc>().add(const AuthEvent.loginWithGoogle());
           },
@@ -35,8 +41,12 @@ class _SocialIconButtonWidgetState extends State<SocialIconButtonWidget> {
         ),
         CustomOutlinedIconButtonWidget(
           labelText: 'Apple',
+          loading: widget.state.maybeWhen(
+            orElse: () => false,
+            loading: () => true,
+          ),
           onPressed: () {
-            getIt<AuthBloc>().add(const AuthEvent.loginWithApple());
+            // getIt<AuthBloc>().add(AuthEvent.loginWithApple(context: context));
           },
           icon: FontAwesomeIcons.apple,
           fontSize: 15,
@@ -49,7 +59,7 @@ class _SocialIconButtonWidgetState extends State<SocialIconButtonWidget> {
     );
   }
 
-  // To-DO: Implement the _todoOAuthMethods method
+  // TO:DO: Implement the _todoOAuthMethods method
   // ignore: unused_element
   Wrap _todoOAuthMethods() {
     final buttonFixSize = Size(context.width * .44, 42);

@@ -14,3 +14,11 @@ class DeviceInfoModule {
     throw Exception('Platform not supported');
   }
 }
+//   final deviceInfo = DeviceInfoPlugin();
+//   late AndroidDeviceInfo androidInfo;
+//   late IosDeviceInfo iosInfo;
+//   if (Platform.isAndroid) {
+//     androidInfo = await deviceInfo.androidInfo;
+//   } else if (Platform.isIOS) {
+//     iosInfo = await deviceInfo.iosInfo;
+//   }

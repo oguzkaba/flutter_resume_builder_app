@@ -7,22 +7,22 @@ class CustomDialogWidget {
     required BuildContext context,
     required VoidCallback onConfirm,
   }) {
-    showDialog<void>(
+    showDialog<Future<void>>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog.adaptive(
-          title: Text(LocaleKeys.dialogs_logout_title.locale),
-          content: Text(LocaleKeys.dialogs_logout_message.locale),
+          title: Text(LocaleKeys.dialogs_logout_title.locale(context)),
+          content: Text(LocaleKeys.dialogs_logout_message.locale(context)),
           actions: <Widget>[
             TextButton(
-              child: Text(LocaleKeys.dialogs_logout_confirm.locale),
+              child: Text(LocaleKeys.dialogs_logout_confirm.locale(context)),
               onPressed: () {
                 onConfirm();
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text(LocaleKeys.dialogs_logout_cancel.locale),
+              child: Text(LocaleKeys.dialogs_logout_cancel.locale(context)),
               onPressed: () {
                 Navigator.of(context).pop();
               },

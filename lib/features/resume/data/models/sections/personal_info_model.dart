@@ -1,5 +1,5 @@
 import 'package:fixresume/core/extensions/dynamic_cast_extension.dart';
-import 'package:fixresume/features/resume/domain/entities/sections/personel_info_enttity.dart';
+import 'package:fixresume/features/resume/domain/entities/sections/personal_info_entity.dart';
 
 List<PersonalInfoModel> personalInfoModelFromJson(List<dynamic> str) =>
     List<PersonalInfoModel>.from(
@@ -7,8 +7,12 @@ List<PersonalInfoModel> personalInfoModelFromJson(List<dynamic> str) =>
     );
 
 List<Map<String, dynamic>> personalInfoModelToJson(
-        List<PersonalInfoModel> data) =>
+  List<PersonalInfoModel> data,
+) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
+
+PersonalInfoModel personalInfoModelFromJsonSingle(List<dynamic> str) =>
+    PersonalInfoModel.fromJson(str.first as Map<String, dynamic>);
 
 class PersonalInfoModel extends PersonalInfoEntity {
   PersonalInfoModel({

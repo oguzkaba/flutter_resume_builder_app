@@ -12,7 +12,7 @@ class TermsOfConditionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return WebViewUtil(
       htmlFileNameOrUrl: 'terms-of-conditions',
-      title: LocaleKeys.settings_terms_name.locale,
+      title: LocaleKeys.settings_terms_name.locale(context),
     );
   }
 }

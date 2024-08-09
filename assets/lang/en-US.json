@@ -62,7 +62,7 @@
         "orLoginWith": "---- or login with ----",
         "forgot": "Forgot password?",
         "haveAccount": "Don't have account? ",
-        "register": " +Register"
+        "register": "+Register"
     },
     "register": {
         "buttonText": "Register",
@@ -73,7 +73,7 @@
         "tfieldPassHint": "Enter password",
         "tfieldPass2Hint": "Enter password again",
         "haveAccount": "Already have an account? ",
-        "login": " +Login"
+        "login": "+Login"
     },
     "forgot": {
         "buttonText": "Confirm",

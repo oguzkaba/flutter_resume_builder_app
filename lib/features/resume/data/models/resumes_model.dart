@@ -9,6 +9,9 @@ List<ResumesModel> resumesModelFromJson(List<dynamic> str) =>
 List<Map<String, dynamic>> resumesModelToJson(List<ResumesModel> data) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
 
+ResumesModel resumesModelFromJsonSingle(List<dynamic> str) =>
+    ResumesModel.fromJson(str.first as Map<String, dynamic>);
+
 class ResumesModel extends ResumesEntity {
   ResumesModel({
     required super.id,
@@ -42,11 +45,11 @@ class ResumesModel extends ResumesEntity {
       perDetailsId: json['per_details_id'] as int?,
       powerRate: json['power_rate'] as int?,
       summary: json['summary'] as String?,
-      experiencesId: json['experiences_id'] as int?,
-      educationsId: json['educations_id'] as int?,
-      skillsId: json['skills_id'] as int?,
-      examsId: json['exams_id'] as int?,
-      referencesId: json['references_id'] as int?,
+      experiencesId: (json['experiences_id'] as List?).toCastListOrNull(),
+      educationsId: (json['educations_id'] as List?).toCastListOrNull(),
+      skillsId: (json['skills_id'] as List?).toCastListOrNull(),
+      examsId: (json['exams_id'] as List?).toCastListOrNull(),
+      referencesId: (json['references_id'] as List?).toCastListOrNull(),
       hobiesInterests: json['hobies_interests'] as String?,
       deletedAt: (json['deleted_at'] as String?).toCastDateTimeOrNull,
     );

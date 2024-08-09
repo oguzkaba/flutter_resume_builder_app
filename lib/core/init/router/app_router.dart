@@ -1,8 +1,8 @@
 import 'package:fixresume/core/enums/routes_enum.dart';
-import 'package:fixresume/features/auth/domain/entities/user_details_entity.dart';
 import 'package:fixresume/features/auth/presentation/views/login_view.dart';
 import 'package:fixresume/features/auth/presentation/views/register_details_view.dart';
 import 'package:fixresume/features/auth/presentation/views/register_view.dart';
+import 'package:fixresume/features/auth/presentation/widgets/cropped_image_screen.dart';
 import 'package:fixresume/features/dashboard/presentation/views/dashboard_view.dart';
 import 'package:fixresume/features/error/views/error_view.dart';
 import 'package:fixresume/features/home/presentation/views/home_view.dart';
@@ -46,6 +46,16 @@ final router = GoRouter(
   ),
   routes: [
     GoRoute(
+      name: RoutesEnum.error.name,
+      path: RoutesEnum.error.path,
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: ErrorView(
+          message: state.extra as String?,
+        ),
+      ),
+    ),
+    GoRoute(
       name: RoutesEnum.splash.name,
       path: RoutesEnum.splash.path,
       pageBuilder: (context, state) => MaterialPage(
@@ -74,10 +84,18 @@ final router = GoRouter(
       path: RoutesEnum.registerDetails.path,
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
-        child: RegisterDetailsView(
-          user: state.extra! as UserDetailsEntity,
-        ),
+        child: const RegisterDetailsView(),
       ),
+      routes: [
+        GoRoute(
+          name: RoutesEnum.cropImageScreen.name,
+          path: RoutesEnum.cropImageScreen.path,
+          pageBuilder: (context, state) => MaterialPage(
+            key: state.pageKey,
+            child: const CropperImageScreen(),
+          ),
+        ),
+      ],
     ),
     GoRoute(
       name: RoutesEnum.login.name,

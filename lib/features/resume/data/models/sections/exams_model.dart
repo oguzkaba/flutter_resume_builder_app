@@ -8,6 +8,9 @@ List<ExamsModel> examsModelFromJson(List<dynamic> str) => List<ExamsModel>.from(
 List<Map<String, dynamic>> examsModelToJson(List<ExamsModel> data) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
 
+ExamsModel examsModelFromJsonSingle(List<dynamic> str) =>
+    ExamsModel.fromJson(str.first as Map<String, dynamic>);
+
 class ExamsModel extends ExamsEntity {
   ExamsModel({
     required super.id,

@@ -4,6 +4,7 @@ enum RoutesEnum {
   onboard,
   register,
   registerDetails,
+  cropImageScreen,
   login,
   error,
   home,
@@ -29,6 +30,8 @@ enum RoutesEnum {
         return '/register';
       case RoutesEnum.registerDetails:
         return '/register-details';
+      case RoutesEnum.cropImageScreen:
+        return 'crop-image-screen';
       case RoutesEnum.login:
         return '/login';
       case RoutesEnum.error:

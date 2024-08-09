@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:fixresume/core/constants/app/color_constants.dart';
 import 'package:fixresume/core/enums/routes_enum.dart';
 import 'package:fixresume/core/extensions/asset_extension.dart';
 import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:fixresume/core/init/di/dep_injection.dart';
-import 'package:fixresume/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:fixresume/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,14 +29,23 @@ class _SplashViewState extends State<SplashView> {
 
   Future<void> appAuthControl(Duration duration) async {
     getIt<AuthBloc>().add(const AuthEvent.loggedIn());
-    await Future<dynamic>.delayed(duration).then((value) {
-      getIt<AuthBloc>().state.maybeWhen(
-            orElse: () => context.goNamed(RoutesEnum.onboard.name),
-            success: (user) {
-              context.goNamed(RoutesEnum.home.name);
-            },
-          );
-    });
+    await Future<dynamic>.delayed(duration).then(
+      (value) {
+        getIt<AuthBloc>().state.maybeWhen(
+              loading: () => log('Loading'),
+              orElse: () => context.goNamed(RoutesEnum.onboard.name),
+              failure: (String message) {
+                if (message == 'User not logged in!') {
+                  context.goNamed(RoutesEnum.onboard.name);
+                } else {
+                  context.goNamed(RoutesEnum.error.name, extra: message);
+                }
+              },
+              success: (user) =>
+                  context.goNamed(RoutesEnum.home.name),
+            );
+      },
+    );
   }
 
   @override

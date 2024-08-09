@@ -11,11 +11,11 @@ final class AppConstants {
   static const String appVersion = '1.0.0';
 
   /// List bottom navigation items
-  List<String> bottomNavigationLabels = [
-    LocaleKeys.home_name.locale,
-    LocaleKeys.templates_name.locale,
-    LocaleKeys.settings_name.locale,
-  ];
+  List<String> bottomNavigationLabels(BuildContext context) => [
+        LocaleKeys.home_name.locale(context),
+        LocaleKeys.templates_name.locale(context),
+        LocaleKeys.settings_name.locale(context),
+      ];
 
   /// List bottom navigation Icons
   /// Active icons

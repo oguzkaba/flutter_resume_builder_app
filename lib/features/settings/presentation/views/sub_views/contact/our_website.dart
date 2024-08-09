@@ -12,7 +12,7 @@ class OurWebsiteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return WebViewUtil(
       htmlFileNameOrUrl: 'https://oguzkaba.github.io',
-      title: LocaleKeys.settings_ourWebsite.locale,
+      title: LocaleKeys.settings_ourWebsite.locale(context),
       loadType: WebViewLoadType.url,
     );
   }

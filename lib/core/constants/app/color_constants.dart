@@ -7,6 +7,8 @@ final class ColorConstants {
   static Color myWhite = 'ffffff'.toColor;
   static Color secondaryColor = myWhite;
   static Color myYellow = 'ffc107'.toColor;
+  static Color myOrange = 'ff8922'.toColor;
+  static Color myGreen = '4CAF50'.toColor;
   static Color myLightRed = 'ffb7b7'.toColor;
   static Color myRed = 'ff0a0a'.toColor;
   static Color myDarkRed = 'b80000'.toColor;
@@ -27,6 +29,10 @@ final class ColorConstants {
       WidgetStateProperty.all(secondaryColor);
   static WidgetStateProperty<Color> myYellowMaterialState =
       WidgetStateProperty.all(myYellow);
+  static WidgetStateProperty<Color> myOrangeMaterialState =
+      WidgetStateProperty.all(myOrange);
+  static WidgetStateProperty<Color> myGreenMaterialState =
+      WidgetStateProperty.all(myGreen);
   static WidgetStateProperty<Color> myLightRedMaterialState =
       WidgetStateProperty.all(myLightRed);
   static WidgetStateProperty<Color> myRedMaterialState =

@@ -21,15 +21,17 @@ class UserDetailsModel extends UserDetailsEntity {
     required super.subscriptions,
     required super.status,
     required super.currentUser,
+    super.id,
     super.createdAt,
-    super.appVersion,
     super.deviceInfo,
+    super.appVersion,
     super.updatedAt,
     super.deletedAt,
   });
 
   factory UserDetailsModel.fromJson(Map<String, dynamic> json) {
     return UserDetailsModel(
+      id: json['id'] as int?,
       createdAt: (json['created_at'] as String).toCastDateTimeOrNull,
       userId: json['user_id'] as String,
       fullName: json['full_name'] as String?,
@@ -45,8 +47,28 @@ class UserDetailsModel extends UserDetailsEntity {
     );
   }
 
+  factory UserDetailsModel.fromEntity(UserDetailsEntity entity) {
+    return UserDetailsModel(
+      id: entity.id,
+      createdAt: entity.createdAt,
+      userId: entity.userId,
+      fullName: entity.fullName,
+      photoUrl: entity.photoUrl,
+      accType: entity.accType,
+      subscriptions: entity.subscriptions,
+      status: entity.status,
+      appVersion: entity.appVersion,
+      deviceInfo: entity.deviceInfo,
+      currentUser: entity.currentUser,
+      updatedAt: entity.updatedAt,
+      deletedAt: entity.deletedAt,
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
+      'created_at': createdAt?.toIso8601String(),
       'user_id': userId,
       'full_name': fullName,
       'photo_url': photoUrl,

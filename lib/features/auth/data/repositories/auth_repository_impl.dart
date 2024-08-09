@@ -9,6 +9,7 @@ import 'package:fixresume/features/auth/domain/entities/account_type_entity.dart
 import 'package:fixresume/features/auth/domain/entities/subscriptions_entity.dart';
 import 'package:fixresume/features/auth/domain/entities/user_details_entity.dart';
 import 'package:fixresume/features/auth/domain/repositories/auth_repository.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthRepository)
@@ -48,9 +49,11 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, UserDetailsEntity>> loginWithApple() {
+  Future<Either<Failure, UserDetailsEntity>> loginWithApple(
+    BuildContext context,
+  ) {
     return _getUser(
-      () async => remoteDataSource.loginWithApple(),
+      () async => remoteDataSource.loginWithApple(context),
     );
   }
 
@@ -141,7 +144,7 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, SubscriptionsEntity>> addSubscriptions({
+  Future<Either<Failure, void>> addSubscriptions({
     required String userId,
     required String accType,
   }) async {
@@ -149,12 +152,48 @@ class AuthRepositoryImpl implements AuthRepository {
       if (!await connectivityInfo.isConnected) {
         return left(ConnectionFailure(errorMessage: 'No internet connection!'));
       } else {
-        final response = await remoteDataSource.addSubscriptions(
+        await remoteDataSource.addSubscriptions(
           userId: userId,
           accType: accType,
         );
 
-        return right(response);
+        return right(null);
+      }
+    } on ServerException catch (e) {
+      return left(ServerFailure(errorMessage: e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> updateSubscriptions({
+    required String userId,
+    required String accType,
+  }) async {
+    try {
+      if (!await connectivityInfo.isConnected) {
+        return left(ConnectionFailure(errorMessage: 'No internet connection!'));
+      } else {
+        await remoteDataSource.updateSubscriptions(
+          userId: userId,
+          accType: accType,
+        );
+
+        return right(null);
+      }
+    } on ServerException catch (e) {
+      return left(ServerFailure(errorMessage: e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> deleteSubscriptions({required int id}) async {
+    try {
+      if (!await connectivityInfo.isConnected) {
+        return left(ConnectionFailure(errorMessage: 'No internet connection!'));
+      } else {
+        await remoteDataSource.deleteSubscriptions(id: id);
+
+        return right(null);
       }
     } on ServerException catch (e) {
       return left(ServerFailure(errorMessage: e.message));
@@ -177,18 +216,44 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, UserDetailsEntity>> addUserDetails(
-    UserDetailsEntity userDetailsEntity,
-  ) async {
+  Future<Either<Failure, void>> addUserDetails({
+    required UserDetailsEntity userDetailsEntity,
+  }) async {
     try {
       if (!await connectivityInfo.isConnected) {
         return left(ConnectionFailure(errorMessage: 'No internet connection!'));
       } else {
-        final response = await remoteDataSource.addUserDetails(
-          userDetailsModel: userDetailsEntity as UserDetailsModel,
+        await remoteDataSource.addUserDetails(
+          userDetailsModel: UserDetailsModel.fromEntity(userDetailsEntity),
         );
 
-        return right(response);
+        return right(null);
+      }
+    } on ServerException catch (e) {
+      return left(ServerFailure(errorMessage: e.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserDetailsEntity>> updateUserDetails({
+    required UserDetailsEntity userDetailsEntity,
+  }) async {
+    return _getUser(
+      () async => remoteDataSource.updateUserDetails(
+        userDetailsModel: UserDetailsModel.fromEntity(userDetailsEntity),
+      ),
+    );
+  }
+
+  @override
+  Future<Either<Failure, void>> deleteUserDetails({required int id}) async {
+    try {
+      if (!await connectivityInfo.isConnected) {
+        return left(ConnectionFailure(errorMessage: 'No internet connection!'));
+      } else {
+        await remoteDataSource.deleteUserDetails(id: id);
+
+        return right(null);
       }
     } on ServerException catch (e) {
       return left(ServerFailure(errorMessage: e.message));

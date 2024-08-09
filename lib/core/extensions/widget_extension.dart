@@ -8,8 +8,14 @@ extension WidgetExtansion on Widget {
 
   /// This method is used to wrap a widget with a [Container].
   Container get wrapColoredContainer => Container(
-        color: ColorConstants.myExtraLightGrey,
         padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: ColorConstants.myExtraLightGrey,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+          ),
+        ),
         width: double.infinity,
         child: this,
       );

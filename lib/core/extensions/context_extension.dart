@@ -1,6 +1,7 @@
 import 'package:fixresume/core/constants/app/color_constants.dart';
 import 'package:fixresume/core/constants/regex/regex_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 /// This extension is used to extend the `BuildContext` class.
 extension ContextExtension on BuildContext {
@@ -266,4 +267,40 @@ extension ContextExtension on BuildContext {
         borderSide: BorderSide(color: colorScheme.error),
         borderRadius: BorderRadius.circular(12),
       );
+
+  /// Shimmer
+  Shimmer shimmerAvatar(double radius) => Shimmer.fromColors(
+        baseColor: ColorConstants.myLightGrey,
+        highlightColor: ColorConstants.myLightGrey.withOpacity(.7),
+        child: CircleAvatar(radius: radius),
+      );
+
+  Shimmer shimmerContainer(double width, double height) => Shimmer.fromColors(
+        baseColor: ColorConstants.myLightGrey,
+        highlightColor: ColorConstants.myLightGrey.withOpacity(.7),
+        child: Container(
+          width: width,
+          height: height,
+          color: ColorConstants.myLightGrey,
+        ),
+      );
+
+  Shimmer shimmerColoredBox(int count, {double height = 120}) {
+    return Shimmer.fromColors(
+      baseColor: ColorConstants.myLightGrey,
+      highlightColor: ColorConstants.myLightGrey.withOpacity(.7),
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: count,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 8),
+            color: ColorConstants.myLightGrey,
+            height: height,
+          );
+        },
+      ),
+    );
+  }
 }

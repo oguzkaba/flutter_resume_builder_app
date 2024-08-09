@@ -7,8 +7,12 @@ List<ExperiencesModel> experiencesModelFromJson(List<dynamic> str) =>
     );
 
 List<Map<String, dynamic>> experiencesModelToJson(
-        List<ExperiencesModel> data) =>
+  List<ExperiencesModel> data,
+) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
+
+ExperiencesModel experiencesModelFromJsonSingle(List<dynamic> str) =>
+    ExperiencesModel.fromJson(str.first as Map<String, dynamic>);
 
 class ExperiencesModel extends ExperiencesEntity {
   ExperiencesModel({

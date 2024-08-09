@@ -5,7 +5,7 @@ import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:fixresume/core/extensions/string_extensions.dart';
 import 'package:fixresume/core/init/lang/locale_keys.g.dart';
 import 'package:fixresume/core/widgets/custom_filledbutton_widget.dart';
-import 'package:flutter/gestures.dart';
+import 'package:fixresume/features/auth/presentation/widgets/auth_link_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -49,39 +49,24 @@ class _OnboardViewState extends State<OnboardView> {
     return Column(
       children: [
         Text(
-          LocaleKeys.onboard_title.locale,
+          LocaleKeys.onboard_title.locale(context),
           textAlign: TextAlign.center,
           style: context.size28Bold,
         ),
         Text(
-          LocaleKeys.onboard_desc.locale,
+          LocaleKeys.onboard_desc.locale(context),
           textAlign: TextAlign.center,
           style: context.size12BoldWithColor(ColorConstants.myMediumGrey),
         ),
         context.verticalPaddingNormal,
         CustomFilledButtonWidget(
-          buttonText: LocaleKeys.onboard_buttonText.locale,
+          buttonText: LocaleKeys.onboard_buttonText.locale(context),
           onPressed: () => context.goNamed(RoutesEnum.register.name),
         ),
-        context.verticalPaddingSmall,
-        Text.rich(
-          TextSpan(
-            text: LocaleKeys.onboard_haveAccount.locale,
-            style:
-                context.defaultSizeNormalWithColor(ColorConstants.myMediumGrey),
-            children: [
-              TextSpan(
-                text: LocaleKeys.onboard_login.locale,
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () => context.goNamed(RoutesEnum.login.name),
-                style: context
-                    .defaultSizeBoldWithColor(ColorConstants.primaryColor)
-                    .copyWith(
-                      decoration: TextDecoration.underline,
-                    ),
-              ),
-            ],
-          ),
+        AuthLinkWidget(
+          onTap: () => context.goNamed(RoutesEnum.login.name),
+          textQuestion: LocaleKeys.onboard_haveAccount.locale(context),
+          textAction: LocaleKeys.onboard_login.locale(context),
         ),
       ],
     );

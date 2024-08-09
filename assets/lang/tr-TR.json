@@ -62,7 +62,7 @@
         "orLoginWith": "---- veya şununla giriş yapın ----",
         "forgot": "Şifremi unuttum?",
         "haveAccount": "Hesabınız yok mu? ",
-        "register": " +Kayıt Ol"
+        "register": "+Kayıt Ol"
     },
     "register": {
         "buttonText": "Kayıt Ol",
@@ -73,7 +73,7 @@
         "tfieldPassHint": "Şifre",
         "tfieldPass2Hint": "Şifre Tekrar",
         "haveAccount": "Zaten hesabınız var mı? ",
-        "login": " +Giriş Yap"
+        "login": "+Giriş Yap"
     },
     "forgot": {
         "buttonText": "Onayla",
@@ -152,7 +152,7 @@
             },
             "features": {
                 "free": {
-                    "features1": "Sınırlı şablonlar",
+                    "features1": "Tüm şablonlar",
                     "features2": "Özelleştirme seçenekleri yok",
                     "features3": "1 PDF indirme",
                     "features4": "PDF üzerinde filigran",

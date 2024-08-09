@@ -9,9 +9,9 @@ import 'package:fixresume/core/mixin/validator_mixin.dart';
 import 'package:fixresume/core/widgets/custom_filledbutton_widget.dart';
 import 'package:fixresume/core/widgets/custom_snackbar_widget.dart';
 import 'package:fixresume/core/widgets/custom_textfield_widget.dart';
-import 'package:fixresume/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:fixresume/features/auth/presentation/blocs/auth/auth_bloc.dart';
+import 'package:fixresume/features/auth/presentation/widgets/auth_link_widget.dart';
 import 'package:fixresume/features/auth/presentation/widgets/social_button_widget.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,14 +52,13 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
                 state.maybeWhen(
                   orElse: () {},
                   failure: (message) {
-                    CustomSnackbarWidget.show(
+                    CustomSnackbarWidget.showError(
                       context,
                       message,
-                      icon: FontAwesomeIcons.circleExclamation,
                     );
                   },
                   success: (user) {
-                    context.goNamed(RoutesEnum.home.name);
+                    context.goNamed(RoutesEnum.registerDetails.name);
                   },
                 );
               },
@@ -73,9 +72,8 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
                     context.verticalPaddingSmall,
                     _orDivider(context),
                     context.verticalPaddingSmall,
-                    const SocialIconButtonWidget(),
-                    context.verticalPaddingSmall,
-                    _signupLinkSection(context),
+                    SocialIconButtonWidget(state: state),
+                    _signinLinkSection(context),
                   ],
                 );
               },
@@ -89,28 +87,17 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
   Center _orDivider(BuildContext context) {
     return Center(
       child: Text(
-        LocaleKeys.login_orLoginWith.locale,
+        LocaleKeys.login_orLoginWith.locale(context),
         style: context.defaultSizeNormalWithColor(ColorConstants.myMediumGrey),
       ),
     );
   }
 
-  Text _signupLinkSection(BuildContext context) {
-    return Text.rich(
-      TextSpan(
-        text: LocaleKeys.register_haveAccount.locale,
-        style: context.defaultSizeNormalWithColor(ColorConstants.myMediumGrey),
-        children: [
-          TextSpan(
-            text: LocaleKeys.register_login.locale,
-            recognizer: TapGestureRecognizer()
-              ..onTap = () => context.goNamed(RoutesEnum.login.name),
-            style: context
-                .defaultSizeBoldWithColor(ColorConstants.primaryColor)
-                .copyWith(decoration: TextDecoration.underline),
-          ),
-        ],
-      ),
+  Widget _signinLinkSection(BuildContext context) {
+    return AuthLinkWidget(
+      textQuestion: LocaleKeys.register_haveAccount.locale(context),
+      textAction: LocaleKeys.register_login.locale(context),
+      onTap: () => context.goNamed(RoutesEnum.login.name),
     );
   }
 
@@ -122,7 +109,7 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
           child: Column(
             children: [
               Text(
-                LocaleKeys.register_topMessage.locale,
+                LocaleKeys.register_topMessage.locale(context),
                 textAlign: TextAlign.center,
                 style: context.size28Bold,
               ),
@@ -144,7 +131,7 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
           ),
         ),
         Text(
-          LocaleKeys.general_appDesc.locale,
+          LocaleKeys.general_appDesc.locale(context),
           textAlign: TextAlign.center,
           style: context.size14BoldWithColor(ColorConstants.myMediumGrey),
         ),
@@ -159,7 +146,7 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
       child: Column(
         children: [
           CustomTextFieldWidget(
-            hintText: LocaleKeys.register_tfieldEmailHint.locale,
+            hintText: LocaleKeys.register_tfieldEmailHint.locale(context),
             fillColor: ColorConstants.myExtraLightGrey,
             prefixIconData: FontAwesomeIcons.solidEnvelope,
             controller: tfEmailController,
@@ -176,7 +163,7 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
           ),
           context.verticalPaddingSmall,
           CustomTextFieldWidget(
-            hintText: LocaleKeys.register_tfieldPassHint.locale,
+            hintText: LocaleKeys.register_tfieldPassHint.locale(context),
             fillColor: ColorConstants.myExtraLightGrey,
             prefixIconData: FontAwesomeIcons.lock,
             suffixIconData: FontAwesomeIcons.eyeLowVision,
@@ -198,7 +185,7 @@ class _RegisterViewState extends State<RegisterView> with ValidatorMixin {
               orElse: () => false,
               loading: () => true,
             ),
-            buttonText: LocaleKeys.register_buttonText.locale,
+            buttonText: LocaleKeys.register_buttonText.locale(context),
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 getIt<AuthBloc>().add(

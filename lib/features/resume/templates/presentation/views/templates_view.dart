@@ -46,12 +46,12 @@ class _TemplatesViewState extends State<TemplatesView> {
     ];
 
     final showCategories = <String>[
-      LocaleKeys.templates_categories_all.locale,
-      LocaleKeys.templates_categories_free.locale,
-      LocaleKeys.templates_categories_newest.locale,
-      LocaleKeys.templates_categories_popular.locale,
-      LocaleKeys.templates_categories_mostLiked.locale,
-      LocaleKeys.templates_categories_recommended.locale,
+      LocaleKeys.templates_categories_all.locale(context),
+      LocaleKeys.templates_categories_free.locale(context),
+      LocaleKeys.templates_categories_newest.locale(context),
+      LocaleKeys.templates_categories_popular.locale(context),
+      LocaleKeys.templates_categories_mostLiked.locale(context),
+      LocaleKeys.templates_categories_recommended.locale(context),
     ];
 
     const backCategiories = <String>[
@@ -110,7 +110,7 @@ class _TemplatesViewState extends State<TemplatesView> {
       automaticallyImplyLeading: false,
       title: Text.rich(
         TextSpan(
-          text: LocaleKeys.templates_name.locale,
+          text: LocaleKeys.templates_name.locale(context),
           style: context.defaultSizeBold,
           children: <InlineSpan>[
             WidgetSpan(

@@ -9,6 +9,9 @@ List<ReferencesModel> referencesModelFromJson(List<dynamic> str) =>
 List<Map<String, dynamic>> referencesModelToJson(List<ReferencesModel> data) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
 
+ReferencesModel referencesModelFromJsonSingle(List<dynamic> str) =>
+    ReferencesModel.fromJson(str.first as Map<String, dynamic>);
+
 class ReferencesModel extends ReferencesEntity {
   ReferencesModel({
     required super.id,

@@ -16,6 +16,7 @@ class CustomOutlinedIconButtonWidget extends StatelessWidget {
     this.fixedSize,
     this.alignment,
     this.shape,
+    this.loading = false,
   });
 
   /// Icon
@@ -45,6 +46,9 @@ class CustomOutlinedIconButtonWidget extends StatelessWidget {
   /// onPressed
   final VoidCallback onPressed;
 
+  /// bool loading.
+  final bool? loading;
+
   @override
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
@@ -54,19 +58,33 @@ class CustomOutlinedIconButtonWidget extends StatelessWidget {
         fixedSize: fixedSize,
         side: BorderSide(color: ColorConstants.myMediumGrey),
       ),
-      onPressed: onPressed,
-      icon: icon.toFaIconCustomColorSized(
-        color ?? ColorConstants.primaryColor,
-        iconSize ?? 16,
-      ),
-      label: Text(
-        labelText,
-        style: TextStyle(
-          color: ColorConstants.myDark,
-          fontWeight: FontWeight.bold,
-          fontSize: fontSize ?? 12,
-        ),
-      ),
+      onPressed: loading == false ? onPressed : null,
+      icon: loading == false
+          ? icon.toFaIconCustomColorSized(
+              color ?? ColorConstants.primaryColor,
+              iconSize ?? 16,
+            )
+          : const SizedBox.shrink(),
+      label: loading == false
+          ? Text(
+              labelText,
+              style: TextStyle(
+                color: ColorConstants.myDark,
+                fontWeight: FontWeight.bold,
+                fontSize: fontSize ?? 12,
+              ),
+            )
+          : SizedBox(
+              height: 24,
+              width: 24,
+              child: CircularProgressIndicator.adaptive(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  ColorConstants.myDark,
+                ),
+                strokeWidth: 2,
+                backgroundColor: ColorConstants.myWhite,
+              ),
+            ),
     );
   }
 }

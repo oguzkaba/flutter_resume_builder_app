@@ -23,7 +23,7 @@ class EntryInfoView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          LocaleKeys.home_create_entryInfo_name.locale,
+          LocaleKeys.home_create_entryInfo_name.locale(context),
           style: context.size18Bold,
           overflow: TextOverflow.ellipsis,
         ),
@@ -33,7 +33,7 @@ class EntryInfoView extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           child: Column(
             children: [
-              _resumeInfoSection(),
+              _resumeInfoSection(context),
               context.verticalPaddingSmall,
               _resumePersonalInfoSection(context),
               context.verticalPaddingSmall,
@@ -152,9 +152,9 @@ class EntryInfoView extends StatelessWidget {
     );
   }
 
-  CustomColoredBoxColumnWidget _resumeInfoSection() {
+  CustomColoredBoxColumnWidget _resumeInfoSection(BuildContext context) {
     return CustomColoredBoxColumnWidget(
-      labelText: LocaleKeys.home_create_entryInfo_resumeInfo.locale,
+      labelText: LocaleKeys.home_create_entryInfo_resumeInfo.locale(context),
       children: [
         Text(
           '${resumeInfo[0].capitalize} - [ ${resumeInfo[1].capitalize} ]',

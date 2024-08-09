@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!--image Picker permissions-->
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>FixResume app needs access to your photo library to pick images.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>FixResume app needs access to your camera to capture new images.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>FixResume app needs access to your microphone to record videos.</string>
+	<!--image Picker permissions-->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

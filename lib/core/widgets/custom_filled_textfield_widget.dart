@@ -11,6 +11,7 @@ class CustomFilledTextFieldWidget extends StatelessWidget {
     this.onChanged,
     this.suffixIcon,
     this.fillColor,
+    this.readOnly = false,
   });
 
   final TextEditingController? controller;
@@ -18,10 +19,12 @@ class CustomFilledTextFieldWidget extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? fillColor;
   final String hintText;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      readOnly: readOnly,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       controller: controller,
       onChanged: onChanged,

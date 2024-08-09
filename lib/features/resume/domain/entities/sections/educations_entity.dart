@@ -35,6 +35,6 @@ class EducationsEntity {
   final DateTime? updatedAt;
   final DateTime? deletedAt;
   final int? graduationMax;
-  final int? graduationDegree;
+  final double? graduationDegree;
   final String? desc;
 }

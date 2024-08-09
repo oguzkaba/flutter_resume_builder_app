@@ -12,7 +12,7 @@ class PrivacyPolicyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return WebViewUtil(
       htmlFileNameOrUrl: 'privacy-policy',
-      title: LocaleKeys.settings_privacy_name.locale,
+      title: LocaleKeys.settings_privacy_name.locale(context),
     );
   }
 }

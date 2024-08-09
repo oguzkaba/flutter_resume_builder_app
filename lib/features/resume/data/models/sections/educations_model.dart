@@ -9,6 +9,9 @@ List<EducationsModel> educationsModelFromJson(List<dynamic> str) =>
 List<Map<String, dynamic>> educationsModelToJson(List<EducationsModel> data) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
 
+EducationsModel educationsModelFromJsonSingle(List<dynamic> str) =>
+    EducationsModel.fromJson(str.first as Map<String, dynamic>);
+
 class EducationsModel extends EducationsEntity {
   EducationsModel({
     required super.id,
@@ -50,7 +53,7 @@ class EducationsModel extends EducationsEntity {
       deletedAt: (json['deleted_at'] as String?).toCastDateTimeOrNull,
       desc: json['desc'] as String?,
       graduationMax: json['graduation_max'] as int?,
-      graduationDegree: json['graduation_degree'] as int?,
+      graduationDegree: json['graduation_degree'] as double?,
     );
   }
 

@@ -28,11 +28,11 @@ class ResumesEntity {
   final int? perDetailsId;
   final int? powerRate;
   final String? summary;
-  final int? experiencesId;
-  final int? educationsId;
-  final int? skillsId;
-  final int? examsId;
-  final int? referencesId;
+  final List<int>? experiencesId;
+  final List<int>? educationsId;
+  final List<int>? skillsId;
+  final List<int>? examsId;
+  final List<int>? referencesId;
   final String? hobiesInterests;
   final DateTime? deletedAt;
 }

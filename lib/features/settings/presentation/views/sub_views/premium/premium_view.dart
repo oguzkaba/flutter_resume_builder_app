@@ -9,7 +9,7 @@ import 'package:fixresume/core/init/lang/locale_keys.g.dart';
 import 'package:fixresume/core/utils/general_util.dart';
 import 'package:fixresume/core/widgets/custom_dialog_appbar_widget.dart';
 import 'package:fixresume/core/widgets/custom_segmented_button_widget.dart';
-import 'package:fixresume/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:fixresume/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,28 +21,35 @@ class PremiumView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final freePlanList = <String>[
-      LocaleKeys.settings_premium_features_free_features1.locale,
-      LocaleKeys.settings_premium_features_free_features2.locale,
-      LocaleKeys.settings_premium_features_free_features3.locale,
-      LocaleKeys.settings_premium_features_free_features4.locale,
-      LocaleKeys.settings_premium_features_free_features5.locale,
+      LocaleKeys.settings_premium_features_free_features1.locale(context),
+      LocaleKeys.settings_premium_features_free_features2.locale(context),
+      LocaleKeys.settings_premium_features_free_features3.locale(context),
+      LocaleKeys.settings_premium_features_free_features4.locale(context),
+      LocaleKeys.settings_premium_features_free_features5.locale(context),
     ];
 
     final basicPlanList = <String>[
-      LocaleKeys.settings_premium_features_basic_features1.locale,
-      LocaleKeys.settings_premium_features_basic_features2.locale,
-      LocaleKeys.settings_premium_features_basic_features3.locale,
-      LocaleKeys.settings_premium_features_basic_features4.locale,
-      LocaleKeys.settings_premium_features_basic_features5.locale,
+      LocaleKeys.settings_premium_features_basic_features1.locale(context),
+      LocaleKeys.settings_premium_features_basic_features2.locale(context),
+      LocaleKeys.settings_premium_features_basic_features3.locale(context),
+      LocaleKeys.settings_premium_features_basic_features4.locale(context),
+      LocaleKeys.settings_premium_features_basic_features5.locale(context),
     ];
     final proPlanList = <String>[
-      LocaleKeys.settings_premium_features_professional_features1.locale,
-      LocaleKeys.settings_premium_features_professional_features2.locale,
-      LocaleKeys.settings_premium_features_professional_features3.locale,
-      LocaleKeys.settings_premium_features_professional_features4.locale,
-      LocaleKeys.settings_premium_features_professional_features5.locale,
-      LocaleKeys.settings_premium_features_professional_features6.locale,
-      LocaleKeys.settings_premium_features_professional_features7.locale,
+      LocaleKeys.settings_premium_features_professional_features1
+          .locale(context),
+      LocaleKeys.settings_premium_features_professional_features2
+          .locale(context),
+      LocaleKeys.settings_premium_features_professional_features3
+          .locale(context),
+      LocaleKeys.settings_premium_features_professional_features4
+          .locale(context),
+      LocaleKeys.settings_premium_features_professional_features5
+          .locale(context),
+      LocaleKeys.settings_premium_features_professional_features6
+          .locale(context),
+      LocaleKeys.settings_premium_features_professional_features7
+          .locale(context),
     ];
     final accType = getIt<AuthBloc>().state.maybeWhen(
           success: (user) {
@@ -58,7 +65,7 @@ class PremiumView extends StatelessWidget {
       },
       child: Scaffold(
         appBar: CustomDialogAppBarWidget(
-          title: LocaleKeys.settings_premium_name.locale,
+          title: LocaleKeys.settings_premium_name.locale(context),
         ),
         body: SingleChildScrollView(
           primary: true,
@@ -70,11 +77,11 @@ class PremiumView extends StatelessWidget {
                   FontAwesomeIcons.crown
                       .toFaIconCustomColorSized(GeneralUtil.badgeColor, 56),
                   Text(
-                    LocaleKeys.settings_premium_title.locale,
+                    LocaleKeys.settings_premium_title.locale(context),
                     style: context.size28ExtraBold,
                   ),
                   Text(
-                    LocaleKeys.settings_premium_desc.locale,
+                    LocaleKeys.settings_premium_desc.locale(context),
                     textAlign: TextAlign.center,
                     style: context
                         .size14BoldWithColor(ColorConstants.myMediumGrey),
@@ -99,7 +106,7 @@ class PremiumView extends StatelessWidget {
                                     label: Text(
                                       LocaleKeys
                                           .settings_premium_plans_free_name
-                                          .locale,
+                                          .locale(context),
                                     ),
                                   ),
                                   ButtonSegment(
@@ -107,7 +114,7 @@ class PremiumView extends StatelessWidget {
                                     label: Text(
                                       LocaleKeys
                                           .settings_premium_plans_basic_name
-                                          .locale,
+                                          .locale(context),
                                     ),
                                   ),
                                   ButtonSegment(
@@ -115,7 +122,7 @@ class PremiumView extends StatelessWidget {
                                     label: Text(
                                       LocaleKeys
                                           .settings_premium_plans_professional_name
-                                          .locale,
+                                          .locale(context),
                                     ),
                                   ),
                                 ],
@@ -145,28 +152,29 @@ class PremiumView extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 TextSpan(
                                   text: LocaleKeys
-                                      .settings_premium_termsAndprivacy.locale,
+                                      .settings_premium_termsAndprivacy
+                                      .locale(context),
                                   style: context.defaultSizeBoldWithColor(
                                     ColorConstants.myLightGrey,
                                   ),
                                   children: [
                                     TextSpan(
-                                      text:
-                                          LocaleKeys.settings_terms_name.locale,
+                                      text: LocaleKeys.settings_terms_name
+                                          .locale(context),
                                       style: context.defaultSizeBoldWithColor(
                                         ColorConstants.primaryColor,
                                       ),
                                     ),
                                     TextSpan(
                                       text:
-                                          '\n${LocaleKeys.settings_premium_and.locale} ',
+                                          '\n${LocaleKeys.settings_premium_and.locale(context)} ',
                                       style: context.size14BoldWithColor(
                                         ColorConstants.myLightGrey,
                                       ),
                                     ),
                                     TextSpan(
-                                      text: LocaleKeys
-                                          .settings_privacy_name.locale,
+                                      text: LocaleKeys.settings_privacy_name
+                                          .locale(context),
                                       style: context.defaultSizeBoldWithColor(
                                         ColorConstants.primaryColor,
                                       ),
@@ -200,8 +208,12 @@ class PremiumView extends StatelessWidget {
   Text _buttonText(int value, BuildContext context) {
     return Text(
       (value == 1)
-          ? '${LocaleKeys.settings_premium_plans_basic_price.locale} ${LocaleKeys.currency.locale} / ${LocaleKeys.settings_premium_plans_basic_desc.locale}'
-          : '${LocaleKeys.settings_premium_plans_professional_price.locale} ${LocaleKeys.currency.locale} / ${LocaleKeys.settings_premium_plans_professional_desc.locale}',
+          ? '${LocaleKeys.settings_premium_plans_basic_price.locale(context)} '
+              '${LocaleKeys.currency.locale(context)} / '
+              '${LocaleKeys.settings_premium_plans_basic_desc.locale(context)}'
+          : '${LocaleKeys.settings_premium_plans_professional_price.locale(context)} '
+              '${LocaleKeys.currency.locale(context)} / '
+              '${LocaleKeys.settings_premium_plans_professional_desc.locale(context)}',
       style: context.size16BoldWithColor(ColorConstants.myWhite),
       overflow: TextOverflow.ellipsis,
     );

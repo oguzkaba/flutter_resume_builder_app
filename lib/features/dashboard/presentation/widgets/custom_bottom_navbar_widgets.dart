@@ -55,7 +55,7 @@ class CustomBottomNavBarWidget extends StatelessWidget {
         3,
         (index) => _bottomNavBarItem(
           index: index,
-          label: AppConstants().bottomNavigationLabels[index],
+          label: AppConstants().bottomNavigationLabels(context)[index],
         ),
       ),
       currentIndex: navigationShell.currentIndex,

@@ -79,5 +79,7 @@ flutter {
 }
 
 dependencies {
+    implementation 'com.android.billingclient:billing:7.0.0'
     implementation 'com.android.support:multidex:2.0.1'
 }
+android.buildTypes.release.ndk.debugSymbolLevel = 'FULL'

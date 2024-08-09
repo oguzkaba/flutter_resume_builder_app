@@ -1,18 +1,20 @@
-import 'dart:io';
-
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fixresume/core/errors/exceptions.dart';
 import 'package:fixresume/core/init/di/dep_injection.dart';
 import 'package:fixresume/features/auth/data/models/account_type_model.dart';
 import 'package:fixresume/features/auth/data/models/subscriptions_model.dart';
 import 'package:fixresume/features/auth/data/models/user_details_model.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:signin_with_linkedin/signin_with_linkedin.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class AuthRemoteDataSource {
+  /// Operations on the auth table
   User? get currentUser;
+
   Future<UserDetailsModel> registerWithEmailPassword({
     required String email,
     required String password,
@@ -21,23 +23,44 @@ abstract interface class AuthRemoteDataSource {
     required String email,
     required String password,
   });
+
+  Future<UserDetailsModel> loginWithGoogle();
+  Future<UserDetailsModel> loginWithApple(BuildContext context);
+  Future<UserDetailsModel> loginWithGithub();
+
+  /// Operations on the user_details table
   Future<UserDetailsModel> getUserDetails();
-  Future<UserDetailsModel> addUserDetails({
+  Future<void> addUserDetails({
     required UserDetailsModel userDetailsModel,
   });
-  Future<UserDetailsModel> loginWithGoogle();
-  Future<UserDetailsModel> loginWithApple();
-  Future<UserDetailsModel> loginWithGithub();
+  Future<UserDetailsModel> updateUserDetails({
+    required UserDetailsModel userDetailsModel,
+  });
+  Future<void> deleteUserDetails({
+    required int id,
+  });
+
+  /// Operations on the account_type table
   Future<AccountTypeModel> getAccountType({
     required String accTypeStr,
   });
+
+  /// Operations on the subscriptions table
   Future<SubscriptionsModel?> getSubscriptions({
     required String userId,
   });
 
-  Future<SubscriptionsModel> addSubscriptions({
+  Future<void> addSubscriptions({
     required String userId,
     required String accType,
+  });
+
+  Future<void> updateSubscriptions({
+    required String userId,
+    required String accType,
+  });
+  Future<void> deleteSubscriptions({
+    required int id,
   });
 
   Future<void> logout();
@@ -45,9 +68,14 @@ abstract interface class AuthRemoteDataSource {
 
 @Injectable(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  AuthRemoteDataSourceImpl(this.supabaseClient, this.googleSignIn);
+  AuthRemoteDataSourceImpl(
+    this.supabaseClient,
+    this.googleSignIn,
+    this.linkedInConfig,
+  );
   final SupabaseClient supabaseClient;
   final GoogleSignIn googleSignIn;
+  final LinkedInConfig linkedInConfig;
 
   @override
   User? get currentUser => supabaseClient.auth.currentUser;
@@ -66,26 +94,26 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         late SubscriptionsModel? subscriptions;
 
         subscriptions = await getSubscriptions(userId: currentUser!.id);
-        subscriptions ??= await addSubscriptions(
-          userId: currentUser!.id,
-          accType: 'free',
-        );
-        final response = await addUserDetails(
+        if (subscriptions == null) {
+          await addSubscriptions(
+            userId: currentUser!.id,
+            accType: 'free',
+          );
+          subscriptions = await getSubscriptions(userId: currentUser!.id);
+        }
+        await addUserDetails(
           userDetailsModel: UserDetailsModel(
             userId: currentUser!.id,
             fullName: currentUser!.userMetadata?['full_name'] as String?,
             photoUrl: currentUser!.userMetadata?['avatar_url'] as String?,
-            accType: 'free',
-            subscriptions: subscriptions.id,
+            accType: subscriptions?.accType ?? 'free',
+            subscriptions: subscriptions?.id,
             status: true,
             currentUser: currentUser!,
             appVersion: getIt<PackageInfo>().version,
-            deviceInfo: Platform.isAndroid
-                ? getIt<AndroidDeviceInfo>().toString()
-                : getIt<IosDeviceInfo>().toString(),
+            deviceInfo: getIt<BaseDeviceInfo>().toString(),
           ),
         );
-        return response;
       }
       return userDetailsModelFromJson(response).first;
     } on AuthException catch (e) {
@@ -96,7 +124,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<UserDetailsModel> addUserDetails({
+  Future<void> addUserDetails({
     required UserDetailsModel userDetailsModel,
   }) async {
     try {
@@ -113,7 +141,53 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (response.isEmpty) {
         throw ServerException(message: 'User Details not found!');
       }
+    } on AuthException catch (e) {
+      throw ServerException(message: e.message);
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<UserDetailsModel> updateUserDetails({
+    required UserDetailsModel userDetailsModel,
+  }) async {
+    try {
+      if (currentUser == null) {
+        throw ServerException(message: 'User not logged in!');
+      }
+
+      final response = await supabaseClient
+          .from('user_details')
+          .update(userDetailsModelToJson([userDetailsModel]).first)
+          .eq('user_id', currentUser!.id)
+          .select();
+      if (response.isEmpty) {
+        throw ServerException(message: 'User Details not found!');
+      }
       return userDetailsModelFromJson(response).first;
+    } on AuthException catch (e) {
+      throw ServerException(message: e.message);
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> deleteUserDetails({required int id}) async {
+    try {
+      if (currentUser == null) {
+        throw ServerException(message: 'User not logged in!');
+      }
+
+      final response = await supabaseClient
+          .from('user_details')
+          .delete()
+          .eq('id', id)
+          .select();
+      if (response.isEmpty) {
+        throw ServerException(message: 'User Details not found!');
+      }
     } on AuthException catch (e) {
       throw ServerException(message: e.message);
     } catch (e) {
@@ -215,10 +289,53 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<UserDetailsModel> loginWithApple() {
+  Future<UserDetailsModel> loginWithApple(BuildContext context) async {
     // TO-DO: implement loginWithApple
     throw UnimplementedError();
+    // await SignInWithLinkedIn.signIn(
+    //   context,
+    //   config: linkedInConfig,
+    //   onGetAuthToken: (data) {
+    //     log('log: Auth token data: ${data.toJson()}');
+    //   },
+    //   onGetUserProfile: (tokens, user) async {
+    //     await _onLinkedinGetProfile(user, tokens);
+    //   },
+    //   onSignInError: (error) {
+    //     throw ServerException(
+    //       message: error.message ?? 'log: Error signing in with LinkedIn',
+    //     );
+    //   },
+    // );
+    // if (currentUser == null) {
+    //   throw ServerException(message: 'User is null!');
+    // }
+    // return getUserDetails();
   }
+
+  // /// Get the LinkedIn profile and sign in with Supabase
+  // Future<User> _onLinkedinGetProfile(
+  //   LinkedInUser user,
+  //   LinkedInAccessToken tokens,
+  // ) async {
+  //   try {
+  //     await supabaseClient.auth.signInWithOAuth(
+  //       OAuthProvider.linkedinOidc,
+  //     );
+  //     AuthState? state;
+  //     supabaseClient.auth.onAuthStateChange.listen(
+  //       (authState) => state = authState,
+  //     );
+  //     if (state?.session?.user == null) {
+  //       throw ServerException(message: 'User is null!');
+  //     }
+  //     return state!.session!.user;
+  //   } on AuthException catch (e) {
+  //     throw ServerException(message: e.message);
+  //   } catch (e) {
+  //     throw ServerException(message: e.toString());
+  //   }
+  // }
 
   @override
   Future<UserDetailsModel> loginWithGithub() async {
@@ -265,7 +382,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<SubscriptionsModel> addSubscriptions({
+  Future<void> addSubscriptions({
     required String userId,
     required String accType,
   }) async {
@@ -278,7 +395,47 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (response.isEmpty) {
         throw ServerException(message: 'Subscription not found!');
       }
-      return subscriptionsModelFromJson(response).first;
+    } on AuthException catch (e) {
+      throw ServerException(message: e.message);
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> updateSubscriptions({
+    required String userId,
+    required String accType,
+  }) async {
+    try {
+      final response = await supabaseClient
+          .from('subscriptions')
+          .update({'acc_type': accType})
+          .eq('user_id', userId)
+          .select();
+
+      if (response.isEmpty) {
+        throw ServerException(message: 'Subscription not found!');
+      }
+    } on AuthException catch (e) {
+      throw ServerException(message: e.message);
+    } catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> deleteSubscriptions({required int id}) async {
+    try {
+      final response = await supabaseClient
+          .from('subscriptions')
+          .delete()
+          .eq('id', id)
+          .select();
+
+      if (response.isEmpty) {
+        throw ServerException(message: 'Subscription not found!');
+      }
     } on AuthException catch (e) {
       throw ServerException(message: e.message);
     } catch (e) {

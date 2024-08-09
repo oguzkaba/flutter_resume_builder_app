@@ -7,8 +7,12 @@ List<PersonalDetailsModel> personalDetailsModelFromJson(List<dynamic> str) =>
     );
 
 List<Map<String, dynamic>> personalDetailsModelToJson(
-        List<PersonalDetailsModel> data) =>
+  List<PersonalDetailsModel> data,
+) =>
     List<Map<String, dynamic>>.from(data.map((x) => x.toJson()));
+
+PersonalDetailsModel personalDetailsModelFromJsonSingle(List<dynamic> str) =>
+    PersonalDetailsModel.fromJson(str.first as Map<String, dynamic>);
 
 class PersonalDetailsModel extends PersonalDetailsEntity {
   PersonalDetailsModel({

@@ -25,7 +25,7 @@ class CreateResumeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          LocaleKeys.home_create_name.locale,
+          LocaleKeys.home_create_name.locale(context),
           style: context.size18Bold,
         ),
       ),
@@ -39,7 +39,12 @@ class CreateResumeView extends StatelessWidget {
               builder: (_, __, ___) => Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _resumeNameSection(resumeNameController, resumeName, name),
+                  _resumeNameSection(
+                    context,
+                    resumeNameController,
+                    resumeName,
+                    name,
+                  ),
                   context.verticalPaddingSmall,
                   _resumeLangSection(context, selectedLang),
                   context.verticalPaddingNormal,
@@ -67,14 +72,14 @@ class CreateResumeView extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: CustomFilledButtonWidget(
-        buttonText: LocaleKeys.home_create_continue.locale,
+        buttonText: LocaleKeys.home_create_continue.locale(context),
         width: 120,
         onPressed: name.isEmpty
             ? null
             : () {
                 final langName = selectedLang == 0
-                    ? LocaleKeys.home_create_resumeLanguageEng.locale
-                    : LocaleKeys.home_create_resumeLanguageTr.locale;
+                    ? LocaleKeys.home_create_resumeLanguageEng.locale(context)
+                    : LocaleKeys.home_create_resumeLanguageTr.locale(context);
                 log('Continue');
                 context.goNamed(
                   RoutesEnum.entryInfo.name,
@@ -86,17 +91,18 @@ class CreateResumeView extends StatelessWidget {
   }
 
   CustomColoredBoxColumnWidget _resumeNameSection(
+    BuildContext context,
     TextEditingController resumeNameController,
     ValueNotifier<String> resumeName,
     String name,
   ) {
     return CustomColoredBoxColumnWidget(
-      labelText: LocaleKeys.home_create_resumeName.locale,
+      labelText: LocaleKeys.home_create_resumeName.locale(context),
       children: [
         CustomFilledTextFieldWidget(
           controller: resumeNameController,
           onChanged: (value) => resumeName.value = value,
-          hintText: LocaleKeys.home_create_resumeNameHint.locale,
+          hintText: LocaleKeys.home_create_resumeNameHint.locale(context),
           suffixIcon: name.isNotEmpty
               ? FontAwesomeIcons.circleCheck.toIconPrimaryColorSized(18)
               : null,
@@ -110,13 +116,13 @@ class CreateResumeView extends StatelessWidget {
     ValueNotifier<int> selectedLang,
   ) {
     return CustomColoredBoxColumnWidget(
-      labelText: LocaleKeys.home_create_resumeLanguage.locale,
+      labelText: LocaleKeys.home_create_resumeLanguage.locale(context),
       children: [
         Row(
           children: [
             ChoiceChip(
               label: Text(
-                LocaleKeys.home_create_resumeLanguageEng.locale,
+                LocaleKeys.home_create_resumeLanguageEng.locale(context),
               ),
               selected: selectedLang.value == 0,
               onSelected: (value) => selectedLang.value = 0,
@@ -124,7 +130,7 @@ class CreateResumeView extends StatelessWidget {
             context.horizontalPaddingNormal,
             ChoiceChip(
               label: Text(
-                LocaleKeys.home_create_resumeLanguageTr.locale,
+                LocaleKeys.home_create_resumeLanguageTr.locale(context),
               ),
               selected: selectedLang.value == 1,
               onSelected: (value) => selectedLang.value = 1,
