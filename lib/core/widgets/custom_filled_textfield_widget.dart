@@ -11,7 +11,9 @@ class CustomFilledTextFieldWidget extends StatelessWidget {
     this.onChanged,
     this.suffixIcon,
     this.fillColor,
+    this.keyboardType,
     this.readOnly = false,
+    this.validator,
   });
 
   final TextEditingController? controller;
@@ -20,12 +22,17 @@ class CustomFilledTextFieldWidget extends StatelessWidget {
   final Color? fillColor;
   final String hintText;
   final bool readOnly;
+  final TextInputType? keyboardType;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       readOnly: readOnly,
+      validator: validator,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      textInputAction: TextInputAction.next,
+      keyboardType: keyboardType,
       controller: controller,
       onChanged: onChanged,
       decoration: InputDecoration(

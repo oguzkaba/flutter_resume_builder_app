@@ -97,6 +97,9 @@ class _$RegisterDetailsStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -113,6 +116,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -245,6 +251,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -377,6 +386,9 @@ class __$$ChangeAvatarImplCopyWithImpl<$Res>
   __$$ChangeAvatarImplCopyWithImpl(
       _$ChangeAvatarImpl _value, $Res Function(_$ChangeAvatarImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -513,6 +525,8 @@ class __$$PickedImageFileImplCopyWithImpl<$Res>
       _$PickedImageFileImpl _value, $Res Function(_$PickedImageFileImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -562,7 +576,9 @@ class _$PickedImageFileImpl
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(byteImage));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PickedImageFileImplCopyWith<_$PickedImageFileImpl> get copyWith =>
@@ -661,7 +677,10 @@ abstract class _PickedImageFile implements RegisterDetailsState {
       _$PickedImageFileImpl;
 
   Uint8List get byteImage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PickedImageFileImplCopyWith<_$PickedImageFileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -683,6 +702,8 @@ class __$$SuccessMessageImplCopyWithImpl<$Res>
       _$SuccessMessageImpl _value, $Res Function(_$SuccessMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -731,7 +752,9 @@ class _$SuccessMessageImpl
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessMessageImplCopyWith<_$SuccessMessageImpl> get copyWith =>
@@ -829,7 +852,10 @@ abstract class _SuccessMessage implements RegisterDetailsState {
   const factory _SuccessMessage(final String message) = _$SuccessMessageImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessMessageImplCopyWith<_$SuccessMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -851,6 +877,8 @@ class __$$FailureImplCopyWithImpl<$Res>
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -897,7 +925,9 @@ class _$FailureImpl with DiagnosticableTreeMixin implements _Failure {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
@@ -994,7 +1024,10 @@ abstract class _Failure implements RegisterDetailsState {
   const factory _Failure(final String error) = _$FailureImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RegisterDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -16,32 +16,30 @@ PersonalInfoModel personalInfoModelFromJsonSingle(List<dynamic> str) =>
 
 class PersonalInfoModel extends PersonalInfoEntity {
   PersonalInfoModel({
-    required super.id,
     required super.userId,
     required super.name,
     required super.surname,
-    required super.birthDate,
-    required super.title,
-    required super.city,
-    required super.country,
     required super.email,
     required super.phoneCountryCode,
     required super.phone,
     required super.createdAt,
+    super.birthDate,
+    super.title,
+    super.city,
+    super.country,
     super.socialMedias,
     super.updatedAt,
   });
 
   factory PersonalInfoModel.fromJson(Map<String, dynamic> json) {
     return PersonalInfoModel(
-      id: json['id'] as int,
       userId: json['user_id'] as String,
       name: json['name'] as String,
       surname: json['surname'] as String,
-      birthDate: (json['birth_date'] as String).toCastDateTime,
-      title: json['title'] as String,
-      city: json['city'] as String,
-      country: json['country'] as String,
+      birthDate: (json['birth_date'] as String?).toCastDateTimeOrNull,
+      title: json['title'] as String?,
+      city: json['city'] as String?,
+      country: json['country'] as String?,
       email: json['email'] as String,
       phoneCountryCode: json['phone_country_code'] as String,
       phone: json['phone'] as String,
@@ -51,13 +49,30 @@ class PersonalInfoModel extends PersonalInfoEntity {
     );
   }
 
+  factory PersonalInfoModel.fromEntity(PersonalInfoEntity entity) {
+    return PersonalInfoModel(
+      userId: entity.userId,
+      name: entity.name,
+      surname: entity.surname,
+      birthDate: entity.birthDate,
+      title: entity.title,
+      city: entity.city,
+      country: entity.country,
+      email: entity.email,
+      phoneCountryCode: entity.phoneCountryCode,
+      phone: entity.phone,
+      createdAt: entity.createdAt,
+      socialMedias: entity.socialMedias,
+      updatedAt: entity.updatedAt,
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'user_id': userId,
       'name': name,
       'surname': surname,
-      'birth_date': birthDate.toIso8601String(),
+      'birth_date': birthDate?.toIso8601String(),
       'title': title,
       'city': city,
       'country': country,

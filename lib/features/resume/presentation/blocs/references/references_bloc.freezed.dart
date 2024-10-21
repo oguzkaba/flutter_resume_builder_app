@@ -85,6 +85,9 @@ class _$ReferencesEventCopyWithImpl<$Res, $Val extends ReferencesEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -101,6 +104,9 @@ class __$$GetReferencesImplCopyWithImpl<$Res>
   __$$GetReferencesImplCopyWithImpl(
       _$GetReferencesImpl _value, $Res Function(_$GetReferencesImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -219,6 +225,8 @@ class __$$AddReferencesImplCopyWithImpl<$Res>
       _$AddReferencesImpl _value, $Res Function(_$AddReferencesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -258,7 +266,9 @@ class _$AddReferencesImpl implements _AddReferences {
   @override
   int get hashCode => Object.hash(runtimeType, referencesEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddReferencesImplCopyWith<_$AddReferencesImpl> get copyWith =>
@@ -345,7 +355,10 @@ abstract class _AddReferences implements ReferencesEvent {
       _$AddReferencesImpl;
 
   ReferencesEntity get referencesEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddReferencesImplCopyWith<_$AddReferencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -367,6 +380,8 @@ class __$$UpdateReferencesImplCopyWithImpl<$Res>
       $Res Function(_$UpdateReferencesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -406,7 +421,9 @@ class _$UpdateReferencesImpl implements _UpdateReferences {
   @override
   int get hashCode => Object.hash(runtimeType, referencesEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateReferencesImplCopyWith<_$UpdateReferencesImpl> get copyWith =>
@@ -494,7 +511,10 @@ abstract class _UpdateReferences implements ReferencesEvent {
       _$UpdateReferencesImpl;
 
   ReferencesEntity get referencesEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateReferencesImplCopyWith<_$UpdateReferencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -516,6 +536,8 @@ class __$$DeleteReferencesImplCopyWithImpl<$Res>
       $Res Function(_$DeleteReferencesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -554,7 +576,9 @@ class _$DeleteReferencesImpl implements _DeleteReferences {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteReferencesImplCopyWith<_$DeleteReferencesImpl> get copyWith =>
@@ -641,7 +665,10 @@ abstract class _DeleteReferences implements ReferencesEvent {
   const factory _DeleteReferences(final int id) = _$DeleteReferencesImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReferencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteReferencesImplCopyWith<_$DeleteReferencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -723,6 +750,9 @@ class _$ReferencesStateCopyWithImpl<$Res, $Val extends ReferencesState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -739,6 +769,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -860,6 +893,9 @@ class __$$ReferencesLoadingImplCopyWithImpl<$Res>
   __$$ReferencesLoadingImplCopyWithImpl(_$ReferencesLoadingImpl _value,
       $Res Function(_$ReferencesLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -984,6 +1020,8 @@ class __$$ReferencesSuccessImplCopyWithImpl<$Res>
       $Res Function(_$ReferencesSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1030,7 +1068,9 @@ class _$ReferencesSuccessImpl implements ReferencesSuccess {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_references));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReferencesSuccessImplCopyWith<_$ReferencesSuccessImpl> get copyWith =>
@@ -1124,7 +1164,10 @@ abstract class ReferencesSuccess implements ReferencesState {
       _$ReferencesSuccessImpl;
 
   List<ReferencesEntity> get references;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReferencesSuccessImplCopyWith<_$ReferencesSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1146,6 +1189,8 @@ class __$$SuccessOnlyMessageImplCopyWithImpl<$Res>
       $Res Function(_$SuccessOnlyMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1185,7 +1230,9 @@ class _$SuccessOnlyMessageImpl implements _SuccessOnlyMessage {
   @override
   int get hashCode => Object.hash(runtimeType, successMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
@@ -1279,7 +1326,10 @@ abstract class _SuccessOnlyMessage implements ReferencesState {
       _$SuccessOnlyMessageImpl;
 
   String get successMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1301,6 +1351,8 @@ class __$$ReferencesFailureImplCopyWithImpl<$Res>
       $Res Function(_$ReferencesFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1339,7 +1391,9 @@ class _$ReferencesFailureImpl implements _ReferencesFailure {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ReferencesFailureImplCopyWith<_$ReferencesFailureImpl> get copyWith =>
@@ -1433,7 +1487,10 @@ abstract class _ReferencesFailure implements ReferencesState {
       _$ReferencesFailureImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ReferencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReferencesFailureImplCopyWith<_$ReferencesFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

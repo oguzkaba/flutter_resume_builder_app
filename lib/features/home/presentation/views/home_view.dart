@@ -1,23 +1,22 @@
 import 'package:fixresume/core/constants/app/color_constants.dart';
 import 'package:fixresume/core/enums/routes_enum.dart';
-import 'package:fixresume/core/extensions/asset_extension.dart';
 import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:fixresume/core/extensions/icon_extension.dart';
 import 'package:fixresume/core/extensions/string_extensions.dart';
 import 'package:fixresume/core/init/di/dep_injection.dart';
 import 'package:fixresume/core/init/lang/locale_keys.g.dart';
-import 'package:fixresume/core/init/purchases/purchases_manager.dart';
 import 'package:fixresume/core/utils/general_util.dart';
 import 'package:fixresume/core/utils/pdf_util.dart';
 import 'package:fixresume/core/widgets/custom_bottomsheet_widget.dart';
 import 'package:fixresume/core/widgets/custom_icon_button_widget.dart';
 import 'package:fixresume/core/widgets/custom_outlined_button_widget.dart';
-import 'package:fixresume/core/widgets/custom_snackbar_widget.dart';
 import 'package:fixresume/features/auth/domain/entities/user_details_entity.dart';
 import 'package:fixresume/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:fixresume/features/auth/presentation/widgets/avatar_widget.dart';
 import 'package:fixresume/features/resume/presentation/blocs/skills/skills_bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
@@ -31,6 +30,9 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  ValueNotifier<Uint8List?> thumbData = ValueNotifier<Uint8List?>(null);
+  final user = getIt<AuthBloc>().state.whenOrNull(success: (user) => user);
+
   @override
   void initState() {
     getIt<SkillsBloc>().add(const SkillsEvent.getSkills());
@@ -81,25 +83,34 @@ class _HomeViewState extends State<HomeView> {
             context.verticalPaddingSmall,
             Expanded(
               flex: 15,
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: ColorConstants.myLightGrey,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: ListView(
-                  shrinkWrap: true,
-                  children: [
-                    _myResumeThumb(),
-                    const Divider(
-                      indent: 32,
-                      endIndent: 32,
-                    ),
-                    _resumeActionButtons(context, user),
-                    context.verticalPaddingSmall,
-                  ],
-                ),
+              child: ValueListenableBuilder<Uint8List?>(
+                valueListenable: thumbData,
+                builder: (context, thumbData, child) {
+                  return thumbData != null
+                      ? Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: ColorConstants.myLightGrey,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              _myResumeThumb(thumbData),
+                              const Divider(
+                                indent: 32,
+                                endIndent: 32,
+                              ),
+                              _resumeActionButtons(context, user),
+                              context.verticalPaddingSmall,
+                            ],
+                          ),
+                        )
+                      : Center(
+                          child: Text('No Resume', style: context.size16Bold),
+                        );
+                },
               ),
             ),
             context.verticalPaddingMedium,
@@ -109,7 +120,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Stack _myResumeThumb() {
+  Stack _myResumeThumb(Uint8List thumbData) {
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -117,10 +128,7 @@ class _HomeViewState extends State<HomeView> {
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
           ),
-          child: Image.asset(
-            'resume/sample_resume6'.toPNG,
-            fit: BoxFit.scaleDown,
-          ),
+          child: Image.memory(thumbData),
         ),
         Positioned(
           top: 0,
@@ -143,13 +151,18 @@ class _HomeViewState extends State<HomeView> {
           labelText: LocaleKeys.home_buttons_view.locale(context),
           icon: FontAwesomeIcons.solidEye,
           onPressed: () async {
-            await PdfUtil.createPdf('Oguzkaba.pdf', user);
+            await PdfUtil.createPdf('oguzkaba.pdf', user)
+                .then((value) => thumbData.value = value);
             if (context.mounted) {
-              await PdfUtil.openPdf(context, 'Oguzkaba.pdf').then(
-                (value) => context.goNamed(
-                  RoutesEnum.previewResume.name,
-                  extra: value,
-                ),
+              await PdfUtil.openPdf(context, 'oguzkaba.pdf').then(
+                (value) {
+                  if (context.mounted) {
+                    context.goNamed(
+                      RoutesEnum.previewResume.name,
+                      extra: value,
+                    );
+                  }
+                },
               );
             }
           },
@@ -181,17 +194,45 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Future<void> _getResumes(BuildContext context) async {
-    await PurchasesManager.fetchOffers().then(
-      (value) {
-        if (value.isEmpty) {
-          CustomSnackbarWidget.showError(context, 'Error fetching offers');
-          return;
+    await PdfUtil.createPdf('oguzkaba.pdf', user!)
+        .then((value) => thumbData.value = value);
+    if (context.mounted) {
+      await PdfUtil.openPdf(context, 'oguzkaba.pdf').then((value) {
+        if (context.mounted) {
+          context.goNamed(
+            RoutesEnum.previewResume.name,
+            extra: value,
+          );
         }
-        CustomBottomSheetWidget.instance.showPurchase(context, value.first);
-      },
-    );
+      });
+    }
   }
 
+  //   Future<void> _getPurchasesList(BuildContext context) async {
+  //   await PurchasesManager.fetchOffers().then(
+  //     (value) {
+  //       if (value.isEmpty) {
+  //         CustomSnackbarWidget.showError(context, 'Error fetching offers');
+  //         return;
+  //       }
+  //       CustomBottomSheetWidget.instance.showPurchase(context, value.first);
+  //     },
+  //   );
+  // }
+
+  // Future<void> _getThumbnailPdf(BuildContext context) async {
+  //   final user = getIt<AuthBloc>().state.whenOrNull(success: (user) => user);
+  //   await PdfUtil.createPdf('Oguzkaba.pdf', user!)
+  //       .then((value) => thumbData.value = value);
+  //   if (context.mounted) {
+  //     await PdfUtil.openPdf(context, 'Oguzkaba.pdf').then(
+  //       (value) => context.goNamed(
+  //         RoutesEnum.previewResume.name,
+  //         extra: value,
+  //       ),
+  //     );
+  //   }
+  // }
   Container _tipContainerSection(BuildContext context) {
     return Container(
       margin: context.edgeInsetsVerticalSmall,
@@ -236,15 +277,10 @@ class _HomeViewState extends State<HomeView> {
           onTap: () => context.goNamed(RoutesEnum.premium.name),
         ),
         context.horizontalPaddingMedium,
-        getIt<AuthBloc>().state.maybeWhen(
-              success: (user) {
-                return GestureDetector(
-                  onTap: () => context.goNamed(RoutesEnum.account.name),
-                  child: AvatarWidget(user: user, radius: 18, isEdit: false),
-                );
-              },
-              orElse: () => const SizedBox.shrink(),
-            ),
+        GestureDetector(
+          onTap: () => context.goNamed(RoutesEnum.account.name),
+          child: const AvatarWidget(radius: 18, isEdit: false),
+        ),
         context.horizontalPaddingMedium,
       ],
     );

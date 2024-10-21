@@ -33,7 +33,6 @@ class _AccountViewState extends State<AccountView> {
   @override
   void initState() {
     getIt<AuthBloc>().add(const AuthEvent.loggedIn());
-
     getIt<AuthBloc>().state.whenOrNull(
       success: (user) {
         getIt<ResumesBloc>().add(const ResumesEvent.getResumes());
@@ -89,26 +88,30 @@ class _AccountViewState extends State<AccountView> {
   }
 
   /// Profile section.
-  CustomColoredBoxColumnWidget _profileSection() {
-    return CustomColoredBoxColumnWidget(
-      labelText: 'Profile',
-      mooreIcon: true,
-      onTap: () => context.pushNamed(RoutesEnum.registerDetails.name),
-      children: [
-        BlocBuilder<AuthBloc, AuthState>(
-          builder: (context, state) {
-            return state.maybeWhen(
-              failure: (message) => Center(
-                child: Text(
-                  'An error occurred: $message',
-                  overflow: TextOverflow.ellipsis,
-                  style: context.size14BoldWithColor(ColorConstants.myDarkRed),
-                ),
-              ),
-              success: (user) {
-                return Row(
+  Widget _profileSection() {
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          failure: (message) => Center(
+            child: Text(
+              'An error occurred: $message',
+              overflow: TextOverflow.ellipsis,
+              style: context.size14BoldWithColor(ColorConstants.myDarkRed),
+            ),
+          ),
+          success: (user) {
+            return CustomColoredBoxColumnWidget(
+              labelText: 'Profile',
+              mooreIcon: true,
+              onTap: () => context.pushNamed(RoutesEnum.registerDetails.name),
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    AvatarWidget(user: user, radius: 56, isEdit: false),
+                    const AvatarWidget(
+                      radius: 56,
+                      isEdit: false,
+                    ),
                     context.horizontalPaddingSmall,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,11 +151,19 @@ class _AccountViewState extends State<AccountView> {
                           builder: (context, state) {
                             return state.maybeWhen(
                               personalInfoFailure: (message) => Center(
-                                child: Text(
-                                  'An error occurred: $message',
-                                  overflow: TextOverflow.ellipsis,
-                                  style: context.size14BoldWithColor(
-                                    ColorConstants.myDarkRed,
+                                child: SizedBox(
+                                  width: context.width - 180,
+                                  child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Text(
+                                      'An error occurred: $message',
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      textWidthBasis: TextWidthBasis.parent,
+                                      style: context.size14BoldWithColor(
+                                        ColorConstants.myDarkRed,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -183,13 +194,13 @@ class _AccountViewState extends State<AccountView> {
                       ],
                     ),
                   ],
-                );
-              },
-              orElse: () => context.shimmerColoredBox(1, height: 160),
+                ),
+              ],
             );
           },
-        ),
-      ],
+          orElse: () => context.shimmerColoredBox(1, height: 176),
+        );
+      },
     );
   }
 
@@ -242,22 +253,27 @@ class _AccountViewState extends State<AccountView> {
   // }
 
   /// Resumes section.
-  CustomColoredBoxColumnWidget _resumesSection() {
-    return CustomColoredBoxColumnWidget(
-      labelText: 'Resumes',
-      mooreIcon: true,
-      children: [
-        BlocBuilder<ResumesBloc, ResumesState>(
-          builder: (context, state) {
-            return state.maybeWhen(
-              resumesFailure: (message) => Center(
-                child: Text(
-                  'An error occurred: $message',
-                  style: context.size14BoldWithColor(ColorConstants.myDarkRed),
-                ),
-              ),
-              resumesSuccess: (resumes) {
-                return ListView.builder(
+  Widget _resumesSection() {
+    return BlocBuilder<ResumesBloc, ResumesState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          resumesFailure: (message) => Center(
+            child: Text(
+              'An error occurred: $message',
+              style: context.size14BoldWithColor(ColorConstants.myDarkRed),
+            ),
+          ),
+          resumesSuccess: (resumes) {
+            return CustomColoredBoxColumnWidget(
+              labelText: 'Resumes',
+              mooreIcon: true,
+              children: [
+                if (resumes.isEmpty)
+                  Text(
+                    'No resumes found',
+                    style: context.size14BoldWithColor(ColorConstants.myDark),
+                  ),
+                ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
@@ -340,13 +356,13 @@ class _AccountViewState extends State<AccountView> {
                     );
                   },
                   itemCount: resumes.length,
-                );
-              },
-              orElse: () => const Center(child: LinearProgressIndicator()),
+                ),
+              ],
             );
           },
-        ),
-      ],
+          orElse: () => context.shimmerColoredBox(1, height: 176),
+        );
+      },
     );
   }
 
@@ -362,6 +378,7 @@ class _AccountViewState extends State<AccountView> {
               failure: (message) => Center(
                 child: Text(
                   'An error occurred: $message',
+                  overflow: TextOverflow.ellipsis,
                   style: context.size14BoldWithColor(ColorConstants.myDarkRed),
                 ),
               ),
@@ -396,7 +413,7 @@ class _AccountViewState extends State<AccountView> {
                   ],
                 );
               },
-              orElse: () => const Center(child: LinearProgressIndicator()),
+              orElse: () => context.shimmerColoredBox(1, height: 116),
             );
           },
         ),

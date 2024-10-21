@@ -40,11 +40,15 @@
     },
     "error": {
         "error": "Error",
+        "errorOccurred": "An error occurred",
         "emptyField": "*This field is required",
         "emailInvalid": "*Please enter a valid email",
         "emailEmpty": "*Please enter your email",
         "passEmpty": "*Please enter your password",
-        "passShort": "*Password must be at least 6 characters"
+        "passShort": "*Password must be at least 6 characters",
+        "nameShort": "*Name must be at least 3 characters",
+        "phoneCountryCodeShort": "*Country code must be at least 2 characters",
+        "phoneShort": "*Phone number must be at least 10 characters"
     },
     "onboard": {
         "buttonText": "Get Started",

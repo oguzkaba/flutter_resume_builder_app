@@ -40,11 +40,15 @@
     },
     "error": {
         "error": "Hata",
-        "emptyField": "*Bu alan zorunludur",
-        "emailInvalid": "*Lütfen geçerli bir email giriniz",
-        "emailEmpty": "*Lütfen email giriniz",
-        "passEmpty": "*Lütfen şifre giriniz",
-        "passShort": "*Şifre en az 6 karakter olmalıdır"
+        "errorOccurred": "Bir hata oluştu",
+        "emptyField": "*Bu alan gereklidir",
+        "emailInvalid": "*Lütfen geçerli bir e-posta adresi girin",
+        "emailEmpty": "*Lütfen e-posta adresinizi girin",
+        "passEmpty": "*Lütfen şifrenizi girin",
+        "passShort": "*Şifre en az 6 karakter olmalıdır",
+        "nameShort": "*Ad en az 3 karakter olmalıdır",
+        "phoneCountryCodeShort": "*Ülke kodu en az 2 karakter olmalıdır",
+        "phoneShort": "*Telefon numarası en az 10 karakter olmalıdır"
     },
     "onboard": {
         "buttonText": "Başla",

@@ -85,6 +85,9 @@ class _$SubscriptionsEventCopyWithImpl<$Res, $Val extends SubscriptionsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -104,6 +107,8 @@ class __$$GetSubscriptionsImplCopyWithImpl<$Res>
       $Res Function(_$GetSubscriptionsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -142,7 +147,9 @@ class _$GetSubscriptionsImpl implements _GetSubscriptions {
   @override
   int get hashCode => Object.hash(runtimeType, userId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetSubscriptionsImplCopyWith<_$GetSubscriptionsImpl> get copyWith =>
@@ -230,7 +237,10 @@ abstract class _GetSubscriptions implements SubscriptionsEvent {
       _$GetSubscriptionsImpl;
 
   String get userId;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetSubscriptionsImplCopyWith<_$GetSubscriptionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -252,6 +262,8 @@ class __$$AddSubscriptionsImplCopyWithImpl<$Res>
       $Res Function(_$AddSubscriptionsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -298,7 +310,9 @@ class _$AddSubscriptionsImpl implements _AddSubscriptions {
   @override
   int get hashCode => Object.hash(runtimeType, userId, accType);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddSubscriptionsImplCopyWith<_$AddSubscriptionsImpl> get copyWith =>
@@ -388,7 +402,10 @@ abstract class _AddSubscriptions implements SubscriptionsEvent {
 
   String get userId;
   String get accType;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddSubscriptionsImplCopyWith<_$AddSubscriptionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -410,6 +427,8 @@ class __$$UpdateSubscriptionsImplCopyWithImpl<$Res>
       $Res Function(_$UpdateSubscriptionsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -457,7 +476,9 @@ class _$UpdateSubscriptionsImpl implements _UpdateSubscriptions {
   @override
   int get hashCode => Object.hash(runtimeType, userId, accType);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateSubscriptionsImplCopyWith<_$UpdateSubscriptionsImpl> get copyWith =>
@@ -547,7 +568,10 @@ abstract class _UpdateSubscriptions implements SubscriptionsEvent {
 
   String get userId;
   String get accType;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateSubscriptionsImplCopyWith<_$UpdateSubscriptionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -569,6 +593,8 @@ class __$$DeleteSubscriptionsImplCopyWithImpl<$Res>
       $Res Function(_$DeleteSubscriptionsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -607,7 +633,9 @@ class _$DeleteSubscriptionsImpl implements _DeleteSubscriptions {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteSubscriptionsImplCopyWith<_$DeleteSubscriptionsImpl> get copyWith =>
@@ -695,7 +723,10 @@ abstract class _DeleteSubscriptions implements SubscriptionsEvent {
       _$DeleteSubscriptionsImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteSubscriptionsImplCopyWith<_$DeleteSubscriptionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -779,6 +810,9 @@ class _$SubscriptionsStateCopyWithImpl<$Res, $Val extends SubscriptionsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -795,6 +829,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -918,6 +955,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1044,6 +1084,8 @@ class __$$SuccessSubscriptionsImplCopyWithImpl<$Res>
       $Res Function(_$SuccessSubscriptionsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1083,7 +1125,9 @@ class _$SuccessSubscriptionsImpl implements _SuccessSubscriptions {
   @override
   int get hashCode => Object.hash(runtimeType, subscriptionsEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessSubscriptionsImplCopyWith<_$SuccessSubscriptionsImpl>
@@ -1181,7 +1225,10 @@ abstract class _SuccessSubscriptions implements SubscriptionsState {
       _$SuccessSubscriptionsImpl;
 
   SubscriptionsEntity? get subscriptionsEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessSubscriptionsImplCopyWith<_$SuccessSubscriptionsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1203,6 +1250,8 @@ class __$$SuccessOnlyMessageImplCopyWithImpl<$Res>
       $Res Function(_$SuccessOnlyMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1242,7 +1291,9 @@ class _$SuccessOnlyMessageImpl implements _SuccessOnlyMessage {
   @override
   int get hashCode => Object.hash(runtimeType, successMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
@@ -1338,7 +1389,10 @@ abstract class _SuccessOnlyMessage implements SubscriptionsState {
       _$SuccessOnlyMessageImpl;
 
   String get successMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1360,6 +1414,8 @@ class __$$FailureImplCopyWithImpl<$Res>
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1398,7 +1454,9 @@ class _$FailureImpl implements _Failure {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
@@ -1492,7 +1550,10 @@ abstract class _Failure implements SubscriptionsState {
   const factory _Failure(final String message) = _$FailureImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SubscriptionsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

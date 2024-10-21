@@ -84,6 +84,9 @@ class _$SkillsEventCopyWithImpl<$Res, $Val extends SkillsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$GetSkillsImplCopyWithImpl<$Res>
   __$$GetSkillsImplCopyWithImpl(
       _$GetSkillsImpl _value, $Res Function(_$GetSkillsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -217,6 +223,8 @@ class __$$AddSkillsImplCopyWithImpl<$Res>
       _$AddSkillsImpl _value, $Res Function(_$AddSkillsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,7 +264,9 @@ class _$AddSkillsImpl implements _AddSkills {
   @override
   int get hashCode => Object.hash(runtimeType, skillsEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddSkillsImplCopyWith<_$AddSkillsImpl> get copyWith =>
@@ -341,7 +351,10 @@ abstract class _AddSkills implements SkillsEvent {
   const factory _AddSkills(final SkillsEntity skillsEntity) = _$AddSkillsImpl;
 
   SkillsEntity get skillsEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddSkillsImplCopyWith<_$AddSkillsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -363,6 +376,8 @@ class __$$UpdateSkillsImplCopyWithImpl<$Res>
       _$UpdateSkillsImpl _value, $Res Function(_$UpdateSkillsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -402,7 +417,9 @@ class _$UpdateSkillsImpl implements _UpdateSkills {
   @override
   int get hashCode => Object.hash(runtimeType, skillsEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateSkillsImplCopyWith<_$UpdateSkillsImpl> get copyWith =>
@@ -488,7 +505,10 @@ abstract class _UpdateSkills implements SkillsEvent {
       _$UpdateSkillsImpl;
 
   SkillsEntity get skillsEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateSkillsImplCopyWith<_$UpdateSkillsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -510,6 +530,8 @@ class __$$DeleteSkillsImplCopyWithImpl<$Res>
       _$DeleteSkillsImpl _value, $Res Function(_$DeleteSkillsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -548,7 +570,9 @@ class _$DeleteSkillsImpl implements _DeleteSkills {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteSkillsImplCopyWith<_$DeleteSkillsImpl> get copyWith =>
@@ -633,7 +657,10 @@ abstract class _DeleteSkills implements SkillsEvent {
   const factory _DeleteSkills(final int id) = _$DeleteSkillsImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkillsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteSkillsImplCopyWith<_$DeleteSkillsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -714,6 +741,9 @@ class _$SkillsStateCopyWithImpl<$Res, $Val extends SkillsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -730,6 +760,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -850,6 +883,9 @@ class __$$SkillsLoadingImplCopyWithImpl<$Res>
   __$$SkillsLoadingImplCopyWithImpl(
       _$SkillsLoadingImpl _value, $Res Function(_$SkillsLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -973,6 +1009,8 @@ class __$$SkillsSuccessImplCopyWithImpl<$Res>
       _$SkillsSuccessImpl _value, $Res Function(_$SkillsSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1017,7 +1055,9 @@ class _$SkillsSuccessImpl implements SkillsSuccess {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_skills));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkillsSuccessImplCopyWith<_$SkillsSuccessImpl> get copyWith =>
@@ -1109,7 +1149,10 @@ abstract class SkillsSuccess implements SkillsState {
       _$SkillsSuccessImpl;
 
   List<SkillsEntity> get skills;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkillsSuccessImplCopyWith<_$SkillsSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1131,6 +1174,8 @@ class __$$SuccessOnlyMessageImplCopyWithImpl<$Res>
       $Res Function(_$SuccessOnlyMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1170,7 +1215,9 @@ class _$SuccessOnlyMessageImpl implements _SuccessOnlyMessage {
   @override
   int get hashCode => Object.hash(runtimeType, successMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
@@ -1263,7 +1310,10 @@ abstract class _SuccessOnlyMessage implements SkillsState {
       _$SuccessOnlyMessageImpl;
 
   String get successMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1285,6 +1335,8 @@ class __$$SkillsFailureImplCopyWithImpl<$Res>
       _$SkillsFailureImpl _value, $Res Function(_$SkillsFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1323,7 +1375,9 @@ class _$SkillsFailureImpl implements _SkillsFailure {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SkillsFailureImplCopyWith<_$SkillsFailureImpl> get copyWith =>
@@ -1414,7 +1468,10 @@ abstract class _SkillsFailure implements SkillsState {
   const factory _SkillsFailure(final String message) = _$SkillsFailureImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SkillsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SkillsFailureImplCopyWith<_$SkillsFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

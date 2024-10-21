@@ -31,10 +31,14 @@ class CustomSnackbarWidget {
             ),
             const SizedBox(width: 10),
             Expanded(
-              child: Text(
-                message,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: textColor),
+              child: FittedBox(
+                alignment: Alignment.centerLeft,
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  message,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: textColor),
+                ),
               ),
             ),
           ],
@@ -48,8 +52,8 @@ class CustomSnackbarWidget {
     show(
       context,
       message,
-      bgColor: ColorConstants.myGreen.withOpacity(.4),
-      textColor: ColorConstants.myGreen,
+      bgColor: ColorConstants.myGreen,
+      textColor: ColorConstants.myWhite,
       icon: FontAwesomeIcons.circleCheck,
     );
   }
@@ -59,8 +63,8 @@ class CustomSnackbarWidget {
     show(
       context,
       message,
-      bgColor: ColorConstants.myLightRed,
-      textColor: ColorConstants.myDarkRed,
+      bgColor: ColorConstants.myDarkRed,
+      textColor: ColorConstants.myWhite,
       icon: FontAwesomeIcons.circleExclamation,
     );
   }
@@ -70,8 +74,8 @@ class CustomSnackbarWidget {
     show(
       context,
       message,
-      bgColor: ColorConstants.myYellow.withOpacity(.4),
-      textColor: ColorConstants.myYellow,
+      bgColor: ColorConstants.myYellow,
+      textColor: ColorConstants.myBlack,
       icon: FontAwesomeIcons.triangleExclamation,
     );
   }
@@ -81,8 +85,8 @@ class CustomSnackbarWidget {
     show(
       context,
       message,
-      bgColor: ColorConstants.myBlue.withOpacity(.4),
-      textColor: ColorConstants.myBlue,
+      bgColor: ColorConstants.myBlue,
+      textColor: ColorConstants.myWhite,
       icon: FontAwesomeIcons.info,
     );
   }

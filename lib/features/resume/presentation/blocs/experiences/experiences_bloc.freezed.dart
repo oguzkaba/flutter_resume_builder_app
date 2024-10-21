@@ -86,6 +86,9 @@ class _$ExperiencesEventCopyWithImpl<$Res, $Val extends ExperiencesEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -102,6 +105,9 @@ class __$$GetExperiencesImplCopyWithImpl<$Res>
   __$$GetExperiencesImplCopyWithImpl(
       _$GetExperiencesImpl _value, $Res Function(_$GetExperiencesImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -221,6 +227,8 @@ class __$$AddExperiencesImplCopyWithImpl<$Res>
       _$AddExperiencesImpl _value, $Res Function(_$AddExperiencesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -260,7 +268,9 @@ class _$AddExperiencesImpl implements _AddExperiences {
   @override
   int get hashCode => Object.hash(runtimeType, experiencesEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddExperiencesImplCopyWith<_$AddExperiencesImpl> get copyWith =>
@@ -349,7 +359,10 @@ abstract class _AddExperiences implements ExperiencesEvent {
       _$AddExperiencesImpl;
 
   ExperiencesEntity get experiencesEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddExperiencesImplCopyWith<_$AddExperiencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -371,6 +384,8 @@ class __$$UpdateExperiencesImplCopyWithImpl<$Res>
       $Res Function(_$UpdateExperiencesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -410,7 +425,9 @@ class _$UpdateExperiencesImpl implements _UpdateExperiences {
   @override
   int get hashCode => Object.hash(runtimeType, experiencesEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateExperiencesImplCopyWith<_$UpdateExperiencesImpl> get copyWith =>
@@ -499,7 +516,10 @@ abstract class _UpdateExperiences implements ExperiencesEvent {
       _$UpdateExperiencesImpl;
 
   ExperiencesEntity get experiencesEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateExperiencesImplCopyWith<_$UpdateExperiencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -521,6 +541,8 @@ class __$$DeleteExperiencesImplCopyWithImpl<$Res>
       $Res Function(_$DeleteExperiencesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -559,7 +581,9 @@ class _$DeleteExperiencesImpl implements _DeleteExperiences {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteExperiencesImplCopyWith<_$DeleteExperiencesImpl> get copyWith =>
@@ -647,7 +671,10 @@ abstract class _DeleteExperiences implements ExperiencesEvent {
   const factory _DeleteExperiences(final int id) = _$DeleteExperiencesImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExperiencesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteExperiencesImplCopyWith<_$DeleteExperiencesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -729,6 +756,9 @@ class _$ExperiencesStateCopyWithImpl<$Res, $Val extends ExperiencesState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -745,6 +775,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -866,6 +899,9 @@ class __$$ExperiencesLoadingImplCopyWithImpl<$Res>
   __$$ExperiencesLoadingImplCopyWithImpl(_$ExperiencesLoadingImpl _value,
       $Res Function(_$ExperiencesLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -990,6 +1026,8 @@ class __$$ExperiencesSuccessImplCopyWithImpl<$Res>
       $Res Function(_$ExperiencesSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1036,7 +1074,9 @@ class _$ExperiencesSuccessImpl implements ExperiencesSuccess {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_experiences));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExperiencesSuccessImplCopyWith<_$ExperiencesSuccessImpl> get copyWith =>
@@ -1130,7 +1170,10 @@ abstract class ExperiencesSuccess implements ExperiencesState {
       _$ExperiencesSuccessImpl;
 
   List<ExperiencesEntity> get experiences;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExperiencesSuccessImplCopyWith<_$ExperiencesSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1152,6 +1195,8 @@ class __$$SuccessOnlyMessageImplCopyWithImpl<$Res>
       $Res Function(_$SuccessOnlyMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1191,7 +1236,9 @@ class _$SuccessOnlyMessageImpl implements _SuccessOnlyMessage {
   @override
   int get hashCode => Object.hash(runtimeType, successMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
@@ -1285,7 +1332,10 @@ abstract class _SuccessOnlyMessage implements ExperiencesState {
       _$SuccessOnlyMessageImpl;
 
   String get successMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1307,6 +1357,8 @@ class __$$ExperiencesFailureImplCopyWithImpl<$Res>
       $Res Function(_$ExperiencesFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1345,7 +1397,9 @@ class _$ExperiencesFailureImpl implements _ExperiencesFailure {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ExperiencesFailureImplCopyWith<_$ExperiencesFailureImpl> get copyWith =>
@@ -1439,7 +1493,10 @@ abstract class _ExperiencesFailure implements ExperiencesState {
       _$ExperiencesFailureImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ExperiencesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ExperiencesFailureImplCopyWith<_$ExperiencesFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

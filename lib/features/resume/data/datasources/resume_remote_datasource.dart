@@ -413,7 +413,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
         throw ServerException(message: 'User not logged in!');
       }
 
-      await supabaseClient.from(tableName).insert(model);
+      await supabaseClient.from(tableName).upsert(model);
     } on AuthException catch (e) {
       throw ServerException(message: e.message);
     } catch (e) {
@@ -433,7 +433,7 @@ class ResumeRemoteDataSourceImpl implements ResumeRemoteDataSource {
 
       await supabaseClient
           .from(tableName)
-          .update(model)
+          .upsert(model)
           .eq('id', model['id'] as int)
           .eq('user_id', currentUser!.id);
     } on AuthException catch (e) {

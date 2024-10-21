@@ -35,11 +35,15 @@ abstract class  LocaleKeys {
   static const dialogs_deleteAccount = 'dialogs.deleteAccount';
   static const dialogs = 'dialogs';
   static const error_error = 'error.error';
+  static const error_errorOccurred = 'error.errorOccurred';
   static const error_emptyField = 'error.emptyField';
   static const error_emailInvalid = 'error.emailInvalid';
   static const error_emailEmpty = 'error.emailEmpty';
   static const error_passEmpty = 'error.passEmpty';
   static const error_passShort = 'error.passShort';
+  static const error_nameShort = 'error.nameShort';
+  static const error_phoneCountryCodeShort = 'error.phoneCountryCodeShort';
+  static const error_phoneShort = 'error.phoneShort';
   static const error = 'error';
   static const onboard_buttonText = 'onboard.buttonText';
   static const onboard_title = 'onboard.title';

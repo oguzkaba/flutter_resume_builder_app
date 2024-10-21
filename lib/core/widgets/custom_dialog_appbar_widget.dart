@@ -28,10 +28,12 @@ class CustomDialogAppBarWidget extends StatelessWidget
           title,
           style: context.defaultSizeBold,
         ),
-        leading: IconButton(
-          onPressed: onPressed ?? () => context.pop(),
-          icon: Icons.arrow_back.toIconDefaultColor,
-        ),
+        leading: context.canPop()
+            ? IconButton(
+                onPressed: onPressed ?? () => context.pop(),
+                icon: Icons.arrow_back.toIconDefaultColor,
+              )
+            : null,
       ),
     );
   }

@@ -70,9 +70,10 @@ class PdfUtil {
     }
   }
 
-  static Future<void> createPdf(
+  static Future<Uint8List> createPdf(
     String fileName,
     UserDetailsEntity user,
+    // Future<void> Function(Image image) thumbImage,
   ) async {
     var educationsId = <int>[];
 
@@ -129,7 +130,7 @@ class PdfUtil {
     final image = await rootBundle.load('avatar'.toPNG);
     final imageData = pw.MemoryImage(image.buffer.asUint8List());
 
-    late pw.Image profileImage;
+    late final pw.Image profileImage;
 
     if (user.photoUrl == null &&
         user.currentUser.userMetadata?['avatar_url'] == null) {
@@ -146,13 +147,16 @@ class PdfUtil {
     pw.Padding listTileHeaderText(String text, {PdfColor? tColor}) {
       return pw.Padding(
         padding: const pw.EdgeInsets.only(bottom: 4),
-        child: pw.Text(
-          text,
-          style: pw.TextStyle(
-            color: tColor,
-            fontSize: 10,
-            fontWeight: pw.FontWeight.bold,
+        child: pw.Link(
+          child: pw.Text(
+            text,
+            style: pw.TextStyle(
+              color: tColor,
+              fontSize: 10,
+              fontWeight: pw.FontWeight.bold,
+            ),
           ),
+          destination: text,
         ),
       );
     }
@@ -254,13 +258,13 @@ class PdfUtil {
                                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                                 children: [
                                   listTileContentText(
-                                    personalInfo.title,
+                                    personalInfo.title ?? 'Title not found',
                                   ),
                                   listTileContentText(
                                     '${personalInfo.name} ${personalInfo.surname}',
                                   ),
                                   listTileContentText(
-                                    '${personalInfo.birthDate.day}.${personalInfo.birthDate.month}.${personalInfo.birthDate.year}',
+                                    '${personalInfo.birthDate?.day}.${personalInfo.birthDate?.month}.${personalInfo.birthDate?.year}',
                                   ),
                                 ],
                               ),
@@ -538,15 +542,22 @@ class PdfUtil {
       ),
     );
 
-    await _savePdfFileMethod(fileName, pdf);
+    return _savePdfFileMethod(fileName, pdf);
   }
 
-  static Future<void> _savePdfFileMethod(
+  static Future<Uint8List> _savePdfFileMethod(
     String fileName,
     pw.Document pdf,
   ) async {
+    late final Uint8List image;
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/$fileName');
     await file.writeAsBytes(await pdf.save());
+    await for (final page in Printing.raster(await pdf.save(), pages: [0])) {
+      await page.toPng().then((value) => image = value);
+      log('Pdf created--> ${image.length}');
+    }
+
+    return image;
   }
 }

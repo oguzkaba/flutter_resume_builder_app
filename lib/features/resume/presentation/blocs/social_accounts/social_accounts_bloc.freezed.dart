@@ -90,6 +90,9 @@ class _$SocialAccountsEventCopyWithImpl<$Res, $Val extends SocialAccountsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,6 +109,9 @@ class __$$GetSocialAccountsImplCopyWithImpl<$Res>
   __$$GetSocialAccountsImplCopyWithImpl(_$GetSocialAccountsImpl _value,
       $Res Function(_$GetSocialAccountsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -229,6 +235,8 @@ class __$$AddSocialAccountsImplCopyWithImpl<$Res>
       $Res Function(_$AddSocialAccountsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -268,7 +276,9 @@ class _$AddSocialAccountsImpl implements _AddSocialAccounts {
   @override
   int get hashCode => Object.hash(runtimeType, socialAccountsEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddSocialAccountsImplCopyWith<_$AddSocialAccountsImpl> get copyWith =>
@@ -362,7 +372,10 @@ abstract class _AddSocialAccounts implements SocialAccountsEvent {
       _$AddSocialAccountsImpl;
 
   SocialAccountsEntity get socialAccountsEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddSocialAccountsImplCopyWith<_$AddSocialAccountsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -384,6 +397,8 @@ class __$$UpdateSocialAccountsImplCopyWithImpl<$Res>
       $Res Function(_$UpdateSocialAccountsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -423,7 +438,9 @@ class _$UpdateSocialAccountsImpl implements _UpdateSocialAccounts {
   @override
   int get hashCode => Object.hash(runtimeType, socialAccountsEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateSocialAccountsImplCopyWith<_$UpdateSocialAccountsImpl>
@@ -518,7 +535,10 @@ abstract class _UpdateSocialAccounts implements SocialAccountsEvent {
       _$UpdateSocialAccountsImpl;
 
   SocialAccountsEntity get socialAccountsEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateSocialAccountsImplCopyWith<_$UpdateSocialAccountsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -540,6 +560,8 @@ class __$$DeleteSocialAccountsImplCopyWithImpl<$Res>
       $Res Function(_$DeleteSocialAccountsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -578,7 +600,9 @@ class _$DeleteSocialAccountsImpl implements _DeleteSocialAccounts {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteSocialAccountsImplCopyWith<_$DeleteSocialAccountsImpl>
@@ -672,7 +696,10 @@ abstract class _DeleteSocialAccounts implements SocialAccountsEvent {
       _$DeleteSocialAccountsImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SocialAccountsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteSocialAccountsImplCopyWith<_$DeleteSocialAccountsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -759,6 +786,9 @@ class _$SocialAccountsStateCopyWithImpl<$Res, $Val extends SocialAccountsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -775,6 +805,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -902,6 +935,9 @@ class __$$SocialAccountsLoadingImplCopyWithImpl<$Res>
   __$$SocialAccountsLoadingImplCopyWithImpl(_$SocialAccountsLoadingImpl _value,
       $Res Function(_$SocialAccountsLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1033,6 +1069,8 @@ class __$$SocialAccountsSuccessImplCopyWithImpl<$Res>
       $Res Function(_$SocialAccountsSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1080,7 +1118,9 @@ class _$SocialAccountsSuccessImpl implements SocialAccountsSuccess {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_socialAccounts));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SocialAccountsSuccessImplCopyWith<_$SocialAccountsSuccessImpl>
@@ -1180,7 +1220,10 @@ abstract class SocialAccountsSuccess implements SocialAccountsState {
       _$SocialAccountsSuccessImpl;
 
   List<SocialAccountsEntity> get socialAccounts;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SocialAccountsSuccessImplCopyWith<_$SocialAccountsSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1202,6 +1245,8 @@ class __$$SuccessOnlyMessageImplCopyWithImpl<$Res>
       $Res Function(_$SuccessOnlyMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1241,7 +1286,9 @@ class _$SuccessOnlyMessageImpl implements _SuccessOnlyMessage {
   @override
   int get hashCode => Object.hash(runtimeType, successMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
@@ -1340,7 +1387,10 @@ abstract class _SuccessOnlyMessage implements SocialAccountsState {
       _$SuccessOnlyMessageImpl;
 
   String get successMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1363,6 +1413,8 @@ class __$$SocialAccountsFailureImplCopyWithImpl<$Res>
       $Res Function(_$SocialAccountsFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1401,7 +1453,9 @@ class _$SocialAccountsFailureImpl implements _SocialAccountsFailure {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SocialAccountsFailureImplCopyWith<_$SocialAccountsFailureImpl>
@@ -1500,7 +1554,10 @@ abstract class _SocialAccountsFailure implements SocialAccountsState {
       _$SocialAccountsFailureImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SocialAccountsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SocialAccountsFailureImplCopyWith<_$SocialAccountsFailureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -85,6 +85,9 @@ class _$EducationsEventCopyWithImpl<$Res, $Val extends EducationsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -101,6 +104,9 @@ class __$$GetEducationsImplCopyWithImpl<$Res>
   __$$GetEducationsImplCopyWithImpl(
       _$GetEducationsImpl _value, $Res Function(_$GetEducationsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -219,6 +225,8 @@ class __$$AddEducationsImplCopyWithImpl<$Res>
       _$AddEducationsImpl _value, $Res Function(_$AddEducationsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -258,7 +266,9 @@ class _$AddEducationsImpl implements _AddEducations {
   @override
   int get hashCode => Object.hash(runtimeType, educationsEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddEducationsImplCopyWith<_$AddEducationsImpl> get copyWith =>
@@ -345,7 +355,10 @@ abstract class _AddEducations implements EducationsEvent {
       _$AddEducationsImpl;
 
   EducationsEntity get educationsEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddEducationsImplCopyWith<_$AddEducationsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -367,6 +380,8 @@ class __$$UpdateEducationsImplCopyWithImpl<$Res>
       $Res Function(_$UpdateEducationsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -406,7 +421,9 @@ class _$UpdateEducationsImpl implements _UpdateEducations {
   @override
   int get hashCode => Object.hash(runtimeType, educationsEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateEducationsImplCopyWith<_$UpdateEducationsImpl> get copyWith =>
@@ -494,7 +511,10 @@ abstract class _UpdateEducations implements EducationsEvent {
       _$UpdateEducationsImpl;
 
   EducationsEntity get educationsEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateEducationsImplCopyWith<_$UpdateEducationsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -516,6 +536,8 @@ class __$$DeleteEducationsImplCopyWithImpl<$Res>
       $Res Function(_$DeleteEducationsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -554,7 +576,9 @@ class _$DeleteEducationsImpl implements _DeleteEducations {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteEducationsImplCopyWith<_$DeleteEducationsImpl> get copyWith =>
@@ -641,7 +665,10 @@ abstract class _DeleteEducations implements EducationsEvent {
   const factory _DeleteEducations(final int id) = _$DeleteEducationsImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EducationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteEducationsImplCopyWith<_$DeleteEducationsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -723,6 +750,9 @@ class _$EducationsStateCopyWithImpl<$Res, $Val extends EducationsState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -739,6 +769,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -860,6 +893,9 @@ class __$$EducationsLoadingImplCopyWithImpl<$Res>
   __$$EducationsLoadingImplCopyWithImpl(_$EducationsLoadingImpl _value,
       $Res Function(_$EducationsLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -984,6 +1020,8 @@ class __$$EducationsSuccessImplCopyWithImpl<$Res>
       $Res Function(_$EducationsSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1030,7 +1068,9 @@ class _$EducationsSuccessImpl implements EducationsSuccess {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_educations));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EducationsSuccessImplCopyWith<_$EducationsSuccessImpl> get copyWith =>
@@ -1124,7 +1164,10 @@ abstract class EducationsSuccess implements EducationsState {
       _$EducationsSuccessImpl;
 
   List<EducationsEntity> get educations;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EducationsSuccessImplCopyWith<_$EducationsSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1146,6 +1189,8 @@ class __$$SuccessOnlyMessageImplCopyWithImpl<$Res>
       $Res Function(_$SuccessOnlyMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1185,7 +1230,9 @@ class _$SuccessOnlyMessageImpl implements _SuccessOnlyMessage {
   @override
   int get hashCode => Object.hash(runtimeType, successMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
@@ -1279,7 +1326,10 @@ abstract class _SuccessOnlyMessage implements EducationsState {
       _$SuccessOnlyMessageImpl;
 
   String get successMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1301,6 +1351,8 @@ class __$$EducationsFailureImplCopyWithImpl<$Res>
       $Res Function(_$EducationsFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1339,7 +1391,9 @@ class _$EducationsFailureImpl implements _EducationsFailure {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EducationsFailureImplCopyWith<_$EducationsFailureImpl> get copyWith =>
@@ -1433,7 +1487,10 @@ abstract class _EducationsFailure implements EducationsState {
       _$EducationsFailureImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of EducationsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EducationsFailureImplCopyWith<_$EducationsFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

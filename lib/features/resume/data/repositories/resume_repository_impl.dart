@@ -82,7 +82,7 @@ class ResumeRepositoryImpl implements ResumeRepository {
   }) {
     return _insertEntity<void>(
       () => remoteDataSource.addPersonalInfo(
-        personalInfoModel: personalInfoEntity as PersonalInfoModel,
+        personalInfoModel: PersonalInfoModel.fromEntity(personalInfoEntity),
       ),
     );
   }
@@ -289,7 +289,7 @@ class ResumeRepositoryImpl implements ResumeRepository {
   }) {
     return _updateEntity<void>(
       () => remoteDataSource.updatePersonalInfo(
-        personalInfoModel: personalInfoEntity as PersonalInfoModel,
+        personalInfoModel: PersonalInfoModel.fromEntity(personalInfoEntity),
       ),
     );
   }

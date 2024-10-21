@@ -84,6 +84,9 @@ class _$ResumesEventCopyWithImpl<$Res, $Val extends ResumesEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$GetResumesImplCopyWithImpl<$Res>
   __$$GetResumesImplCopyWithImpl(
       _$GetResumesImpl _value, $Res Function(_$GetResumesImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -217,6 +223,8 @@ class __$$AddResumesImplCopyWithImpl<$Res>
       _$AddResumesImpl _value, $Res Function(_$AddResumesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,7 +264,9 @@ class _$AddResumesImpl implements _AddResumes {
   @override
   int get hashCode => Object.hash(runtimeType, resumesEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddResumesImplCopyWith<_$AddResumesImpl> get copyWith =>
@@ -342,7 +352,10 @@ abstract class _AddResumes implements ResumesEvent {
       _$AddResumesImpl;
 
   ResumesEntity get resumesEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddResumesImplCopyWith<_$AddResumesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -364,6 +377,8 @@ class __$$UpdateResumesImplCopyWithImpl<$Res>
       _$UpdateResumesImpl _value, $Res Function(_$UpdateResumesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -403,7 +418,9 @@ class _$UpdateResumesImpl implements _UpdateResumes {
   @override
   int get hashCode => Object.hash(runtimeType, resumesEntity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateResumesImplCopyWith<_$UpdateResumesImpl> get copyWith =>
@@ -489,7 +506,10 @@ abstract class _UpdateResumes implements ResumesEvent {
       _$UpdateResumesImpl;
 
   ResumesEntity get resumesEntity;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateResumesImplCopyWith<_$UpdateResumesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -511,6 +531,8 @@ class __$$DeleteResumesImplCopyWithImpl<$Res>
       _$DeleteResumesImpl _value, $Res Function(_$DeleteResumesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -549,7 +571,9 @@ class _$DeleteResumesImpl implements _DeleteResumes {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteResumesImplCopyWith<_$DeleteResumesImpl> get copyWith =>
@@ -634,7 +658,10 @@ abstract class _DeleteResumes implements ResumesEvent {
   const factory _DeleteResumes(final int id) = _$DeleteResumesImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResumesEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteResumesImplCopyWith<_$DeleteResumesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -715,6 +742,9 @@ class _$ResumesStateCopyWithImpl<$Res, $Val extends ResumesState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -731,6 +761,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -851,6 +884,9 @@ class __$$ResumesLoadingImplCopyWithImpl<$Res>
   __$$ResumesLoadingImplCopyWithImpl(
       _$ResumesLoadingImpl _value, $Res Function(_$ResumesLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -974,6 +1010,8 @@ class __$$ResumesSuccessImplCopyWithImpl<$Res>
       _$ResumesSuccessImpl _value, $Res Function(_$ResumesSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1019,7 +1057,9 @@ class _$ResumesSuccessImpl implements _ResumesSuccess {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_resumes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ResumesSuccessImplCopyWith<_$ResumesSuccessImpl> get copyWith =>
@@ -1112,7 +1152,10 @@ abstract class _ResumesSuccess implements ResumesState {
       _$ResumesSuccessImpl;
 
   List<ResumesEntity> get resumes;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResumesSuccessImplCopyWith<_$ResumesSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1134,6 +1177,8 @@ class __$$SuccessOnlyMessageImplCopyWithImpl<$Res>
       $Res Function(_$SuccessOnlyMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1173,7 +1218,9 @@ class _$SuccessOnlyMessageImpl implements _SuccessOnlyMessage {
   @override
   int get hashCode => Object.hash(runtimeType, successMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
@@ -1266,7 +1313,10 @@ abstract class _SuccessOnlyMessage implements ResumesState {
       _$SuccessOnlyMessageImpl;
 
   String get successMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessOnlyMessageImplCopyWith<_$SuccessOnlyMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1288,6 +1338,8 @@ class __$$ResumesFailureImplCopyWithImpl<$Res>
       _$ResumesFailureImpl _value, $Res Function(_$ResumesFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1326,7 +1378,9 @@ class _$ResumesFailureImpl implements _ResumesFailure {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ResumesFailureImplCopyWith<_$ResumesFailureImpl> get copyWith =>
@@ -1418,7 +1472,10 @@ abstract class _ResumesFailure implements ResumesState {
   const factory _ResumesFailure(final String message) = _$ResumesFailureImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ResumesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResumesFailureImplCopyWith<_$ResumesFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

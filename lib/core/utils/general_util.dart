@@ -4,7 +4,6 @@ import 'package:fixresume/core/enums/account_type_enum.dart';
 import 'package:fixresume/core/extensions/asset_extension.dart';
 import 'package:fixresume/core/extensions/color_extension.dart';
 import 'package:fixresume/core/init/di/dep_injection.dart';
-import 'package:fixresume/features/auth/domain/entities/user_details_entity.dart';
 import 'package:fixresume/features/auth/presentation/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -29,15 +28,27 @@ class GeneralUtil {
         );
   }
 
-  static ImageProvider<Object>? profileImage(UserDetailsEntity user) {
-    if (user.photoUrl == null) {
-      return AssetImage('avatar'.toPNG) as ImageProvider<Object>?;
-    } else {
-      return CachedNetworkImageProvider(
-        user.photoUrl!,
-        cacheKey: '${user.photoUrl} + ${user.updatedAt} + ${user.userId}2',
-      );
+  static Future<void> removeCache(
+    String? photoUrl,
+  ) async {
+    if (photoUrl == null) {
+      return;
     }
+    await CachedNetworkImageProvider.defaultCacheManager.emptyCache();
+  }
+
+  static ImageProvider<Object>? profileImage(
+    String? photoUrl,
+  ) {
+    if (photoUrl == null) {
+      return AssetImage('avatar'.toPNG);
+    }
+
+    return CachedNetworkImageProvider(
+      photoUrl,
+      cacheKey: photoUrl,
+      cacheManager: CachedNetworkImageProvider.defaultCacheManager,
+    );
   }
 
   static WidgetStateProperty<Color> resumePowerRateColor(int rate) {
@@ -75,3 +86,21 @@ class GeneralUtil {
         : phone;
   }
 }
+
+// TO-DO: Get size and position of the widget.[initState] called before the widget is rendered.
+// final GlobalKey testKey2 = GlobalKey();
+// Size size = Size.zero;
+// Offset offset = Offset.zero;
+// void getSize() {
+//   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+//     getSizeAndPosition();
+//   });
+// }
+
+// void getSizeAndPosition() {
+//   final logoBox = testKey2.currentContext!.findRenderObject()! as RenderBox;
+//   size = logoBox.size;
+//   offset = logoBox.localToGlobal(Offset.zero);
+//   setState(() {});
+//   log('size: $size');
+// }
