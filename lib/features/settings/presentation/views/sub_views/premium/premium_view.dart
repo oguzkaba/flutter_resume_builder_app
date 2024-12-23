@@ -60,7 +60,7 @@ class PremiumView extends StatelessWidget {
     final accTypeIndex = AccountTypeEnum.fromString(accType).index;
     final selectedPlan = ValueNotifier<int>(accTypeIndex);
     return PopScope(
-      onPopInvoked: (value) {
+      onPopInvokedWithResult: (value, _) {
         context.goNamed(RoutesEnum.settings.name);
       },
       child: Scaffold(

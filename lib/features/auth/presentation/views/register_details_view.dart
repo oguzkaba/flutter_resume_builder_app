@@ -1,4 +1,3 @@
-import 'package:fixresume/core/enums/routes_enum.dart';
 import 'package:fixresume/core/extensions/context_extension.dart';
 import 'package:fixresume/core/init/di/dep_injection.dart';
 import 'package:fixresume/core/mixin/validator_mixin.dart';
@@ -13,7 +12,6 @@ import 'package:fixresume/features/auth/presentation/widgets/avatar_widget.dart'
 import 'package:fixresume/features/resume/presentation/blocs/personal_info/personal_info_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RegisterDetailsView extends StatefulWidget {

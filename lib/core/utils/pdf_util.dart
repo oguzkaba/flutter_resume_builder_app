@@ -121,10 +121,10 @@ class PdfUtil {
         .select();
     final workExperiences = experiencesModelFromJson(responseWE);
 
-    /// Watermark Image
-    final watermarkImage = await rootBundle.load('app-icon-50'.toAppIcon);
-    final watermarkImageData =
-        pw.MemoryImage(watermarkImage.buffer.asUint8List());
+    // /// Watermark Image
+    // final watermarkImage = await rootBundle.load('app-icon-50'.toAppIcon);
+    // final watermarkImageData =
+    //     pw.MemoryImage(watermarkImage.buffer.asUint8List());
 
     ///Image Asset or Network
     final image = await rootBundle.load('avatar'.toPNG);

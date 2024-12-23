@@ -63,7 +63,7 @@ class _WebViewUtilState extends State<WebViewUtil> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      onPopInvoked: (value) {
+      onPopInvokedWithResult: (value, _) {
         context.goNamed(RoutesEnum.settings.name);
       },
       child: Scaffold(

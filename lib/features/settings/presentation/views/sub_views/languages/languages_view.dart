@@ -18,7 +18,7 @@ class LanguagesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      onPopInvoked: (value) {
+      onPopInvokedWithResult: (value, _) {
         context.goNamed(RoutesEnum.settings.name);
       },
       child: Scaffold(
